@@ -25,15 +25,22 @@ While Chromium supports Promises natively on the `chrome.*` APIs, Firefox and Sa
 The `manifest.json` file registers the background script as a `"service_worker"`.
 While Chromium has standardized on Service Workers for Manifest V3 background tasks, Firefox historically preferred to run background tasks in non-persistent event pages (`"background": { "scripts": [...] }`) due to limitations with Service Workers and DOM parsing. Safari 15.4+ does support Service Workers, but managing cross-browser service worker lifecycles reliably requires structural concessions not currently present in this codebase.
 
-## Path to Cross-Browser Support
+## Architectural Paths to Cross-Browser Support
 
-If comprehensive cross-browser support (Firefox/Safari) becomes a requirement, the following architectural updates would be necessary:
+If comprehensive cross-browser support (Firefox/Safari) becomes a requirement, the repository should adopt one of the following two architectural patterns:
 
-1. **Implement a Polyfill:**
-   Incorporate Mozilla's `webextension-polyfill` to seamlessly normalize API calls across the codebase, allowing `browser.*` Promise syntax to function across all browsers while bridging the gap for Chrome.
+### Option A: Lightweight Manifest Muxing (The "Vanilla" Approach)
+*Recommended to maintain the current no-bundler architectural philosophy.*
 
-2. **Abstract the Manifest:**
-   Introduce a build step or configuration system to mutate `manifest.json` before deployment, emitting a `service_worker` for Chromium/Safari and a background `scripts` block for Firefox.
+This approach preserves the strict single-purpose, vanilla JavaScript architecture outlined in `AGENTS.md` while solving the browser discrepancy:
+1. **Adopt WebExtensions Standard:** Refactor the codebase to call `browser.*` natively and include Mozilla's `webextension-polyfill` as an explicitly imported script file.
+2. **Minimal Build Script (`build.mjs`):** Create a tiny Node script that copies the raw `src/` files into `dist/chrome/` and `dist/firefox/`.
+3. **Dynamic Manifesting:** During the copy phase, the script programmatically mutates the Firefox `manifest.json`—swapping the Chromium `"service_worker"` object for a Firefox `"scripts"` array without requiring code bundling or minification.
 
-3. **Vendor Specific UI Constraints:**
-   Test and potentially isolate rendering differences with CSS metrics or CSS variable scoping, particularly to account for varying default browser dimensions and font rendering within the extension's popup UI.
+### Option B: Extension Frameworks (The "Scaled" Approach)
+*Recommended only if the scope expands to include UI frameworks (e.g., React, Vue) or heavy external libraries.*
+
+Frameworks like **WXT** (often called the Next.js of extensions) or **vite-plugin-web-extension** offer robust, out-of-the-box cross-browser generation:
+1. **Automated Polyfills:** These tools automatically bridge the `chrome.*` and `browser.*` divide.
+2. **Targeted Deployment:** They emit perfect, highly-optimized `manifest.json` configurations per target browser.
+3. **Downside:** This completely violates the current "no complex build pipeline" rule and fundamentally alters the developer workflow.
