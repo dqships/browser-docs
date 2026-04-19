@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="280" height="120" viewBox="0 0 280 120" role="img" aria-labelledby="title desc">
+  <title id="title">Fixture Diagram</title>
+  <desc id="desc">A simple blue to green gradient rectangle with two labeled nodes.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f766e"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+  </defs>
+  <rect width="280" height="120" rx="18" fill="url(#bg)"/>
+  <rect x="24" y="34" width="92" height="52" rx="12" fill="#ffffff" fill-opacity="0.16" stroke="#ffffff" stroke-opacity="0.5"/>
+  <rect x="164" y="34" width="92" height="52" rx="12" fill="#ffffff" fill-opacity="0.16" stroke="#ffffff" stroke-opacity="0.5"/>
+  <path d="M116 60h48" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+  <path d="M154 52l12 8-12 8" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="70" y="64" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" font-weight="700">Input</text>
+  <text x="210" y="64" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" font-weight="700">Output</text>
+</svg>

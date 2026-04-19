@@ -1,0 +1,223 @@
+:root {
+  color-scheme: dark;
+  --bg-base: #07090F;
+  --bg-panel: #111827;
+  --bg-surface: #1F2937;
+  --border-color: #374151;
+  --border-glow: rgba(0, 229, 255, 0.3);
+  --text-primary: #F3F4F6;
+  --text-secondary: #9CA3AF;
+  --accent: #00E5FF;
+  --accent-hover: #33FFFF;
+  --accent-dark: rgba(0, 229, 255, 0.1);
+  --success: #10B981;
+  --error: #EF4444;
+  --shadow-panel: 0 24px 48px rgba(0, 0, 0, 0.6);
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+body {
+  background: var(--bg-base);
+  background-image: 
+    radial-gradient(circle at 50% -20%, rgba(0,229,255,0.1) 0%, transparent 50%),
+    linear-gradient(180deg, var(--bg-base) 0%, #030407 100%);
+  color: var(--text-primary);
+  margin: 0;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+.settings-shell {
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 48px 24px;
+}
+
+.settings-header {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  margin: 0 0 12px;
+  text-transform: uppercase;
+}
+
+.settings-header h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 12px;
+  background: linear-gradient(to right, #FFF, #9CA3AF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.settings-header p {
+  color: var(--text-secondary);
+  font-size: 16px;
+  margin: 0;
+}
+
+.settings-form {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  box-shadow: var(--shadow-panel);
+  padding: 24px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.settings-form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0.5;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.setting {
+  align-items: flex-start;
+  background: var(--bg-surface);
+  border: 1px solid transparent;
+  border-radius: 12px;
+  cursor: pointer;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: auto 1fr;
+  padding: 16px;
+  transition: all 0.2s ease;
+}
+
+.setting:hover {
+  background: #273345;
+  border-color: var(--border-color);
+  transform: translateY(-1px);
+}
+
+.setting input[type="checkbox"] {
+  appearance: none;
+  background-color: var(--bg-base);
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 1.3em;
+  height: 1.3em;
+  border: 2px solid var(--border-color);
+  border-radius: 6px;
+  display: grid;
+  place-content: center;
+  transition: all 0.2s ease;
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+.setting input[type="checkbox"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--bg-base);
+  background-color: var(--bg-base);
+  transform-origin: center;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+.setting input[type="checkbox"]:checked {
+  background-color: var(--accent);
+  border-color: var(--accent);
+}
+
+.setting input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+.setting input[type="checkbox"]:focus-visible {
+  outline: max(2px, 0.15em) solid var(--accent);
+  outline-offset: 2px;
+}
+
+.setting strong {
+  color: var(--text-primary);
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.setting small {
+  color: var(--text-secondary);
+  display: block;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.actions {
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  gap: 16px;
+  margin-top: 12px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+}
+
+button[type="submit"] {
+  background: var(--accent);
+  border: 0;
+  border-radius: 12px;
+  color: #030407;
+  cursor: pointer;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 12px 24px;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.2);
+}
+
+button[type="submit"]:hover {
+  background: var(--accent-hover);
+  box-shadow: 0 0 25px rgba(0, 229, 255, 0.4);
+}
+
+button[type="submit"]:active {
+  transform: scale(0.97);
+}
+
+.status {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 18px;
+}
+
+.status:not(:empty)::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--success);
+  box-shadow: 0 0 8px var(--success);
+  flex-shrink: 0;
+}

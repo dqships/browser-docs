@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fixture Docs Page</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: system-ui, sans-serif;
+        line-height: 1.5;
+      }
+
+      body {
+        display: grid;
+        gap: 0;
+        grid-template-columns: 240px minmax(0, 1fr);
+        margin: 0;
+      }
+
+      nav,
+      aside {
+        background: #f2f4f7;
+        border-right: 1px solid #d0d7de;
+        min-height: 100vh;
+        padding: 24px 20px;
+      }
+
+      main {
+        padding: 32px 40px 80px;
+      }
+
+      article {
+        margin: 0 auto;
+        max-width: 860px;
+      }
+
+      pre {
+        background: #0f172a;
+        border-radius: 12px;
+        color: #e2e8f0;
+        overflow-x: auto;
+        padding: 16px;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      th,
+      td {
+        border: 1px solid #cbd5e1;
+        padding: 8px 12px;
+        text-align: left;
+      }
+
+      .cookie-banner,
+      .table-of-contents,
+      .feedback {
+        background: #fff7ed;
+        border: 1px solid #fdba74;
+        border-radius: 12px;
+        margin-top: 24px;
+        padding: 12px 16px;
+      }
+
+      .hash-link {
+        color: #94a3b8;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <nav aria-label="Sidebar">
+      <strong>Navigation</strong>
+      <ul>
+        <li>Overview</li>
+        <li>Guides</li>
+        <li>API Reference</li>
+      </ul>
+
+      <div class="cookie-banner">
+        We use cookies.
+      </div>
+    </nav>
+
+    <main>
+      <article>
+        <h1>
+          Using the Fixture API
+          <a class="hash-link" href="#using-the-fixture-api">#</a>
+        </h1>
+
+        <p>
+          This page exists to test whether the extension can convert a typical
+          documentation layout into clean Markdown without copying the site
+          chrome around it.
+        </p>
+
+        <div class="table-of-contents">
+          <strong>On this page</strong>
+          <ol>
+            <li>Install</li>
+            <li>Configure</li>
+            <li>Review output</li>
+          </ol>
+        </div>
+
+        <h2>Install</h2>
+        <p>
+          Start by running <code>npm install fixture-sdk</code> in your project.
+          Read the
+          <a href="https://example.com/fixture-sdk">full installation guide</a>
+          before shipping to production.
+        </p>
+
+        <blockquote>
+          The fixture API is intentionally noisy so the exporter has to separate
+          content from chrome.
+        </blockquote>
+
+        <h2>Configure</h2>
+        <p>The exporter should preserve nested lists like this one:</p>
+        <ul>
+          <li>
+            Add a token
+            <ul>
+              <li>Use a development token for local work.</li>
+              <li>Rotate the token before sharing the environment.</li>
+            </ul>
+          </li>
+          <li>Enable logging</li>
+          <li>Run a dry run</li>
+        </ul>
+
+        <p>The code block below should become a fenced block with a language.</p>
+        <pre><code class="language-js">import { createFixtureClient } from "fixture-sdk";
+
+const client = createFixtureClient({
+  token: process.env.FIXTURE_TOKEN
+});
+
+await client.pages.copyAsMarkdown("/guide/getting-started");</code></pre>
+
+        <h2>Review output</h2>
+        <p>
+          Tables and images should survive conversion where possible.
+        </p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Setting</th>
+              <th>Default</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>includeTitleHeading</code></td>
+              <td><code>true</code></td>
+              <td>Add a top-level heading when needed.</td>
+            </tr>
+            <tr>
+              <td><code>preserveTables</code></td>
+              <td><code>true</code></td>
+              <td>Keep HTML tables as Markdown pipe tables.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <figure>
+          <img src="./fixture-image.svg" alt="Fixture diagram" width="280" height="120">
+          <figcaption>A simple image with an adjacent caption.</figcaption>
+        </figure>
+
+        <div class="feedback">
+          Was this page helpful?
+          <button type="button">Yes</button>
+          <button type="button">No</button>
+        </div>
+      </article>
+    </main>
+  </body>
+</html>

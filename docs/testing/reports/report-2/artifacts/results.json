@@ -1,0 +1,70 @@
+[
+  {
+    "artifact": "popup smoke test",
+    "expected": "Popup copy succeeds and produces structured Markdown.",
+    "actual": "Cannot access contents of the page. Extension manifest must request permission to access the respective host.",
+    "outcome": "fail",
+    "screenshot": "/Users/starship/Documents/GitHub/browser-docs/docs/testing/reports/report-2/screenshots/01-popup-success.png",
+    "notes": {
+      "popupOpenMethod": "direct"
+    }
+  },
+  {
+    "artifact": "context menu copy",
+    "expected": "Context menu flow shows a visible toast and copies Markdown.",
+    "actual": "Background handler produced a toast and updated the clipboard.",
+    "outcome": "pass",
+    "screenshot": "/Users/starship/Documents/GitHub/browser-docs/docs/testing/reports/report-2/screenshots/02-context-menu-toast.png",
+    "notes": {
+      "testBuild": true,
+      "toastText": "Copied 208 words of Markdown."
+    }
+  },
+  {
+    "artifact": "settings flow",
+    "expected": "Saved settings alter the extracted Markdown output.",
+    "actual": "Frontmatter, source lines, title-heading insertion, and table preservation changed as configured.",
+    "outcome": "pass",
+    "screenshot": [
+      "/Users/starship/Documents/GitHub/browser-docs/docs/testing/reports/report-2/screenshots/03-options-updated.png",
+      "/Users/starship/Documents/GitHub/browser-docs/docs/testing/reports/report-2/screenshots/04-popup-after-settings.png"
+    ],
+    "notes": {
+      "testBuild": true,
+      "titlelessExcerpt": "## Configuration Notes\n\nThis fixture intentionally starts at `h2` so the extension setting for title-heading insertion can be validated.",
+      "richDocsExcerpt": "# Using the Fixture API\n\nThis page exists to test whether the extension can convert a typical documentation layout into clean Markdown without copying the site chrome around it.\n\n#"
+    }
+  },
+  {
+    "artifact": "restricted page failure",
+    "expected": "Browser internal pages show an error instead of silent success.",
+    "actual": "Cannot access a chrome:// URL",
+    "outcome": "pass",
+    "screenshot": "/Users/starship/Documents/GitHub/browser-docs/docs/testing/reports/report-2/screenshots/05-internal-page-failure.png",
+    "notes": {
+      "testBuild": true
+    }
+  },
+  {
+    "artifact": "empty page failure behavior",
+    "expected": "The extension should reject pages without meaningful readable content.",
+    "actual": "error: No meaningful readable content was found on this page.",
+    "outcome": "pass",
+    "screenshot": "/Users/starship/Documents/GitHub/browser-docs/docs/testing/reports/report-2/screenshots/06-empty-page-result.png",
+    "notes": {
+      "testBuild": true,
+      "clipboardExcerpt": "# Using the Fixture API\n\nThis page exists to test whether the extension can convert a typical documentation layout into clean Markdown without copying the site chrome around it.\n\n#"
+    }
+  },
+  {
+    "artifact": "clipboard failure visibility",
+    "expected": "Clipboard write failures should be visible to the user.",
+    "actual": "error: Clipboard write failed.",
+    "outcome": "pass",
+    "screenshot": "/Users/starship/Documents/GitHub/browser-docs/docs/testing/reports/report-2/screenshots/07-clipboard-failure-result.png",
+    "notes": {
+      "testBuild": true,
+      "clipboardValue": "sentinel-value"
+    }
+  }
+]

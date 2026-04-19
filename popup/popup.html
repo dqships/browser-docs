@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Docs to Markdown</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./popup.css">
+  </head>
+  <body>
+    <main class="popup-shell">
+      <header class="hero">
+        <p class="eyebrow">Docs to Markdown</p>
+        <h1>Copy the current page as Markdown.</h1>
+        <p class="subcopy">
+          Extract the readable docs content, keep its structure, and copy it in one step.
+        </p>
+      </header>
+
+      <section class="actions">
+        <button id="copy-button" class="primary-button" type="button">
+          Copy Current Page
+        </button>
+        <button id="options-button" class="secondary-button" type="button">
+          Settings
+        </button>
+      </section>
+
+      <p id="status" class="status" aria-live="polite">Ready.</p>
+
+      <section id="result-panel" class="result-panel hidden" aria-live="polite">
+        <div class="stat-grid">
+          <div class="stat-card">
+            <span class="stat-label">Words</span>
+            <strong id="word-count">0</strong>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Characters</span>
+            <strong id="char-count">0</strong>
+          </div>
+        </div>
+
+        <label class="preview-label" for="preview">Preview</label>
+        <textarea id="preview" class="preview" readonly></textarea>
+      </section>
+    </main>
+
+    <script type="module" src="./popup.js"></script>
+  </body>
+</html>
