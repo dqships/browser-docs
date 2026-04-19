@@ -1,5 +1,5 @@
 export async function copyMarkdownInPage(tabId, markdown, message) {
-  await chrome.scripting.executeScript({
+  await browser.scripting.executeScript({
     target: { tabId },
     func: (text, toastMessage) =>
       globalThis.DocsToMarkdownContent.require("copyAndToast")(text, toastMessage),

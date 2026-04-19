@@ -43,5 +43,5 @@ copyButton.addEventListener("click", async () => {
 });
 
 optionsButton.addEventListener("click", () => {
-  chrome.runtime.openOptionsPage();
+  browser.runtime.openOptionsPage();
 });

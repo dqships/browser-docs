@@ -1,5 +1,5 @@
 export async function showPageToast(tabId, message, kind = "info") {
-  await chrome.scripting.executeScript({
+  await browser.scripting.executeScript({
     target: { tabId },
     func: (toastMessage, toastKind) =>
       globalThis.DocsToMarkdownContent.require("showToast")(toastMessage, toastKind),

@@ -1,7 +1,7 @@
 import { DEFAULT_SETTINGS } from "../constants/default-settings.js";
 
 export async function getSettings() {
-  const stored = await chrome.storage.sync.get(DEFAULT_SETTINGS);
+  const stored = await browser.storage.sync.get(DEFAULT_SETTINGS);
   return {
     ...DEFAULT_SETTINGS,
     ...stored
@@ -14,6 +14,6 @@ export async function saveSettings(partialSettings) {
     ...partialSettings
   };
 
-  await chrome.storage.sync.set(nextSettings);
+  await browser.storage.sync.set(nextSettings);
   return nextSettings;
 }

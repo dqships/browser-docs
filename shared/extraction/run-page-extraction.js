@@ -1,12 +1,12 @@
 import { CONTENT_INJECTION_FILES } from "../browser/injection-files.js";
 
 export async function runPageExtraction(tabId, settings) {
-  await chrome.scripting.executeScript({
+  await browser.scripting.executeScript({
     target: { tabId },
     files: CONTENT_INJECTION_FILES
   });
 
-  const [{ result: executionResult }] = await chrome.scripting.executeScript({
+  const [{ result: executionResult }] = await browser.scripting.executeScript({
     target: { tabId },
     func: (resolvedSettings) => {
       try {
