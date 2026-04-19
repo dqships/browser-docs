@@ -10,13 +10,18 @@
     textarea.style.top = "0";
     document.body.appendChild(textarea);
     textarea.select();
-    document.execCommand("copy");
+    const didCopy =
+      typeof document.execCommand === "function" && document.execCommand("copy");
     textarea.remove();
+
+    if (!didCopy) {
+      throw new Error("Clipboard write failed.");
+    }
   }
 
   app.register("copyToClipboard", async (text) => {
     if (!text) {
-      return false;
+      throw new Error("Clipboard write failed.");
     }
 
     try {

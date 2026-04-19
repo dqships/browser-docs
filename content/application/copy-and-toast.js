@@ -8,8 +8,11 @@
       await copyToClipboard(markdown);
       showToast(successMessage || "Markdown copied.", "success");
       return true;
-    } catch {
-      showToast("Markdown copy failed.", "error");
+    } catch (error) {
+      showToast(
+        error instanceof Error ? error.message : "Markdown copy failed.",
+        "error"
+      );
       return false;
     }
   });
