@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Docs to Markdown Settings</title>
+    <link rel="stylesheet" href="./options.css">
+  </head>
+  <body>
+    <main class="settings-shell">
+      <header class="settings-header">
+        <p class="eyebrow">Docs to Markdown</p>
+        <h1>Settings</h1>
+        <p>Choose what the exported Markdown should include.</p>
+      </header>
+
+      <form id="settings-form" class="settings-form">
+        <label class="setting">
+          <input id="aggressivePruning" name="aggressivePruning" type="checkbox">
+          <span>
+            <strong>Aggressive pruning</strong>
+            <small>Remove sidebars, toolbars, feedback widgets, cookie prompts, and similar chrome.</small>
+          </span>
+        </label>
+
+        <label class="setting">
+          <input id="includeFrontmatter" name="includeFrontmatter" type="checkbox">
+          <span>
+            <strong>Include frontmatter</strong>
+            <small>Add title, source URL, and capture time as YAML frontmatter.</small>
+          </span>
+        </label>
+
+        <label class="setting">
+          <input id="includeTitleHeading" name="includeTitleHeading" type="checkbox">
+          <span>
+            <strong>Include title heading</strong>
+            <small>Insert a top-level Markdown heading when it is not already present.</small>
+          </span>
+        </label>
+
+        <label class="setting">
+          <input id="includeSourceLink" name="includeSourceLink" type="checkbox">
+          <span>
+            <strong>Include source link</strong>
+            <small>Add a plain source URL line near the top of the document.</small>
+          </span>
+        </label>
+
+        <label class="setting">
+          <input id="preserveTables" name="preserveTables" type="checkbox">
+          <span>
+            <strong>Preserve tables</strong>
+            <small>Convert HTML tables into Markdown pipe tables where possible.</small>
+          </span>
+        </label>
+
+        <div class="actions">
+          <button type="submit">Save Settings</button>
+          <p id="status" class="status" aria-live="polite"></p>
+        </div>
+      </form>
+    </main>
+
+    <script type="module" src="./options.js"></script>
+  </body>
+</html>
