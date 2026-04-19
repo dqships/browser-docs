@@ -17,6 +17,27 @@
     return text.trim() ? text.trim().split(/\s+/).length : 0;
   }
 
+  function getReadableSignalCount(element) {
+    return element.querySelectorAll(
+      "h1, h2, h3, h4, h5, h6, p, pre, code, ul, ol, table, blockquote, img"
+    ).length;
+  }
+
+  function hasReadableBody(markdownBody, element) {
+    const trimmedBody = markdownBody.trim();
+    if (!trimmedBody) {
+      return false;
+    }
+
+    const bodyWordCount = getWordCount(trimmedBody);
+    if (bodyWordCount >= 25) {
+      return true;
+    }
+
+    const readableSignalCount = getReadableSignalCount(element);
+    return bodyWordCount >= 12 && readableSignalCount >= 2;
+  }
+
   app.register("extractPage", (partialSettings) => {
     const settings = {
       ...DEFAULT_RUNTIME_SETTINGS,
@@ -35,6 +56,10 @@
       }
     }
     const body = serializeBlock(cleanedClone);
+
+    if (!hasReadableBody(body, cleanedClone)) {
+      throw new Error("No meaningful readable content was found on this page.");
+    }
 
     const markdown = finalizeMarkdown({
       body,
