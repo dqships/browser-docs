@@ -32,6 +32,7 @@ Reasoning:
 ## Permissions
 
 - `activeTab`: temporary access to the tab the user explicitly acts on.
+- `clipboardWrite`: allows popup-driven clipboard writes across browsers, including Safari after async extraction work.
 - `scripting`: inject the modular extraction pipeline on demand.
 - `storage`: persist user settings.
 - `contextMenus`: expose a right-click action on pages.

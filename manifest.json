@@ -5,6 +5,7 @@
   "description": "Copy the current documentation page as clean Markdown.",
   "permissions": [
     "activeTab",
+    "clipboardWrite",
     "contextMenus",
     "scripting",
     "storage"
