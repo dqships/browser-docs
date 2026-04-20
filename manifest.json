@@ -23,5 +23,14 @@
     "service_worker": "background/service-worker.js",
     "type": "module"
   },
-  "options_page": "options/options.html"
+  "options_page": "options/options.html",
+  "commands": {
+    "copy_markdown": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+M",
+        "mac": "Command+Shift+M"
+      },
+      "description": "Copy as Markdown"
+    }
+  }
 }
