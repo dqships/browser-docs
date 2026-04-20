@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Web to Markdown",
+  "name": "WebToMarkdown",
   "version": "1.0.0",
   "description": "Copy the current documentation page as clean Markdown.",
   "permissions": [
@@ -11,7 +11,7 @@
     "storage"
   ],
   "action": {
-    "default_title": "Web to Markdown",
+    "default_title": "WebToMarkdown",
     "default_popup": "popup/popup.html"
   },
   "icons": {

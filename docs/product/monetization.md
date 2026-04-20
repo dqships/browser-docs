@@ -1,6 +1,6 @@
 # Monetization & Product Strategy
 
-Web to Markdown is evolving from a simple utility into a high-performance productivity suite for developers. This document outlines the roadmap for monetization, premium features, and the technical strategy for managing billing across different browser ecosystems.
+WebToMarkdown is evolving from a simple utility into a high-performance productivity suite for developers. This document outlines the roadmap for monetization, premium features, and the technical strategy for managing billing across different browser ecosystems.
 
 ## The Freemium Model
 
@@ -43,7 +43,7 @@ To provide the best value, a "Pro" subscription should be cross-platform:
 
 ## The "Ship-Locker" Hub Integration
 
-As an anchor project of the **Ship-Locker** ecosystem, Web to Markdown serves as a gateway to your wider toolset.
+As an anchor project of the **Ship-Locker** ecosystem, WebToMarkdown serves as a gateway to your wider toolset.
 
 - **Unified Profiling**: "Pro" status on the extension could potentially unlock discounts or early access to other Ship-Locker agent skills or npm packages.
 - **Centralized Documentation**: All legal, privacy, and support documentation for the monetization tiers will be hosted centrally on `ship-locker.com/legal`.

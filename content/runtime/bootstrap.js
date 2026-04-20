@@ -15,7 +15,7 @@
     },
     require(name) {
       if (!registry.has(name)) {
-        throw new Error(`Web to Markdown content dependency missing: ${name}`);
+        throw new Error(`WebToMarkdown content dependency missing: ${name}`);
       }
 
       return registry.get(name);
