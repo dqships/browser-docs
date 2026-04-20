@@ -1,4 +1,4 @@
-# Project Brief: Docs to Markdown Extension
+# Project Brief: Web to Markdown Extension
 
 ## Overview
 A browser extension designed to allow users to quickly and reliably copy the content of any webpage—specifically focusing on documentation pages—as formatted Markdown. 

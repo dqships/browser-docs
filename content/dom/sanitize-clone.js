@@ -1,5 +1,5 @@
 (() => {
-  const app = globalThis.DocsToMarkdownContent;
+  const app = globalThis.WebToMarkdownContent;
   const isMeaningfulElement = app.require("isMeaningfulElement");
   const isNoiseElement = app.require("isNoiseElement");
 

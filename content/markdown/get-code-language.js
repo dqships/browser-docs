@@ -1,5 +1,5 @@
 (() => {
-  const app = globalThis.DocsToMarkdownContent;
+  const app = globalThis.WebToMarkdownContent;
 
   function inferLanguageFromText(text) {
     const normalized = text.trim();

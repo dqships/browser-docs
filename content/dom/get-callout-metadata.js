@@ -1,5 +1,5 @@
 (() => {
-  const app = globalThis.DocsToMarkdownContent;
+  const app = globalThis.WebToMarkdownContent;
   const getTextContent = app.require("getTextContent");
 
   const CALLOUT_CONTAINER_PATTERN =

@@ -1,5 +1,5 @@
 (() => {
-  const app = globalThis.DocsToMarkdownContent;
+  const app = globalThis.WebToMarkdownContent;
 
   app.register("normalizeWhitespace", (input) => {
     if (!input) {

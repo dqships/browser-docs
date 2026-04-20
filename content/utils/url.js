@@ -1,5 +1,5 @@
 (() => {
-  const app = globalThis.DocsToMarkdownContent;
+  const app = globalThis.WebToMarkdownContent;
 
   app.register("resolveUrl", (value) => {
     if (!value) {

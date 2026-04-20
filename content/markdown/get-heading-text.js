@@ -1,5 +1,5 @@
 (() => {
-  const app = globalThis.DocsToMarkdownContent;
+  const app = globalThis.WebToMarkdownContent;
   const escapeMarkdownText = app.require("escapeMarkdownText");
   const isProbablyHidden = app.require("isProbablyHidden");
   const normalizeWhitespace = app.require("normalizeWhitespace");

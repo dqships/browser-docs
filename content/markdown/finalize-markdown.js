@@ -1,5 +1,5 @@
 (() => {
-  const app = globalThis.DocsToMarkdownContent;
+  const app = globalThis.WebToMarkdownContent;
 
   function collapseBlankLines(text) {
     return text.replace(/\n{3,}/g, "\n\n").trim();

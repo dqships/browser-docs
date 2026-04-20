@@ -1,5 +1,5 @@
 (() => {
-  const app = globalThis.DocsToMarkdownContent;
+  const app = globalThis.WebToMarkdownContent;
   const getHeadingText = app.require("getHeadingText");
 
   const GENERIC_TITLES = new Set([

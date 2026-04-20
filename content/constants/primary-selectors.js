@@ -1,5 +1,5 @@
 (() => {
-  const app = globalThis.DocsToMarkdownContent;
+  const app = globalThis.WebToMarkdownContent;
 
   app.register("PRIMARY_CONTAINER_SELECTORS", [
     "main article",

@@ -1,5 +1,5 @@
 (() => {
-  const app = globalThis.DocsToMarkdownContent;
+  const app = globalThis.WebToMarkdownContent;
   const serializeInline = app.require("serializeInline");
 
   function isListElement(node) {

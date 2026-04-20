@@ -1,5 +1,5 @@
 (() => {
-  const app = globalThis.DocsToMarkdownContent;
+  const app = globalThis.WebToMarkdownContent;
   const escapeMarkdownTableCell = app.require("escapeMarkdownTableCell");
   const serializeInline = app.require("serializeInline");
 

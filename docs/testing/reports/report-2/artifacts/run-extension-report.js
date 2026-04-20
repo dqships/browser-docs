@@ -191,7 +191,7 @@ async function getStatus(page) {
 async function triggerContextMenuHandler(serviceWorker, tabId) {
   await serviceWorker.evaluate(async ({ tabId: activeTabId }) => {
     await self.__TEST_handleContextMenuClick(
-      { menuItemId: "docs-to-markdown-copy-page" },
+      { menuItemId: "web-to-markdown-copy-page" },
       { id: activeTabId }
     );
   }, { tabId });
@@ -306,7 +306,7 @@ async function runContextMenuFlow() {
 
     await triggerContextMenuHandler(runtime.serviceWorker, tabId);
 
-    const toast = docsPage.locator("#docs-to-markdown-toast");
+    const toast = docsPage.locator("#web-to-markdown-toast");
     await toast.waitFor({ state: "visible" });
     const toastText = (await toast.textContent()) || "";
     assert.match(toastText, /Copied/);

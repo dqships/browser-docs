@@ -12,7 +12,7 @@ export async function runPageExtraction(tabId, settings) {
       try {
         return {
           ok: true,
-          payload: globalThis.DocsToMarkdownContent.require("extractPage")(resolvedSettings)
+          payload: globalThis.WebToMarkdownContent.require("extractPage")(resolvedSettings)
         };
       } catch (error) {
         return {

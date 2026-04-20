@@ -1,5 +1,5 @@
 (() => {
-  const app = globalThis.DocsToMarkdownContent;
+  const app = globalThis.WebToMarkdownContent;
   const selectors = app.require("PRIMARY_CONTAINER_SELECTORS");
   const getTextContent = app.require("getTextContent");
   const isNoiseElement = app.require("isNoiseElement");

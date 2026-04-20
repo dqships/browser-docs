@@ -1,4 +1,4 @@
-# Docs to Markdown Extension
+# Web to Markdown Extension
 
 This project builds a browser extension that turns the current page into clean Markdown and copies it to the clipboard.
 

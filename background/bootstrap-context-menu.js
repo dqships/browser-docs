@@ -1,4 +1,4 @@
-export const COPY_CONTEXT_MENU_ID = "docs-to-markdown-copy-page";
+export const COPY_CONTEXT_MENU_ID = "web-to-markdown-copy-page";
 
 export async function registerContextMenu() {
   await browser.contextMenus.removeAll();

@@ -1,5 +1,5 @@
 (() => {
-  const app = globalThis.DocsToMarkdownContent;
+  const app = globalThis.WebToMarkdownContent;
   const getTextContent = app.require("getTextContent");
   const isProbablyHidden = app.require("isProbablyHidden");
   const resolveUrl = app.require("resolveUrl");
@@ -66,9 +66,9 @@
 
     return Boolean(
       href &&
-        (VIDEO_URL_PATTERN.test(href) ||
-          RESOURCE_LABEL_PATTERN.test(text) ||
-          RESOURCE_LABEL_PATTERN.test(attributes))
+      (VIDEO_URL_PATTERN.test(href) ||
+        RESOURCE_LABEL_PATTERN.test(text) ||
+        RESOURCE_LABEL_PATTERN.test(attributes))
     );
   }
 

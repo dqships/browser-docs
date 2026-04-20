@@ -1,5 +1,5 @@
 (() => {
-  const app = globalThis.DocsToMarkdownContent;
+  const app = globalThis.WebToMarkdownContent;
   const noiseSelectors = app.require("NOISE_SELECTORS");
   const getTextContent = app.require("getTextContent");
   const isProbablyHidden = app.require("isProbablyHidden");

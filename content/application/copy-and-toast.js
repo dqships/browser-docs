@@ -1,5 +1,5 @@
 (() => {
-  const app = globalThis.DocsToMarkdownContent;
+  const app = globalThis.WebToMarkdownContent;
   const copyToClipboard = app.require("copyToClipboard");
   const showToast = app.require("showToast");
 

@@ -1,5 +1,5 @@
 (() => {
-  const app = globalThis.DocsToMarkdownContent;
+  const app = globalThis.WebToMarkdownContent;
 
   async function fallbackCopy(text) {
     const textarea = document.createElement("textarea");

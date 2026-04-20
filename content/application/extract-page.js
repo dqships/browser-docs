@@ -1,5 +1,5 @@
 (() => {
-  const app = globalThis.DocsToMarkdownContent;
+  const app = globalThis.WebToMarkdownContent;
   const finalizeMarkdown = app.require("finalizeMarkdown");
   const findPrimaryContainer = app.require("findPrimaryContainer");
   const getDocumentTitle = app.require("getDocumentTitle");

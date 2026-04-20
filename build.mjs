@@ -24,7 +24,7 @@ async function copyDir(src, dest) {
 
 async function build() {
   const distDir = path.join(__dirname, "dist");
-  await fs.rm(distDir, { recursive: true, force: true }).catch(() => {});
+  await fs.rm(distDir, { recursive: true, force: true }).catch(() => { });
 
   const chromeDir = path.join(distDir, "chrome");
   const firefoxDir = path.join(distDir, "firefox");
@@ -47,18 +47,18 @@ async function build() {
 
   // --- FIREFOX MANIFEST ---
   const firefoxManifest = JSON.parse(manifestStr);
-  
+
   // Firefox historically struggles with Service Workers, standardizing on Event Pages ("scripts") instead.
   // We seamlessly translate the `service_worker` to an Event Page structure while preserving the `"type": "module"` signature.
   firefoxManifest.background = {
     scripts: [manifest.background.service_worker],
     type: "module"
   };
-  
+
   // Firefox requires an explicit gecko ID for a lot of internal features
   firefoxManifest.browser_specific_settings = {
     gecko: {
-      id: "docs-to-markdown@starship.com",
+      id: "web-to-markdown@starship.com",
       strict_min_version: "115.0"
     }
   };

@@ -1,5 +1,5 @@
 (() => {
-  const app = globalThis.DocsToMarkdownContent;
+  const app = globalThis.WebToMarkdownContent;
   const normalizeWhitespace = app.require("normalizeWhitespace");
 
   app.register("getTextContent", (node) => {

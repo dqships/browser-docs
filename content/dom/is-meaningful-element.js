@@ -1,5 +1,5 @@
 (() => {
-  const app = globalThis.DocsToMarkdownContent;
+  const app = globalThis.WebToMarkdownContent;
   const getTextContent = app.require("getTextContent");
 
   const MEANINGFUL_TAGS = new Set([

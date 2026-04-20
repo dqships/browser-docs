@@ -1,5 +1,5 @@
 (() => {
-  const app = globalThis.DocsToMarkdownContent;
+  const app = globalThis.WebToMarkdownContent;
   const escapeMarkdownText = app.require("escapeMarkdownText");
   const normalizeWhitespace = app.require("normalizeWhitespace");
   const resolveUrl = app.require("resolveUrl");
@@ -7,10 +7,10 @@
   function serializeInlineChildren(element) {
     return element.childNodes
       ? Array.from(element.childNodes)
-          .map((child) => serializeInline(child))
-          .join("")
-          .replace(/\s+\n/g, "\n")
-          .replace(/\n\s+/g, "\n")
+        .map((child) => serializeInline(child))
+        .join("")
+        .replace(/\s+\n/g, "\n")
+        .replace(/\n\s+/g, "\n")
       : "";
   }
 

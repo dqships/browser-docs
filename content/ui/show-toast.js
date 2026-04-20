@@ -1,14 +1,14 @@
 (() => {
-  const app = globalThis.DocsToMarkdownContent;
+  const app = globalThis.WebToMarkdownContent;
 
   function createToastContainer() {
-    const existing = document.querySelector("#docs-to-markdown-toast");
+    const existing = document.querySelector("#web-to-markdown-toast");
     if (existing) {
       return existing;
     }
 
     const toast = document.createElement("div");
-    toast.id = "docs-to-markdown-toast";
+    toast.id = "web-to-markdown-toast";
     toast.style.background = "rgba(17, 24, 39, 0.85)";
     toast.style.backdropFilter = "blur(12px)";
     toast.style.webkitBackdropFilter = "blur(12px)";
@@ -46,14 +46,14 @@
 
     toast.style.borderColor = borderColor;
     toast.style.boxShadow = `0 24px 48px rgba(0, 0, 0, 0.6), 0 0 15px ${shadowColor}`;
-    
+
     toast.innerHTML = `<span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${dotColor};box-shadow:0 0 8px ${dotColor};flex-shrink:0;"></span><span>${message}</span>`;
-    
+
     toast.style.opacity = "1";
     toast.style.transform = "translateY(0) scale(1)";
 
-    window.clearTimeout(toast.__docsToMarkdownTimer);
-    toast.__docsToMarkdownTimer = window.setTimeout(() => {
+    window.clearTimeout(toast.__webtoMarkdownTimer);
+    toast.__webtoMarkdownTimer = window.setTimeout(() => {
       toast.style.opacity = "0";
       toast.style.transform = "translateY(-12px) scale(0.98)";
     }, 2800);

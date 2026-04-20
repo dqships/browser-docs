@@ -1,5 +1,5 @@
 (() => {
-  const app = globalThis.DocsToMarkdownContent;
+  const app = globalThis.WebToMarkdownContent;
   const getCalloutMetadata = app.require("getCalloutMetadata");
   const getHeadingText = app.require("getHeadingText");
   const getCodeLanguage = app.require("getCodeLanguage");
