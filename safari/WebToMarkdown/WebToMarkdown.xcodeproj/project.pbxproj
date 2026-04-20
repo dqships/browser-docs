@@ -65,12 +65,12 @@
 		AD5852B52F96E89800750018 /* WebToMarkdown Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WebToMarkdown Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD5852BA2F96E89800750018 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
 		AD5852BC2F96E89800750018 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AD5852C72F96E89800750018 /* background */ = {isa = PBXFileReference; lastKnownFileType = folder; name = background; path = ../../../dist/chrome/background; sourceTree = "<group>"; };
-		AD5852C82F96E89800750018 /* options */ = {isa = PBXFileReference; lastKnownFileType = folder; name = options; path = ../../../dist/chrome/options; sourceTree = "<group>"; };
-		AD5852C92F96E89800750018 /* popup */ = {isa = PBXFileReference; lastKnownFileType = folder; name = popup; path = ../../../dist/chrome/popup; sourceTree = "<group>"; };
-		AD5852CA2F96E89800750018 /* content */ = {isa = PBXFileReference; lastKnownFileType = folder; name = content; path = ../../../dist/chrome/content; sourceTree = "<group>"; };
-		AD5852CB2F96E89800750018 /* shared */ = {isa = PBXFileReference; lastKnownFileType = folder; name = shared; path = ../../../dist/chrome/shared; sourceTree = "<group>"; };
-		AD5852CC2F96E89800750018 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = ../../../dist/chrome/manifest.json; sourceTree = "<group>"; };
+		AD5852C72F96E89800750018 /* background */ = {isa = PBXFileReference; lastKnownFileType = folder; name = background; path = ../../../dist/safari/background; sourceTree = "<group>"; };
+		AD5852C82F96E89800750018 /* options */ = {isa = PBXFileReference; lastKnownFileType = folder; name = options; path = ../../../dist/safari/options; sourceTree = "<group>"; };
+		AD5852C92F96E89800750018 /* popup */ = {isa = PBXFileReference; lastKnownFileType = folder; name = popup; path = ../../../dist/safari/popup; sourceTree = "<group>"; };
+		AD5852CA2F96E89800750018 /* content */ = {isa = PBXFileReference; lastKnownFileType = folder; name = content; path = ../../../dist/safari/content; sourceTree = "<group>"; };
+		AD5852CB2F96E89800750018 /* shared */ = {isa = PBXFileReference; lastKnownFileType = folder; name = shared; path = ../../../dist/safari/shared; sourceTree = "<group>"; };
+		AD5852CC2F96E89800750018 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = ../../../dist/safari/manifest.json; sourceTree = "<group>"; };
 		AD3EBF342F96B0010030233A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		AD3EBF362F96B0010030233A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */

@@ -43,7 +43,7 @@ backup_path "safari/WebToMarkdown/WebToMarkdown/PrivacyInfo.xcprivacy"
 backup_path "safari/WebToMarkdown/WebToMarkdown Extension/PrivacyInfo.xcprivacy"
 
 echo "🧭 Refreshing Safari Xcode project..."
-xcrun safari-web-extension-converter "$ROOT_DIR/dist/chrome" \
+xcrun safari-web-extension-converter "$ROOT_DIR/dist/safari" \
   --app-name "WebToMarkdown" \
   --project-location "$ROOT_DIR/safari" \
   --macos-only \

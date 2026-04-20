@@ -1,6 +1,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { writeSafariServiceWorkerBundle } from "./scripts/build-safari-service-worker-bundle.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -28,14 +29,17 @@ async function build() {
 
   const chromeDir = path.join(distDir, "chrome");
   const firefoxDir = path.join(distDir, "firefox");
+  const safariDir = path.join(distDir, "safari");
 
   await fs.mkdir(chromeDir, { recursive: true });
   await fs.mkdir(firefoxDir, { recursive: true });
+  await fs.mkdir(safariDir, { recursive: true });
 
-  // Copy all assets to both variants
+  // Copy all assets to each browser-specific variant.
   for (const dir of directoriesToCopy) {
     await copyDir(path.join(__dirname, dir), path.join(chromeDir, dir));
     await copyDir(path.join(__dirname, dir), path.join(firefoxDir, dir));
+    await copyDir(path.join(__dirname, dir), path.join(safariDir, dir));
   }
 
   const manifestStr = await fs.readFile(path.join(__dirname, "manifest.json"), "utf8");
@@ -65,7 +69,22 @@ async function build() {
 
   await fs.writeFile(path.join(firefoxDir, "manifest.json"), JSON.stringify(firefoxManifest, null, 2));
 
-  console.log("✅ Build successfully completed. Artifacts located in /dist/chrome and /dist/firefox.");
+  // --- SAFARI MANIFEST + CLASSIC SERVICE WORKER BUNDLE ---
+  // Safari warns on MV3 background.type = "module", so we emit a classic
+  // service worker bundle while keeping the source tree authored as ES modules.
+  const safariManifest = JSON.parse(manifestStr);
+  safariManifest.background = {
+    service_worker: manifest.background.service_worker
+  };
+
+  await fs.writeFile(path.join(safariDir, "manifest.json"), JSON.stringify(safariManifest, null, 2));
+  await writeSafariServiceWorkerBundle({
+    destinationRoot: safariDir,
+    entryModuleId: manifest.background.service_worker,
+    repoRoot: __dirname
+  });
+
+  console.log("✅ Build successfully completed. Artifacts located in /dist/chrome, /dist/firefox, and /dist/safari.");
 }
 
 build();

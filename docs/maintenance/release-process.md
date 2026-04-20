@@ -10,11 +10,14 @@ We follow a clean, single-codebase maintenance model to package our extension fo
 - **Publish**: Release exclusively from the generated outputs:
   - `dist/chrome`
   - `dist/firefox`
+  - `dist/safari`
   - `safari/WebToMarkdown.xcodeproj`
 
 ### The Safari Approach
 
-For Safari, we deliberately do **not** use `--copy-resources`. Apple's default behavior references the original extension files directly (`dist/chrome` in our case), keeping the codebase unified.
+For Safari, we deliberately do **not** use `--copy-resources`. Apple's default behavior references the original extension files directly (`dist/safari` in our case), keeping the codebase unified.
+
+`dist/safari` is generated from the same source tree as Chrome and Firefox, but with one Safari-specific compatibility adjustment: the background service worker is bundled into a classic script and the Safari manifest omits `background.type = "module"`. This removes the Safari converter warning about the unsupported `type` manifest key without changing the authored source modules.
 
 The Safari wrapper in `safari/` is treated as a stable, version-controlled native layer. This is where Apple-specific assets and metadata live, such as native app icons and `PrivacyInfo.xcprivacy` files. Do **not** regenerate the wrapper on every release.
 

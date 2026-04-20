@@ -76,7 +76,7 @@ async function main() {
 
   projectContent = ensureAfter(
     projectContent,
-    /^\t\t[A-F0-9]{24} \/\* manifest\.json \*\/ = \{isa = PBXFileReference; lastKnownFileType = text\.json; name = manifest\.json; path = \.\.\/\.\.\/\.\.\/dist\/chrome\/manifest\.json; sourceTree = "<group>"; \};$/m,
+    /^\t\t[A-F0-9]{24} \/\* manifest\.json \*\/ = \{isa = PBXFileReference; lastKnownFileType = text\.json; name = manifest\.json; path = \.\.\/\.\.\/\.\.\/dist\/(?:chrome|safari)\/manifest\.json; sourceTree = "<group>"; \};$/m,
     `${blocks.appPrivacyFileRef}\n${blocks.extensionPrivacyFileRef}`,
     "privacy manifest file references"
   );
