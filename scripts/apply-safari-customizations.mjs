@@ -1,6 +1,10 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import {
+  applyPreservedBuildSettings,
+  collectPreservedBuildSettings,
+} from "./safari-project/preserve-build-settings.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "..");
@@ -11,6 +15,31 @@ const projectPath = path.join(
   "WebToMarkdown.xcodeproj",
   "project.pbxproj"
 );
+
+function parseArgs(argv) {
+  const args = argv.slice(2);
+  const options = {
+    preserveFrom: null,
+  };
+
+  for (let index = 0; index < args.length; index += 1) {
+    const arg = args[index];
+
+    if (arg === "--preserve-from") {
+      options.preserveFrom = args[index + 1] ?? null;
+      index += 1;
+      continue;
+    }
+
+    throw new Error(`Unknown argument: ${arg}`);
+  }
+
+  if (options.preserveFrom === null && args.includes("--preserve-from")) {
+    throw new Error("Expected a file path after --preserve-from.");
+  }
+
+  return options;
+}
 
 const blocks = {
   appPrivacyBuildFile:
@@ -65,7 +94,14 @@ function ensureInMatchedBlock(content, blockPattern, anchorPattern, insertion, l
 }
 
 async function main() {
+  const options = parseArgs(process.argv);
   let projectContent = await fs.readFile(projectPath, "utf8");
+
+  if (options.preserveFrom !== null) {
+    const previousProjectContent = await fs.readFile(options.preserveFrom, "utf8");
+    const preservedSettings = collectPreservedBuildSettings(previousProjectContent);
+    projectContent = applyPreservedBuildSettings(projectContent, preservedSettings);
+  }
 
   projectContent = ensureAfter(
     projectContent,
@@ -114,7 +150,7 @@ async function main() {
   );
 
   await fs.writeFile(projectPath, projectContent);
-  console.log("✅ Reapplied Safari Xcode project customizations.");
+  console.log("✅ Reapplied Safari Xcode project customizations and preserved native build settings.");
 }
 
 main().catch((error) => {

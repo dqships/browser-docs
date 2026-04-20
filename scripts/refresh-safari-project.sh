@@ -41,6 +41,7 @@ backup_path "safari/WebToMarkdown/WebToMarkdown/Assets.xcassets/AppIcon.appicons
 backup_path "safari/WebToMarkdown/WebToMarkdown/Assets.xcassets/LargeIcon.imageset"
 backup_path "safari/WebToMarkdown/WebToMarkdown/PrivacyInfo.xcprivacy"
 backup_path "safari/WebToMarkdown/WebToMarkdown Extension/PrivacyInfo.xcprivacy"
+backup_path "safari/WebToMarkdown/WebToMarkdown.xcodeproj/project.pbxproj"
 
 echo "🧭 Refreshing Safari Xcode project..."
 xcrun safari-web-extension-converter "$ROOT_DIR/dist/safari" \
@@ -58,9 +59,16 @@ restore_path "safari/WebToMarkdown/WebToMarkdown/PrivacyInfo.xcprivacy"
 restore_path "safari/WebToMarkdown/WebToMarkdown Extension/PrivacyInfo.xcprivacy"
 
 echo "🩹 Reapplying Safari Xcode project patches..."
-node "$ROOT_DIR/scripts/apply-safari-customizations.mjs"
+apply_args=()
+project_settings_backup="$BACKUP_DIR/safari/WebToMarkdown/WebToMarkdown.xcodeproj/project.pbxproj"
+
+if [[ -e "$project_settings_backup" ]]; then
+  apply_args+=(--preserve-from "$project_settings_backup")
+fi
+
+node "$ROOT_DIR/scripts/apply-safari-customizations.mjs" "${apply_args[@]}"
 
 echo "🔢 Re-syncing Safari marketing version from manifest.json..."
 node "$ROOT_DIR/scripts/sync-safari-version.mjs"
 
-echo "✅ Safari project refreshed. Native icons, privacy manifests, targeted Xcode patches, and versioning were preserved."
+echo "✅ Safari project refreshed. Native icons, privacy manifests, targeted Xcode patches, preserved build settings, and versioning were preserved."

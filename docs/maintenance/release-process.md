@@ -36,6 +36,10 @@ Under the hood this calls the dedicated refresh script, which preserves committe
 - `LargeIcon.imageset`
 - `PrivacyInfo.xcprivacy`
 - targeted `project.pbxproj` patches required to reference the privacy manifests
+- Safari app and extension `DEVELOPMENT_TEAM`
+- Safari app and extension `PRODUCT_BUNDLE_IDENTIFIER`
+- Safari app `INFOPLIST_KEY_LSApplicationCategoryType`
+- project and target deployment minimums such as `MACOSX_DEPLOYMENT_TARGET`
 
 Important caveat: only the files and patches in that preservation list are guaranteed. If you later add other native Safari customizations such as `Info.plist` keys, entitlements, storyboard changes, or extra native resources, you must update the Safari refresh automation to preserve or reapply them too.
 
@@ -55,7 +59,7 @@ Follow these steps for every extension update:
 - `manifest.json` is the source of truth for the public extension version.
 - Safari `MARKETING_VERSION` is synced automatically from `manifest.json`.
 - Safari `CURRENT_PROJECT_VERSION` is the App Store build number and is incremented automatically by `./release.sh`.
-- Safari wrapper refreshes reapply only the explicitly scripted native customizations. New native changes require updates to the refresh automation and this document.
+- Safari wrapper refreshes reapply only the explicitly scripted native customizations and preserved Xcode build settings. New native changes require updates to the refresh automation and this document.
 - If you need to set a specific Safari build number manually, run:
 
 ```bash
