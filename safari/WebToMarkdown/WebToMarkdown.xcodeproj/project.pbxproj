@@ -7,44 +7,44 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AD3EBEFD2F96AD040030233A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3EBEFC2F96AD040030233A /* AppDelegate.swift */; };
-		AD3EBF012F96AD040030233A /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = AD3EBEFF2F96AD040030233A /* Main.html */; };
-		AD3EBF032F96AD040030233A /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AD3EBF022F96AD040030233A /* Icon.png */; };
-		AD3EBF052F96AD040030233A /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = AD3EBF042F96AD040030233A /* Style.css */; };
-		AD3EBF072F96AD040030233A /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = AD3EBF062F96AD040030233A /* Script.js */; };
-		AD3EBF092F96AD040030233A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3EBF082F96AD040030233A /* ViewController.swift */; };
-		AD3EBF0C2F96AD040030233A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD3EBF0A2F96AD040030233A /* Main.storyboard */; };
-		AD3EBF0E2F96AD050030233A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD3EBF0D2F96AD050030233A /* Assets.xcassets */; };
-		AD3EBF152F96AD060030233A /* WebToMarkdown Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AD3EBF142F96AD060030233A /* WebToMarkdown Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		AD3EBF1A2F96AD060030233A /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3EBF192F96AD060030233A /* SafariWebExtensionHandler.swift */; };
-		AD3EBF2C2F96AD060030233A /* background in Resources */ = {isa = PBXBuildFile; fileRef = AD3EBF262F96AD060030233A /* background */; };
-		AD3EBF2D2F96AD060030233A /* options in Resources */ = {isa = PBXBuildFile; fileRef = AD3EBF272F96AD060030233A /* options */; };
-		AD3EBF2E2F96AD060030233A /* popup in Resources */ = {isa = PBXBuildFile; fileRef = AD3EBF282F96AD060030233A /* popup */; };
-		AD3EBF2F2F96AD060030233A /* content in Resources */ = {isa = PBXBuildFile; fileRef = AD3EBF292F96AD060030233A /* content */; };
-		AD3EBF302F96AD060030233A /* shared in Resources */ = {isa = PBXBuildFile; fileRef = AD3EBF2A2F96AD060030233A /* shared */; };
-		AD3EBF312F96AD060030233A /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = AD3EBF2B2F96AD060030233A /* manifest.json */; };
+		AD58529E2F96E89600750018 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD58529D2F96E89600750018 /* AppDelegate.swift */; };
+		AD5852A22F96E89600750018 /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = AD5852A02F96E89600750018 /* Main.html */; };
+		AD5852A42F96E89600750018 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AD5852A32F96E89600750018 /* Icon.png */; };
+		AD5852A62F96E89600750018 /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = AD5852A52F96E89600750018 /* Style.css */; };
+		AD5852A82F96E89600750018 /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = AD5852A72F96E89600750018 /* Script.js */; };
+		AD5852AA2F96E89600750018 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5852A92F96E89600750018 /* ViewController.swift */; };
+		AD5852AD2F96E89600750018 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD5852AB2F96E89600750018 /* Main.storyboard */; };
+		AD5852AF2F96E89700750018 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD5852AE2F96E89700750018 /* Assets.xcassets */; };
+		AD5852B62F96E89800750018 /* WebToMarkdown Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = AD5852B52F96E89800750018 /* WebToMarkdown Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AD5852BB2F96E89800750018 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5852BA2F96E89800750018 /* SafariWebExtensionHandler.swift */; };
+		AD5852CD2F96E89800750018 /* background in Resources */ = {isa = PBXBuildFile; fileRef = AD5852C72F96E89800750018 /* background */; };
+		AD5852CE2F96E89800750018 /* options in Resources */ = {isa = PBXBuildFile; fileRef = AD5852C82F96E89800750018 /* options */; };
+		AD5852CF2F96E89800750018 /* popup in Resources */ = {isa = PBXBuildFile; fileRef = AD5852C92F96E89800750018 /* popup */; };
+		AD5852D02F96E89800750018 /* content in Resources */ = {isa = PBXBuildFile; fileRef = AD5852CA2F96E89800750018 /* content */; };
+		AD5852D12F96E89800750018 /* shared in Resources */ = {isa = PBXBuildFile; fileRef = AD5852CB2F96E89800750018 /* shared */; };
+		AD5852D22F96E89800750018 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = AD5852CC2F96E89800750018 /* manifest.json */; };
 		AD3EBF332F96B0010030233A /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = AD3EBF342F96B0010030233A /* PrivacyInfo.xcprivacy */; };
 		AD3EBF352F96B0010030233A /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = AD3EBF362F96B0010030233A /* PrivacyInfo.xcprivacy */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		AD3EBF162F96AD060030233A /* PBXContainerItemProxy */ = {
+		AD5852B72F96E89800750018 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = AD3EBEF12F96AD040030233A /* Project object */;
+			containerPortal = AD5852922F96E89600750018 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = AD3EBF132F96AD060030233A;
+			remoteGlobalIDString = AD5852B42F96E89800750018;
 			remoteInfo = "WebToMarkdown Extension";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		AD3EBF212F96AD060030233A /* Embed Foundation Extensions */ = {
+		AD5852C22F96E89800750018 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				AD3EBF152F96AD060030233A /* WebToMarkdown Extension.appex in Embed Foundation Extensions */,
+				AD5852B62F96E89800750018 /* WebToMarkdown Extension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -52,38 +52,38 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		AD3EBEF92F96AD040030233A /* WebToMarkdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebToMarkdown.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		AD3EBEFC2F96AD040030233A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AD3EBF002F96AD040030233A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/Main.html; sourceTree = "<group>"; };
-		AD3EBF022F96AD040030233A /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		AD3EBF042F96AD040030233A /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
-		AD3EBF062F96AD040030233A /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
-		AD3EBF082F96AD040030233A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		AD3EBF0B2F96AD040030233A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		AD3EBF0D2F96AD050030233A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AD3EBF0F2F96AD050030233A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AD3EBF142F96AD060030233A /* WebToMarkdown Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WebToMarkdown Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AD3EBF192F96AD060030233A /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
-		AD3EBF1B2F96AD060030233A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AD3EBF262F96AD060030233A /* background */ = {isa = PBXFileReference; lastKnownFileType = folder; name = background; path = ../../../dist/chrome/background; sourceTree = "<group>"; };
-		AD3EBF272F96AD060030233A /* options */ = {isa = PBXFileReference; lastKnownFileType = folder; name = options; path = ../../../dist/chrome/options; sourceTree = "<group>"; };
-		AD3EBF282F96AD060030233A /* popup */ = {isa = PBXFileReference; lastKnownFileType = folder; name = popup; path = ../../../dist/chrome/popup; sourceTree = "<group>"; };
-		AD3EBF292F96AD060030233A /* content */ = {isa = PBXFileReference; lastKnownFileType = folder; name = content; path = ../../../dist/chrome/content; sourceTree = "<group>"; };
-		AD3EBF2A2F96AD060030233A /* shared */ = {isa = PBXFileReference; lastKnownFileType = folder; name = shared; path = ../../../dist/chrome/shared; sourceTree = "<group>"; };
-		AD3EBF2B2F96AD060030233A /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = ../../../dist/chrome/manifest.json; sourceTree = "<group>"; };
+		AD58529A2F96E89600750018 /* WebToMarkdown.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebToMarkdown.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD58529D2F96E89600750018 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AD5852A12F96E89600750018 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/Main.html; sourceTree = "<group>"; };
+		AD5852A32F96E89600750018 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		AD5852A52F96E89600750018 /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
+		AD5852A72F96E89600750018 /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
+		AD5852A92F96E89600750018 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AD5852AC2F96E89600750018 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AD5852AE2F96E89700750018 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AD5852B02F96E89700750018 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD5852B52F96E89800750018 /* WebToMarkdown Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WebToMarkdown Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD5852BA2F96E89800750018 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		AD5852BC2F96E89800750018 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD5852C72F96E89800750018 /* background */ = {isa = PBXFileReference; lastKnownFileType = folder; name = background; path = ../../../dist/chrome/background; sourceTree = "<group>"; };
+		AD5852C82F96E89800750018 /* options */ = {isa = PBXFileReference; lastKnownFileType = folder; name = options; path = ../../../dist/chrome/options; sourceTree = "<group>"; };
+		AD5852C92F96E89800750018 /* popup */ = {isa = PBXFileReference; lastKnownFileType = folder; name = popup; path = ../../../dist/chrome/popup; sourceTree = "<group>"; };
+		AD5852CA2F96E89800750018 /* content */ = {isa = PBXFileReference; lastKnownFileType = folder; name = content; path = ../../../dist/chrome/content; sourceTree = "<group>"; };
+		AD5852CB2F96E89800750018 /* shared */ = {isa = PBXFileReference; lastKnownFileType = folder; name = shared; path = ../../../dist/chrome/shared; sourceTree = "<group>"; };
+		AD5852CC2F96E89800750018 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = ../../../dist/chrome/manifest.json; sourceTree = "<group>"; };
 		AD3EBF342F96B0010030233A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		AD3EBF362F96B0010030233A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		AD3EBEF62F96AD040030233A /* Frameworks */ = {
+		AD5852972F96E89600750018 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AD3EBF112F96AD060030233A /* Frameworks */ = {
+		AD5852B22F96E89800750018 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -93,69 +93,69 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AD3EBEF02F96AD040030233A = {
+		AD5852912F96E89600750018 = {
 			isa = PBXGroup;
 			children = (
-				AD3EBEFB2F96AD040030233A /* WebToMarkdown */,
-				AD3EBF182F96AD060030233A /* WebToMarkdown Extension */,
-				AD3EBEFA2F96AD040030233A /* Products */,
+				AD58529C2F96E89600750018 /* WebToMarkdown */,
+				AD5852B92F96E89800750018 /* WebToMarkdown Extension */,
+				AD58529B2F96E89600750018 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		AD3EBEFA2F96AD040030233A /* Products */ = {
+		AD58529B2F96E89600750018 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AD3EBEF92F96AD040030233A /* WebToMarkdown.app */,
-				AD3EBF142F96AD060030233A /* WebToMarkdown Extension.appex */,
+				AD58529A2F96E89600750018 /* WebToMarkdown.app */,
+				AD5852B52F96E89800750018 /* WebToMarkdown Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AD3EBEFB2F96AD040030233A /* WebToMarkdown */ = {
+		AD58529C2F96E89600750018 /* WebToMarkdown */ = {
 			isa = PBXGroup;
 			children = (
-				AD3EBEFC2F96AD040030233A /* AppDelegate.swift */,
-				AD3EBF082F96AD040030233A /* ViewController.swift */,
-				AD3EBF0A2F96AD040030233A /* Main.storyboard */,
-				AD3EBF0D2F96AD050030233A /* Assets.xcassets */,
-				AD3EBF0F2F96AD050030233A /* Info.plist */,
+				AD58529D2F96E89600750018 /* AppDelegate.swift */,
+				AD5852A92F96E89600750018 /* ViewController.swift */,
+				AD5852AB2F96E89600750018 /* Main.storyboard */,
+				AD5852AE2F96E89700750018 /* Assets.xcassets */,
+				AD5852B02F96E89700750018 /* Info.plist */,
 				AD3EBF342F96B0010030233A /* PrivacyInfo.xcprivacy */,
-				AD3EBEFE2F96AD040030233A /* Resources */,
+				AD58529F2F96E89600750018 /* Resources */,
 			);
 			path = WebToMarkdown;
 			sourceTree = "<group>";
 		};
-		AD3EBEFE2F96AD040030233A /* Resources */ = {
+		AD58529F2F96E89600750018 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				AD3EBEFF2F96AD040030233A /* Main.html */,
-				AD3EBF022F96AD040030233A /* Icon.png */,
-				AD3EBF042F96AD040030233A /* Style.css */,
-				AD3EBF062F96AD040030233A /* Script.js */,
+				AD5852A02F96E89600750018 /* Main.html */,
+				AD5852A32F96E89600750018 /* Icon.png */,
+				AD5852A52F96E89600750018 /* Style.css */,
+				AD5852A72F96E89600750018 /* Script.js */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		AD3EBF182F96AD060030233A /* WebToMarkdown Extension */ = {
+		AD5852B92F96E89800750018 /* WebToMarkdown Extension */ = {
 			isa = PBXGroup;
 			children = (
-				AD3EBF252F96AD060030233A /* Resources */,
-				AD3EBF192F96AD060030233A /* SafariWebExtensionHandler.swift */,
-				AD3EBF1B2F96AD060030233A /* Info.plist */,
+				AD5852C62F96E89800750018 /* Resources */,
+				AD5852BA2F96E89800750018 /* SafariWebExtensionHandler.swift */,
+				AD5852BC2F96E89800750018 /* Info.plist */,
 				AD3EBF362F96B0010030233A /* PrivacyInfo.xcprivacy */,
 			);
 			path = "WebToMarkdown Extension";
 			sourceTree = "<group>";
 		};
-		AD3EBF252F96AD060030233A /* Resources */ = {
+		AD5852C62F96E89800750018 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				AD3EBF262F96AD060030233A /* background */,
-				AD3EBF272F96AD060030233A /* options */,
-				AD3EBF282F96AD060030233A /* popup */,
-				AD3EBF292F96AD060030233A /* content */,
-				AD3EBF2A2F96AD060030233A /* shared */,
-				AD3EBF2B2F96AD060030233A /* manifest.json */,
+				AD5852C72F96E89800750018 /* background */,
+				AD5852C82F96E89800750018 /* options */,
+				AD5852C92F96E89800750018 /* popup */,
+				AD5852CA2F96E89800750018 /* content */,
+				AD5852CB2F96E89800750018 /* shared */,
+				AD5852CC2F96E89800750018 /* manifest.json */,
 			);
 			name = Resources;
 			path = "WebToMarkdown Extension";
@@ -164,34 +164,34 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AD3EBEF82F96AD040030233A /* WebToMarkdown */ = {
+		AD5852992F96E89600750018 /* WebToMarkdown */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AD3EBF222F96AD060030233A /* Build configuration list for PBXNativeTarget "WebToMarkdown" */;
+			buildConfigurationList = AD5852C32F96E89800750018 /* Build configuration list for PBXNativeTarget "WebToMarkdown" */;
 			buildPhases = (
-				AD3EBEF52F96AD040030233A /* Sources */,
-				AD3EBEF62F96AD040030233A /* Frameworks */,
-				AD3EBEF72F96AD040030233A /* Resources */,
-				AD3EBF212F96AD060030233A /* Embed Foundation Extensions */,
+				AD5852962F96E89600750018 /* Sources */,
+				AD5852972F96E89600750018 /* Frameworks */,
+				AD5852982F96E89600750018 /* Resources */,
+				AD5852C22F96E89800750018 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				AD3EBF172F96AD060030233A /* PBXTargetDependency */,
+				AD5852B82F96E89800750018 /* PBXTargetDependency */,
 			);
 			name = WebToMarkdown;
 			packageProductDependencies = (
 			);
 			productName = WebToMarkdown;
-			productReference = AD3EBEF92F96AD040030233A /* WebToMarkdown.app */;
+			productReference = AD58529A2F96E89600750018 /* WebToMarkdown.app */;
 			productType = "com.apple.product-type.application";
 		};
-		AD3EBF132F96AD060030233A /* WebToMarkdown Extension */ = {
+		AD5852B42F96E89800750018 /* WebToMarkdown Extension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AD3EBF1E2F96AD060030233A /* Build configuration list for PBXNativeTarget "WebToMarkdown Extension" */;
+			buildConfigurationList = AD5852BF2F96E89800750018 /* Build configuration list for PBXNativeTarget "WebToMarkdown Extension" */;
 			buildPhases = (
-				AD3EBF102F96AD060030233A /* Sources */,
-				AD3EBF112F96AD060030233A /* Frameworks */,
-				AD3EBF122F96AD060030233A /* Resources */,
+				AD5852B12F96E89800750018 /* Sources */,
+				AD5852B22F96E89800750018 /* Frameworks */,
+				AD5852B32F96E89800750018 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -201,119 +201,119 @@
 			packageProductDependencies = (
 			);
 			productName = "WebToMarkdown Extension";
-			productReference = AD3EBF142F96AD060030233A /* WebToMarkdown Extension.appex */;
+			productReference = AD5852B52F96E89800750018 /* WebToMarkdown Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		AD3EBEF12F96AD040030233A /* Project object */ = {
+		AD5852922F96E89600750018 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2610;
 				LastUpgradeCheck = 2610;
 				TargetAttributes = {
-					AD3EBEF82F96AD040030233A = {
+					AD5852992F96E89600750018 = {
 						CreatedOnToolsVersion = 26.1.1;
 					};
-					AD3EBF132F96AD060030233A = {
+					AD5852B42F96E89800750018 = {
 						CreatedOnToolsVersion = 26.1.1;
 					};
 				};
 			};
-			buildConfigurationList = AD3EBEF42F96AD040030233A /* Build configuration list for PBXProject "WebToMarkdown" */;
+			buildConfigurationList = AD5852952F96E89600750018 /* Build configuration list for PBXProject "WebToMarkdown" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = AD3EBEF02F96AD040030233A;
+			mainGroup = AD5852912F96E89600750018;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = AD3EBEFA2F96AD040030233A /* Products */;
+			productRefGroup = AD58529B2F96E89600750018 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AD3EBEF82F96AD040030233A /* WebToMarkdown */,
-				AD3EBF132F96AD060030233A /* WebToMarkdown Extension */,
+				AD5852992F96E89600750018 /* WebToMarkdown */,
+				AD5852B42F96E89800750018 /* WebToMarkdown Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		AD3EBEF72F96AD040030233A /* Resources */ = {
+		AD5852982F96E89600750018 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD3EBF032F96AD040030233A /* Icon.png in Resources */,
-				AD3EBF0C2F96AD040030233A /* Main.storyboard in Resources */,
-				AD3EBF072F96AD040030233A /* Script.js in Resources */,
-				AD3EBF012F96AD040030233A /* Main.html in Resources */,
-				AD3EBF0E2F96AD050030233A /* Assets.xcassets in Resources */,
+				AD5852A42F96E89600750018 /* Icon.png in Resources */,
+				AD5852AD2F96E89600750018 /* Main.storyboard in Resources */,
+				AD5852A82F96E89600750018 /* Script.js in Resources */,
+				AD5852A22F96E89600750018 /* Main.html in Resources */,
+				AD5852AF2F96E89700750018 /* Assets.xcassets in Resources */,
 				AD3EBF332F96B0010030233A /* PrivacyInfo.xcprivacy in Resources */,
-				AD3EBF052F96AD040030233A /* Style.css in Resources */,
+				AD5852A62F96E89600750018 /* Style.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AD3EBF122F96AD060030233A /* Resources */ = {
+		AD5852B32F96E89800750018 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD3EBF302F96AD060030233A /* shared in Resources */,
-				AD3EBF2E2F96AD060030233A /* popup in Resources */,
-				AD3EBF2C2F96AD060030233A /* background in Resources */,
-				AD3EBF2F2F96AD060030233A /* content in Resources */,
+				AD5852D12F96E89800750018 /* shared in Resources */,
+				AD5852CF2F96E89800750018 /* popup in Resources */,
+				AD5852CD2F96E89800750018 /* background in Resources */,
+				AD5852D02F96E89800750018 /* content in Resources */,
 				AD3EBF352F96B0010030233A /* PrivacyInfo.xcprivacy in Resources */,
-				AD3EBF312F96AD060030233A /* manifest.json in Resources */,
-				AD3EBF2D2F96AD060030233A /* options in Resources */,
+				AD5852D22F96E89800750018 /* manifest.json in Resources */,
+				AD5852CE2F96E89800750018 /* options in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		AD3EBEF52F96AD040030233A /* Sources */ = {
+		AD5852962F96E89600750018 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD3EBF092F96AD040030233A /* ViewController.swift in Sources */,
-				AD3EBEFD2F96AD040030233A /* AppDelegate.swift in Sources */,
+				AD5852AA2F96E89600750018 /* ViewController.swift in Sources */,
+				AD58529E2F96E89600750018 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AD3EBF102F96AD060030233A /* Sources */ = {
+		AD5852B12F96E89800750018 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD3EBF1A2F96AD060030233A /* SafariWebExtensionHandler.swift in Sources */,
+				AD5852BB2F96E89800750018 /* SafariWebExtensionHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		AD3EBF172F96AD060030233A /* PBXTargetDependency */ = {
+		AD5852B82F96E89800750018 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AD3EBF132F96AD060030233A /* WebToMarkdown Extension */;
-			targetProxy = AD3EBF162F96AD060030233A /* PBXContainerItemProxy */;
+			target = AD5852B42F96E89800750018 /* WebToMarkdown Extension */;
+			targetProxy = AD5852B72F96E89800750018 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		AD3EBEFF2F96AD040030233A /* Main.html */ = {
+		AD5852A02F96E89600750018 /* Main.html */ = {
 			isa = PBXVariantGroup;
 			children = (
-				AD3EBF002F96AD040030233A /* Base */,
+				AD5852A12F96E89600750018 /* Base */,
 			);
 			name = Main.html;
 			sourceTree = "<group>";
 		};
-		AD3EBF0A2F96AD040030233A /* Main.storyboard */ = {
+		AD5852AB2F96E89600750018 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				AD3EBF0B2F96AD040030233A /* Base */,
+				AD5852AC2F96E89600750018 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -321,7 +321,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		AD3EBF1C2F96AD060030233A /* Debug */ = {
+		AD5852BD2F96E89800750018 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -384,7 +384,7 @@
 			};
 			name = Debug;
 		};
-		AD3EBF1D2F96AD060030233A /* Release */ = {
+		AD5852BE2F96E89800750018 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -439,12 +439,11 @@
 			};
 			name = Release;
 		};
-		AD3EBF1F2F96AD060030233A /* Debug */ = {
+		AD5852C02F96E89800750018 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 525ZD896G4;
+				CURRENT_PROJECT_VERSION = 2;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
@@ -463,7 +462,7 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.followusai.WebToMarkdown.Extension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourCompany.WebToMarkdown.Extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -474,12 +473,11 @@
 			};
 			name = Debug;
 		};
-		AD3EBF202F96AD060030233A /* Release */ = {
+		AD5852C12F96E89800750018 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 525ZD896G4;
+				CURRENT_PROJECT_VERSION = 2;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
@@ -498,7 +496,7 @@
 					"-framework",
 					SafariServices,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.followusai.WebToMarkdown.Extension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourCompany.WebToMarkdown.Extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -509,15 +507,14 @@
 			};
 			name = Release;
 		};
-		AD3EBF232F96AD060030233A /* Debug */ = {
+		AD5852C42F96E89800750018 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 525ZD896G4;
+				CURRENT_PROJECT_VERSION = 2;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
@@ -525,7 +522,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WebToMarkdown/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = WebToMarkdown;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -540,7 +536,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.followusai.WebToMarkdown;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourCompany.WebToMarkdown;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -552,15 +548,14 @@
 			};
 			name = Debug;
 		};
-		AD3EBF242F96AD060030233A /* Release */ = {
+		AD5852C52F96E89800750018 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 525ZD896G4;
+				CURRENT_PROJECT_VERSION = 2;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
@@ -568,7 +563,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = WebToMarkdown/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = WebToMarkdown;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -583,7 +577,7 @@
 					"-framework",
 					WebKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.followusai.WebToMarkdown;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yourCompany.WebToMarkdown;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
@@ -598,34 +592,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AD3EBEF42F96AD040030233A /* Build configuration list for PBXProject "WebToMarkdown" */ = {
+		AD5852952F96E89600750018 /* Build configuration list for PBXProject "WebToMarkdown" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AD3EBF1C2F96AD060030233A /* Debug */,
-				AD3EBF1D2F96AD060030233A /* Release */,
+				AD5852BD2F96E89800750018 /* Debug */,
+				AD5852BE2F96E89800750018 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AD3EBF1E2F96AD060030233A /* Build configuration list for PBXNativeTarget "WebToMarkdown Extension" */ = {
+		AD5852BF2F96E89800750018 /* Build configuration list for PBXNativeTarget "WebToMarkdown Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AD3EBF1F2F96AD060030233A /* Debug */,
-				AD3EBF202F96AD060030233A /* Release */,
+				AD5852C02F96E89800750018 /* Debug */,
+				AD5852C12F96E89800750018 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AD3EBF222F96AD060030233A /* Build configuration list for PBXNativeTarget "WebToMarkdown" */ = {
+		AD5852C32F96E89800750018 /* Build configuration list for PBXNativeTarget "WebToMarkdown" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AD3EBF232F96AD060030233A /* Debug */,
-				AD3EBF242F96AD060030233A /* Release */,
+				AD5852C42F96E89800750018 /* Debug */,
+				AD5852C52F96E89800750018 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = AD3EBEF12F96AD040030233A /* Project object */;
+	rootObject = AD5852922F96E89600750018 /* Project object */;
 }
