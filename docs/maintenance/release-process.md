@@ -27,7 +27,9 @@ node build.mjs
 
 xcrun safari-web-extension-converter dist/chrome \
   --app-name "WebToMarkdown" \
-  --project-location safari
+  --project-location safari \
+  --macos-only
+
 ```
 
 *(You can also use the `./release.sh` script to run these in one step.)*

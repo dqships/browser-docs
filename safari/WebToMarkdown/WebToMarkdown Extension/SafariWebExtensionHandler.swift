@@ -1,6 +1,6 @@
 //
 //  SafariWebExtensionHandler.swift
-//  Shared (Extension)
+//  WebToMarkdown Extension
 //
 //  Created by DaQuan Louden on 4/20/26.
 //

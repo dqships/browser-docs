@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  macOS (App)
+//  WebToMarkdown
 //
 //  Created by DaQuan Louden on 4/20/26.
 //
