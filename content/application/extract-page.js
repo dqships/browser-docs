@@ -2,6 +2,8 @@
   const app = globalThis.DocsToMarkdownContent;
   const finalizeMarkdown = app.require("finalizeMarkdown");
   const findPrimaryContainer = app.require("findPrimaryContainer");
+  const getDocumentTitle = app.require("getDocumentTitle");
+  const getLeadingResources = app.require("getLeadingResources");
   const sanitizeClone = app.require("sanitizeClone");
   const serializeBlock = app.require("serializeBlock");
 
@@ -49,7 +51,9 @@
       throw new Error("No readable content container was found on this page.");
     }
 
+    const documentTitle = getDocumentTitle(element, document.title);
     const cleanedClone = sanitizeClone(element, settings);
+    const resources = getLeadingResources(element);
     if (!settings.preserveTables) {
       for (const table of cleanedClone.querySelectorAll("table")) {
         table.remove();
@@ -64,7 +68,9 @@
     const markdown = finalizeMarkdown({
       body,
       settings,
-      title: document.title,
+      documentTitle,
+      pageTitle: document.title,
+      resources,
       url: location.href
     });
 
@@ -75,7 +81,9 @@
     return {
       markdown,
       meta: {
-        title: document.title,
+        documentTitle,
+        pageTitle: document.title,
+        title: documentTitle || document.title,
         url: location.href
       },
       stats: {

@@ -8,9 +8,11 @@ export const CONTENT_INJECTION_FILES = [
   "content/dom/is-probably-hidden.js",
   "content/dom/is-noise-element.js",
   "content/dom/is-meaningful-element.js",
+  "content/dom/get-callout-metadata.js",
   "content/dom/find-primary-container.js",
   "content/dom/sanitize-clone.js",
   "content/markdown/escape-markdown.js",
+  "content/markdown/get-heading-text.js",
   "content/markdown/get-code-language.js",
   "content/markdown/serialize-inline.js",
   "content/markdown/serialize-list.js",
@@ -20,5 +22,7 @@ export const CONTENT_INJECTION_FILES = [
   "content/clipboard/copy-to-clipboard.js",
   "content/ui/show-toast.js",
   "content/application/copy-and-toast.js",
+  "content/application/get-document-title.js",
+  "content/application/get-leading-resources.js",
   "content/application/extract-page.js"
 ];

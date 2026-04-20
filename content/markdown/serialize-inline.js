@@ -32,8 +32,12 @@
 
     switch (tagName) {
       case "a": {
-        const href = resolveUrl(node.getAttribute("href") || "");
+        const rawHref = node.getAttribute("href") || "";
+        const href = resolveUrl(rawHref);
         const text = serializeInlineChildren(node).trim() || href;
+        if (rawHref.startsWith("#") && node.closest("h1, h2, h3, h4, h5, h6")) {
+          return text;
+        }
         return href ? `[${text}](${href})` : text;
       }
       case "br":

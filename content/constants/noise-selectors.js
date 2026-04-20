@@ -16,7 +16,7 @@
     "[role='dialog']",
     "[role='navigation']",
     ".admonition-title .hash-link",
-    ".anchor",
+    "a.anchor",
     ".breadcrumbs",
     ".cookie-banner",
     ".cookie-notice",

@@ -1,6 +1,32 @@
 (() => {
   const app = globalThis.DocsToMarkdownContent;
 
+  function inferLanguageFromText(text) {
+    const normalized = text.trim();
+    if (!normalized) {
+      return "";
+    }
+
+    if (
+      /^(?:#.*\n)*(?:git|npm|pnpm|yarn|bun|cd|mkdir|cp|mv|rm|curl|wget|docker|kubectl)\b/m.test(
+        normalized
+      ) ||
+      /^(?:#.*\n)*[A-Z][A-Z0-9_]*=.+$/m.test(normalized)
+    ) {
+      return "bash";
+    }
+
+    if (
+      /\bexport\s+(?:const|function|class)\b/.test(normalized) ||
+      /\binterface\s+[A-Z]/.test(normalized) ||
+      /\btype\s+[A-Z]/.test(normalized)
+    ) {
+      return "ts";
+    }
+
+    return "";
+  }
+
   app.register("getCodeLanguage", (element) => {
     if (!(element instanceof Element)) {
       return "";
@@ -22,6 +48,6 @@
       }
     }
 
-    return "";
+    return inferLanguageFromText(element.textContent || "");
   });
 })();

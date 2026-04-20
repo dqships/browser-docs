@@ -1,5 +1,7 @@
 (() => {
   const app = globalThis.DocsToMarkdownContent;
+  const getCalloutMetadata = app.require("getCalloutMetadata");
+  const getHeadingText = app.require("getHeadingText");
   const getCodeLanguage = app.require("getCodeLanguage");
   const serializeInline = app.require("serializeInline");
   const serializeList = app.require("serializeList");
@@ -41,15 +43,16 @@
     return input.replace(/^\n+|\n+$/g, "");
   }
 
-  function blockquoteFromChildren(node) {
-    const content = stripOuterBlankLines(serializeChildrenAsBlocks(node));
+  function blockquoteFromChildren(node, options = {}) {
+    const content = stripOuterBlankLines(serializeChildrenAsBlocks(node, options));
     return content
       .split("\n")
       .map((line) => (line ? `> ${line}` : ">"))
       .join("\n");
   }
 
-  function serializeChildrenAsBlocks(node) {
+  function serializeChildrenAsBlocks(node, options = {}) {
+    const skipElements = options.skipElements || new Set();
     const parts = [];
     let inlineBuffer = "";
 
@@ -62,9 +65,14 @@
     }
 
     for (const child of node.childNodes) {
+      if (child instanceof Element && skipElements.has(child)) {
+        flushInlineBuffer();
+        continue;
+      }
+
       if (isBlockNode(child)) {
         flushInlineBuffer();
-        parts.push(stripOuterBlankLines(serializeBlock(child)));
+        parts.push(stripOuterBlankLines(serializeBlock(child, options)));
       } else {
         inlineBuffer += serializeInline(child);
       }
@@ -75,13 +83,13 @@
     return parts.filter(Boolean).join("\n\n");
   }
 
-  function serializeDescriptionList(node) {
+  function serializeDescriptionList(node, options = {}) {
     const lines = [];
     let currentTerm = "";
 
     for (const child of node.children) {
       const tagName = child.tagName.toLowerCase();
-      const text = serializeChildrenAsBlocks(child).replace(/\s+/g, " ").trim();
+      const text = serializeChildrenAsBlocks(child, options).replace(/\s+/g, " ").trim();
 
       if (!text) {
         continue;
@@ -99,7 +107,47 @@
     return lines.join("\n");
   }
 
-  function serializeBlock(node) {
+  function formatCalloutLabel(kind) {
+    if (!kind) {
+      return "";
+    }
+
+    return kind.charAt(0).toUpperCase() + kind.slice(1);
+  }
+
+  function prefixBlockquote(content) {
+    return content
+      .split("\n")
+      .map((line) => (line ? `> ${line}` : ">"))
+      .join("\n");
+  }
+
+  function serializeCallout(node) {
+    const metadata = getCalloutMetadata(node);
+    if (!metadata) {
+      return "";
+    }
+
+    const title = metadata.title || formatCalloutLabel(metadata.kind);
+    const body = stripOuterBlankLines(
+      serializeChildrenAsBlocks(node, {
+        skipElements: metadata.titleElement ? new Set([metadata.titleElement]) : new Set()
+      })
+    );
+    const sections = [];
+
+    if (title) {
+      sections.push(`**${title}**`);
+    }
+
+    if (body) {
+      sections.push(body);
+    }
+
+    return sections.length ? prefixBlockquote(sections.join("\n\n")) : "";
+  }
+
+  function serializeBlock(node, options = {}) {
     if (node.nodeType === Node.TEXT_NODE) {
       return node.textContent?.trim() ? node.textContent.trim() : "";
     }
@@ -112,25 +160,32 @@
 
     switch (tagName) {
       case "blockquote":
-        return blockquoteFromChildren(node);
+        return blockquoteFromChildren(node, options);
       case "details": {
         const summary = node.querySelector("summary");
-        const summaryText = summary ? serializeChildrenAsBlocks(summary) : "Details";
+        const summaryText = summary ? serializeChildrenAsBlocks(summary, options) : "Details";
         const clone = node.cloneNode(true);
         clone.querySelector("summary")?.remove();
-        const body = stripOuterBlankLines(serializeChildrenAsBlocks(clone));
+        const body = stripOuterBlankLines(serializeChildrenAsBlocks(clone, options));
         return [`**${summaryText.trim()}**`, body].filter(Boolean).join("\n\n");
       }
       case "dl":
-        return serializeDescriptionList(node);
+        return serializeDescriptionList(node, options);
+      case "aside": {
+        const callout = serializeCallout(node);
+        return callout || serializeChildrenAsBlocks(node, options);
+      }
       case "figure":
       case "figcaption":
       case "section":
       case "article":
       case "main":
       case "div":
-      case "body":
-        return serializeChildrenAsBlocks(node);
+      case "body": {
+        const callout =
+          tagName === "section" || tagName === "div" ? serializeCallout(node) : "";
+        return callout || serializeChildrenAsBlocks(node, options);
+      }
       case "h1":
       case "h2":
       case "h3":
@@ -138,7 +193,7 @@
       case "h5":
       case "h6": {
         const level = Number(tagName.slice(1));
-        const content = serializeInline(node).replace(/\s+/g, " ").trim();
+        const content = getHeadingText(node);
         return content ? `${"#".repeat(level)} ${content}` : "";
       }
       case "hr":
