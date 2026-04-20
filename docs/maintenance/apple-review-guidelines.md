@@ -54,6 +54,8 @@ When submitting the finalized `.pkg` / `.app` via Xcode to App Store Connect, yo
 
 ## Permissions & Manifest
 
-Because this project utilizes a `manifest.json` (Manifest V3) extension architecture, the host macOS system and Safari sandbox defer to and trust the permissions declared in your JSON (such as `activeTab` or `clipboardWrite`). 
+Because this project utilizes a `manifest.json` (Manifest V3) extension architecture, the host macOS system and Safari sandbox defer to and trust the permissions declared in your JSON (such as `activeTab` or `clipboardWrite`).
 
-You do not need to add traditional native system privacy usage descriptions (e.g., camera usage, file structure access) to the `Info.plist` unless the native Swift wrapper app itself executes code requiring them.
+Do **not** try to place Apple-native privacy usage descriptions in `manifest.json`; that file is for browser extension metadata and permissions.
+
+You do not need to add traditional native system privacy usage descriptions (e.g., camera usage, file structure access) to the `Info.plist` unless the native Swift wrapper app itself executes code requiring them. Apple-native privacy metadata, when needed, belongs in the Safari wrapper project (for example `PrivacyInfo.xcprivacy`).

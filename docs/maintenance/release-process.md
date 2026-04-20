@@ -6,7 +6,7 @@ We follow a clean, single-codebase maintenance model to package our extension fo
 
 - **One Source of Truth**: Edit only the source folders and root `manifest.json`.
 - **Versioning**: Bump the version in `manifest.json` for every new release.
-- **Build**: Run `node build.mjs` to generate browser-specific artifacts.
+- **Build**: Run `./release.sh` as the primary release entrypoint.
 - **Publish**: Release exclusively from the generated outputs:
   - `dist/chrome`
   - `dist/firefox`
@@ -14,25 +14,27 @@ We follow a clean, single-codebase maintenance model to package our extension fo
 
 ### The Safari Approach
 
-For Safari, we deliberately do **not** use `--copy-resources`. Apple's default behavior references the original extension files directly (`dist/chrome` in our case), keeping the codebase unified. 
+For Safari, we deliberately do **not** use `--copy-resources`. Apple's default behavior references the original extension files directly (`dist/chrome` in our case), keeping the codebase unified.
 
-Our recommended setup generates the Safari project once into `safari/` without copying resources. This avoids the necessity of a manual re-sync/regeneration step before each Safari release.
+The Safari wrapper in `safari/` is treated as a stable, version-controlled native layer. This is where Apple-specific assets and metadata live, such as native app icons and `PrivacyInfo.xcprivacy` files. Do **not** regenerate the wrapper on every release.
 
 ## Setup Safari
 
-Run these commands to initialize or refresh the Xcode project for Safari:
+The single release entrypoint is still `./release.sh`. When you intentionally want to refresh the Safari wrapper too, use:
 
 ```bash
-node build.mjs
-
-xcrun safari-web-extension-converter dist/chrome \
-  --app-name "WebToMarkdown" \
-  --project-location safari \
-  --macos-only
+./release.sh --refresh-safari
 
 ```
 
-*(You can also use the `./release.sh` script to run these in one step.)*
+Under the hood this calls the dedicated refresh script, which preserves committed native customizations in `safari/`, including:
+
+- `AppIcon.appiconset`
+- `LargeIcon.imageset`
+- `PrivacyInfo.xcprivacy`
+- targeted `project.pbxproj` patches required to reference the privacy manifests
+
+Important caveat: only the files and patches in that preservation list are guaranteed. If you later add other native Safari customizations such as `Info.plist` keys, entitlements, storyboard changes, or extra native resources, you must update the Safari refresh automation to preserve or reapply them too.
 
 ## Release Cycle
 
@@ -40,10 +42,28 @@ Follow these steps for every extension update:
 
 1. Update code once in the repository.
 2. Bump the extension version in `manifest.json`.
-3. Run `node build.mjs` (or `./release.sh`).
+3. Run `./release.sh`.
 4. **Chrome**: Zip `dist/chrome` and upload it to the Chrome Web Store dashboard.
 5. **Firefox**: Zip `dist/firefox` and upload it to Mozilla AMO for signing and publishing.
-6. **Safari**: Open `safari/WebToMarkdown.xcodeproj`, increment the app build and version in Xcode, Archive, then upload via Xcode/App Store Connect.
+6. **Safari**: `./release.sh` automatically syncs the Safari `MARKETING_VERSION` from `manifest.json` and increments the Safari `CURRENT_PROJECT_VERSION` build number. Open `safari/WebToMarkdown.xcodeproj`, Archive, then upload via Xcode/App Store Connect.
+
+## Versioning Rules
+
+- `manifest.json` is the source of truth for the public extension version.
+- Safari `MARKETING_VERSION` is synced automatically from `manifest.json`.
+- Safari `CURRENT_PROJECT_VERSION` is the App Store build number and is incremented automatically by `./release.sh`.
+- Safari wrapper refreshes reapply only the explicitly scripted native customizations. New native changes require updates to the refresh automation and this document.
+- If you need to set a specific Safari build number manually, run:
+
+```bash
+./release.sh --safari-build 42
+```
+
+- If you need the release run to also refresh the Safari wrapper, run:
+
+```bash
+./release.sh --refresh-safari
+```
 
 ## Distribution Platforms
 

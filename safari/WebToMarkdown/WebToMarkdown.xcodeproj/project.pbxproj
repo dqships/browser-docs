@@ -23,6 +23,8 @@
 		AD3EBF2F2F96AD060030233A /* content in Resources */ = {isa = PBXBuildFile; fileRef = AD3EBF292F96AD060030233A /* content */; };
 		AD3EBF302F96AD060030233A /* shared in Resources */ = {isa = PBXBuildFile; fileRef = AD3EBF2A2F96AD060030233A /* shared */; };
 		AD3EBF312F96AD060030233A /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = AD3EBF2B2F96AD060030233A /* manifest.json */; };
+		AD3EBF332F96B0010030233A /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = AD3EBF342F96B0010030233A /* PrivacyInfo.xcprivacy */; };
+		AD3EBF352F96B0010030233A /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = AD3EBF362F96B0010030233A /* PrivacyInfo.xcprivacy */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,8 @@
 		AD3EBF292F96AD060030233A /* content */ = {isa = PBXFileReference; lastKnownFileType = folder; name = content; path = ../../../dist/chrome/content; sourceTree = "<group>"; };
 		AD3EBF2A2F96AD060030233A /* shared */ = {isa = PBXFileReference; lastKnownFileType = folder; name = shared; path = ../../../dist/chrome/shared; sourceTree = "<group>"; };
 		AD3EBF2B2F96AD060030233A /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = ../../../dist/chrome/manifest.json; sourceTree = "<group>"; };
+		AD3EBF342F96B0010030233A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		AD3EBF362F96B0010030233A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +119,7 @@
 				AD3EBF0A2F96AD040030233A /* Main.storyboard */,
 				AD3EBF0D2F96AD050030233A /* Assets.xcassets */,
 				AD3EBF0F2F96AD050030233A /* Info.plist */,
+				AD3EBF342F96B0010030233A /* PrivacyInfo.xcprivacy */,
 				AD3EBEFE2F96AD040030233A /* Resources */,
 			);
 			path = WebToMarkdown;
@@ -137,6 +142,7 @@
 				AD3EBF252F96AD060030233A /* Resources */,
 				AD3EBF192F96AD060030233A /* SafariWebExtensionHandler.swift */,
 				AD3EBF1B2F96AD060030233A /* Info.plist */,
+				AD3EBF362F96B0010030233A /* PrivacyInfo.xcprivacy */,
 			);
 			path = "WebToMarkdown Extension";
 			sourceTree = "<group>";
@@ -246,6 +252,7 @@
 				AD3EBF072F96AD040030233A /* Script.js in Resources */,
 				AD3EBF012F96AD040030233A /* Main.html in Resources */,
 				AD3EBF0E2F96AD050030233A /* Assets.xcassets in Resources */,
+				AD3EBF332F96B0010030233A /* PrivacyInfo.xcprivacy in Resources */,
 				AD3EBF052F96AD040030233A /* Style.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,6 +265,7 @@
 				AD3EBF2E2F96AD060030233A /* popup in Resources */,
 				AD3EBF2C2F96AD060030233A /* background in Resources */,
 				AD3EBF2F2F96AD060030233A /* content in Resources */,
+				AD3EBF352F96B0010030233A /* PrivacyInfo.xcprivacy in Resources */,
 				AD3EBF312F96AD060030233A /* manifest.json in Resources */,
 				AD3EBF2D2F96AD060030233A /* options in Resources */,
 			);
