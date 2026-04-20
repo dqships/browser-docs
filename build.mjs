@@ -58,7 +58,7 @@ async function build() {
   // Firefox requires an explicit gecko ID for a lot of internal features
   firefoxManifest.browser_specific_settings = {
     gecko: {
-      id: "web-to-markdown@followusai..com",
+      id: "web-to-markdown@followusai.com",
       strict_min_version: "115.0"
     }
   };
