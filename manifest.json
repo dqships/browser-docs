@@ -14,6 +14,11 @@
     "default_title": "Docs to Markdown",
     "default_popup": "popup/popup.html"
   },
+  "icons": {
+    "16": "shared/icon.png",
+    "48": "shared/icon.png",
+    "128": "shared/icon.png"
+  },
   "background": {
     "service_worker": "background/service-worker.js",
     "type": "module"
