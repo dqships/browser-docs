@@ -39,9 +39,12 @@ Under the hood this calls the dedicated refresh script, which preserves committe
 - Safari app and extension `DEVELOPMENT_TEAM`
 - Safari app and extension `PRODUCT_BUNDLE_IDENTIFIER`
 - Safari app `INFOPLIST_KEY_LSApplicationCategoryType`
+- Safari app and extension `INFOPLIST_KEY_ITSAppUsesNonExemptEncryption`
 - project and target deployment minimums such as `MACOSX_DEPLOYMENT_TARGET`
 
 Important caveat: only the files and patches in that preservation list are guaranteed. If you later add other native Safari customizations such as `Info.plist` keys, entitlements, storyboard changes, or extra native resources, you must update the Safari refresh automation to preserve or reapply them too.
+
+For this project, the Safari app and extension explicitly set `ITSAppUsesNonExemptEncryption = NO` through Xcode build settings. That matches the current implementation, which does not ship custom cryptographic code and only relies on platform-provided browser and OS networking behavior. If a future release adds bundled cryptography beyond Apple's exempt platform encryption, change the value to `YES` and complete the App Store Connect export compliance flow before submission.
 
 ## Release Cycle
 

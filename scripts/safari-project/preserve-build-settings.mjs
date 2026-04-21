@@ -14,11 +14,13 @@ const preservedKeysByRole = {
     "DEVELOPMENT_TEAM",
     "PRODUCT_BUNDLE_IDENTIFIER",
     "INFOPLIST_KEY_LSApplicationCategoryType",
+    "INFOPLIST_KEY_ITSAppUsesNonExemptEncryption",
     ...deploymentTargetKeys,
   ],
   extension: [
     "DEVELOPMENT_TEAM",
     "PRODUCT_BUNDLE_IDENTIFIER",
+    "INFOPLIST_KEY_ITSAppUsesNonExemptEncryption",
     ...deploymentTargetKeys,
   ],
   project: deploymentTargetKeys,

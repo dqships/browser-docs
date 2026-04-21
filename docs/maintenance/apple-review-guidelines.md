@@ -52,6 +52,16 @@ When submitting the finalized `.pkg` / `.app` via Xcode to App Store Connect, yo
 - **Review Notes:** In the "App Review Information" section, explicitly explain to the reviewer how to test the extension. 
    - *Example:* "Open Safari, navigate to a documentation site like react.dev, click the extension icon, and observe the page content successfully converted and copied as Markdown."
 
+## 6. Export Compliance Declaration
+
+Apple requires you to declare whether the app uses non-exempt encryption. This repository's Safari targets now set `ITSAppUsesNonExemptEncryption = NO` in Xcode build settings, which is appropriate for the current wrapper because it does not bundle custom encryption libraries or proprietary cryptographic code.
+
+If you later add your own cryptographic implementation, or link a third-party library that provides non-exempt encryption, you must:
+
+1. Change `ITSAppUsesNonExemptEncryption` to `YES`.
+2. Provide the required export compliance documentation in App Store Connect.
+3. Add the `ITSEncryptionExportComplianceCode` Apple returns after approval.
+
 ## Permissions & Manifest
 
 Because this project utilizes a `manifest.json` (Manifest V3) extension architecture, the host macOS system and Safari sandbox defer to and trust the permissions declared in your JSON (such as `activeTab` or `clipboardWrite`).
