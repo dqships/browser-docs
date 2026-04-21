@@ -29,10 +29,7 @@ export async function exportSlideSet({
   for (let index = 0; index < setDefinition.slides.length; index += 1) {
     const slide = setDefinition.slides[index];
     const source = await getSource(slide.slug);
-    const blob =
-      size.width === CANVAS_WIDTH && size.height === CANVAS_HEIGHT
-        ? dataUrlToBlob(source)
-        : await resizeDataUrlToBlob(source, size.width, size.height);
+    const blob = await resizeDataUrlToBlob(source, size.width, size.height);
     const filename = `${String(index + 1).padStart(2, "0")}-${slide.slug}-${size.width}x${size.height}.png`;
 
     folder.file(filename, blob);

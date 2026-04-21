@@ -13,7 +13,7 @@ export async function captureSlide(element: HTMLElement) {
   const options = {
     width: CANVAS_WIDTH,
     height: CANVAS_HEIGHT,
-    pixelRatio: 1,
+    pixelRatio: 2,
     cacheBust: true,
   };
 

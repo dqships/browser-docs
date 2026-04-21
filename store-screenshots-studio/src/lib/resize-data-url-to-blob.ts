@@ -17,6 +17,9 @@ export function resizeDataUrlToBlob(
         return;
       }
 
+      context.imageSmoothingEnabled = true;
+      context.imageSmoothingQuality = "high";
+
       context.drawImage(image, 0, 0, width, height);
       canvas.toBlob((blob) => {
         if (!blob) {
