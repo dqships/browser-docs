@@ -67,6 +67,116 @@ body {
   margin: 0;
 }
 
+.settings-shortcut {
+  align-items: center;
+  color: var(--text-secondary);
+  display: inline-flex;
+  gap: 10px;
+  margin-top: 16px;
+  position: relative;
+}
+
+.settings-shortcut-label {
+  font-size: 13px;
+}
+
+.shortcut-tooltip {
+  position: relative;
+}
+
+.shortcut-tooltip summary {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  height: 20px;
+  justify-content: center;
+  list-style: none;
+  transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+  width: 20px;
+}
+
+.shortcut-tooltip summary::-webkit-details-marker {
+  display: none;
+}
+
+.shortcut-tooltip summary:hover,
+.shortcut-tooltip summary:focus-visible,
+.shortcut-tooltip[open] summary {
+  background: rgba(0, 229, 255, 0.08);
+  border-color: var(--border-glow);
+  color: var(--text-primary);
+}
+
+.shortcut-tooltip summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.shortcut-tooltip-panel {
+  background: rgba(12, 17, 27, 0.96);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: var(--shadow-panel);
+  color: var(--text-primary);
+  left: 50%;
+  min-width: 220px;
+  opacity: 0;
+  padding: 12px 14px;
+  pointer-events: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  transform: translateX(-50%) translateY(-4px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  z-index: 2;
+}
+
+.shortcut-tooltip-panel::before {
+  background: rgba(12, 17, 27, 0.96);
+  border-left: 1px solid var(--border-color);
+  border-top: 1px solid var(--border-color);
+  content: '';
+  height: 10px;
+  left: 50%;
+  position: absolute;
+  top: -6px;
+  transform: translateX(-50%) rotate(45deg);
+  width: 10px;
+}
+
+.shortcut-tooltip:hover .shortcut-tooltip-panel,
+.shortcut-tooltip:focus-within .shortcut-tooltip-panel,
+.shortcut-tooltip[open] .shortcut-tooltip-panel {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.shortcut-tooltip-panel p {
+  color: var(--text-secondary);
+  font-size: 12px;
+  margin: 0;
+  text-align: left;
+}
+
+.shortcut-tooltip-panel p + p {
+  margin-top: 6px;
+}
+
+.shortcut-tooltip-panel strong {
+  color: var(--text-primary);
+  display: inline-block;
+  font-size: 12px;
+  margin-right: 8px;
+  min-width: 56px;
+}
+
 .settings-form {
   background: var(--bg-panel);
   border: 1px solid var(--border-color);
