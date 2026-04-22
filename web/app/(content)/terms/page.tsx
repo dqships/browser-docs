@@ -4,12 +4,13 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = createPageMetadata({
   title: `Terms of Use | ${site.name}`,
-  description: `Terms and conditions for using the ${site.name} website. Simple, fair terms for all visitors and users of our service.`,
+  description:
+    "Terms for using the ${site.name} website and extension, including acceptable use, third-party content responsibilities, and service limitations.",
   canonical: "/terms",
 });
 
 export default function TermsPage() {
-  const lastUpdated = "January 1, 2026";
+  const lastUpdated = "April 22, 2026";
 
   return (
     <article className="px-6 py-20 md:py-28">
@@ -29,130 +30,152 @@ export default function TermsPage() {
           </p>
         </header>
 
+        <div className="legal-summary">
+          <p className="text-sm leading-relaxed text-text-secondary">
+            These terms apply to the ${site.name} website and extension. The
+            product is meant to help you copy page content as Markdown, not to
+            transfer ownership of third-party content or guarantee compatibility
+            with every site on the web.
+          </p>
+        </div>
+
         <div className="prose-legal">
           <section>
-            <h2>Agreement to Terms</h2>
+            <h2>Agreement to These Terms</h2>
             <p>
-              By accessing or using the {site.name} website located at{" "}
-              <strong>{site.url}</strong> (the &quot;Site&quot;), you agree
-              to be bound by these Terms of Use. If you do not agree to
-              these terms, please do not use the Site.
+              By accessing the {site.name} website at <strong>{site.url}</strong>{" "}
+              or installing or using the {site.name} extension, you agree to
+              these Terms of Use. If you do not agree, do not use the website
+              or extension.
             </p>
           </section>
 
           <section>
-            <h2>Description of Service</h2>
+            <h2>Description of the Service</h2>
             <p>
-              {site.name} operates an informational website and blog. The
-              Site provides articles, guides, and resources. Our offerings
-              may evolve over time as we develop new products and services.
+              {site.name} provides a browser extension and related website
+              content. The current core product helps you convert the readable
+              portion of the current page into Markdown and copy that Markdown
+              for your own downstream use.
+            </p>
+            <p>
+              The product may evolve over time. We may add, remove, or modify
+              features without guaranteeing that any specific feature will
+              remain available forever.
             </p>
           </section>
 
           <section>
-            <h2>Use of the Site</h2>
-            <p>You agree to use the Site only for lawful purposes and in a manner that does not:</p>
+            <h2>Acceptable Use</h2>
+            <p>
+              You agree to use the website and extension only for lawful
+              purposes and in a way that does not interfere with the product or
+              the rights of others. You must not:
+            </p>
             <ul>
-              <li>Infringe upon the rights of others</li>
+              <li>Use the service to violate law, contract, or site rules</li>
+              <li>Bypass access controls or restricted content protections</li>
+              <li>Attempt to reverse engineer, disable, or abuse the service</li>
+              <li>Introduce malware, malicious scripts, or harmful code</li>
               <li>
-                Restrict or inhibit any other user from using the Site
-              </li>
-              <li>
-                Introduce viruses, malware, or other harmful code
-              </li>
-              <li>
-                Attempt to gain unauthorized access to any portion of the
-                Site or its systems
-              </li>
-              <li>
-                Use automated tools to scrape, crawl, or otherwise extract
-                data from the Site without permission
+                Use the product in a way that infringes privacy, confidentiality,
+                or intellectual property rights
               </li>
             </ul>
+          </section>
+
+          <section>
+            <h2>Third-Party Content Responsibility</h2>
+            <p>
+              ${site.name} helps you copy and reformat content from pages you
+              choose to view. The source page content remains the property of
+              its respective owner, not ours.
+            </p>
+            <p>
+              You are responsible for making sure you have the right to copy,
+              store, paste, reuse, or redistribute any third-party content you
+              process with the extension. The extension does not grant you any
+              license to source material and does not override the copyright,
+              confidentiality, or terms of the websites you use it on.
+            </p>
+          </section>
+
+          <section>
+            <h2>Browser Stores and Third-Party Platforms</h2>
+            <p>
+              If you install ${site.name} through a browser store or other
+              third-party platform, that platform may impose additional rules,
+              review policies, and billing or support procedures. Your use of
+              those platforms is governed by their own agreements.
+            </p>
           </section>
 
           <section>
             <h2>Intellectual Property</h2>
             <p>
-              All content on the Site — including text, images, graphics,
-              logos, and design elements — is the property of {site.name} or
-              its licensors and is protected by applicable intellectual
-              property laws. You may not reproduce, distribute, or create
-              derivative works from this content without explicit written
+              The ${site.name} software, website design, branding, and related
+              original materials are owned by us or our licensors and are
+              protected by applicable intellectual property law. Except as
+              allowed by law, you may not copy, resell, sublicense, or create
+              derivative works from our software or website content without
               permission.
             </p>
           </section>
 
           <section>
-            <h2>User-Submitted Content</h2>
+            <h2>No Warranty</h2>
             <p>
-              By submitting content through the Site, you grant {site.name} a
-              non-exclusive, royalty-free, perpetual license to use that
-              content for product development, research, and marketing
-              purposes.
-            </p>
-          </section>
-
-          <section>
-            <h2>Disclaimer of Warranties</h2>
-            <p>
-              The Site is provided on an &quot;as is&quot; and &quot;as
-              available&quot; basis without warranties of any kind, either
-              express or implied. We do not warrant that:
+              The website and extension are provided on an &quot;as is&quot; and
+              &quot;as available&quot; basis. We do not promise that:
             </p>
             <ul>
-              <li>The Site will be available at all times or free from errors</li>
-              <li>
-                Information on the Site is complete, accurate, or current
-              </li>
+              <li>The service will work on every website or browser version</li>
+              <li>Every page will convert perfectly into Markdown</li>
+              <li>The service will always be uninterrupted, secure, or error-free</li>
             </ul>
+            <p>
+              Documentation sites vary widely. Some layouts, scripts, or
+              embedded content may not be captured correctly.
+            </p>
           </section>
 
           <section>
             <h2>Limitation of Liability</h2>
             <p>
-              To the fullest extent permitted by law, {site.name} shall not
-              be liable for any indirect, incidental, special, consequential,
-              or punitive damages arising from your use of the Site, even if
-              we have been advised of the possibility of such damages.
+              To the fullest extent permitted by law, we are not liable for any
+              indirect, incidental, special, consequential, exemplary, or
+              punitive damages arising out of or related to your use of the
+              website or extension. This includes loss of data, workflow
+              interruption, compatibility problems, or issues caused by the
+              third-party content you choose to process.
             </p>
           </section>
 
           <section>
-            <h2>Third-Party Links</h2>
+            <h2>Termination</h2>
             <p>
-              The Site may contain links to third-party websites or services.
-              We are not responsible for the content, privacy practices, or
-              availability of those third-party sites. Your use of
-              third-party sites is governed by their respective terms and
-              policies.
+              You may stop using WebToMarkdown at any time. We may suspend or
+              discontinue the website or extension, in whole or in part, at any
+              time and without liability.
             </p>
           </section>
 
           <section>
             <h2>Changes to These Terms</h2>
             <p>
-              We reserve the right to modify these Terms of Use at any time.
-              Changes will be posted on this page with an updated &quot;Last
-              updated&quot; date. Your continued use of the Site after
-              changes are posted constitutes acceptance of the revised terms.
-            </p>
-          </section>
-
-          <section>
-            <h2>Governing Law</h2>
-            <p>
-              These Terms of Use shall be governed by and construed in
-              accordance with applicable laws, without regard to conflict of
-              law principles.
+              We may revise these Terms of Use from time to time. When we do,
+              we will post the updated version on this page and revise the
+              &quot;Last updated&quot; date. Your continued use after a change
+              means you accept the revised terms.
             </p>
           </section>
 
           <section>
             <h2>Contact</h2>
             <p>
-              If you have questions about these Terms of Use, you can reach
-              us through the contact information provided on our website.
+              If you have questions about these terms, use the support or
+              contact channel provided with the website, repository, or browser
+              store listing where you found {site.name}.
             </p>
           </section>
         </div>

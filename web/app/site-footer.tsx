@@ -1,18 +1,21 @@
+import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/lib/site";
 
 /** Shared site footer used across all pages. */
 export function SiteFooter() {
   return (
-    <footer
-      className="px-6 py-10 text-center"
-      style={{
-        background: "var(--surface)",
-        borderTop: "1px solid var(--border)",
-      }}
-    >
+    <footer className="site-footer-shell px-6 py-10 text-center">
       <div className="max-w-4xl mx-auto">
-        <div className="flex items-center justify-center gap-2.5 mb-4">
+        <div className="brand-lockup justify-center mb-4">
+          <Image
+            src="/icon.png"
+            alt=""
+            aria-hidden="true"
+            width={22}
+            height={22}
+            className="brand-icon"
+          />
           <span className="text-sm font-semibold text-text-primary">
             {site.name}
           </span>

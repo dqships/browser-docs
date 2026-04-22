@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/lib/site";
 
@@ -18,17 +19,21 @@ export function SiteHeader({
   return (
     <nav
       id="navbar"
-      className={`flex items-center justify-between px-6 py-4 backdrop-blur-xl z-50 ${
-        isLanding ? "fixed top-0 left-0 right-0" : "border-b border-border"
+      className={`site-nav flex items-center justify-between px-6 py-4 backdrop-blur-xl z-50 ${
+        isLanding
+          ? "site-nav--landing fixed top-0 left-0 right-0"
+          : "site-nav--content"
       }`}
-      style={{
-        background: isLanding ? "rgba(12, 12, 14, 0.8)" : "var(--background)",
-        ...(isLanding
-          ? { borderBottom: "1px solid var(--border)" }
-          : {}),
-      }}
     >
-      <Link href="/" className="flex items-center gap-2.5">
+      <Link href="/" className="brand-lockup">
+        <Image
+          src="/icon.png"
+          alt=""
+          aria-hidden="true"
+          width={22}
+          height={22}
+          className="brand-icon"
+        />
         <span className="text-base font-semibold tracking-tight text-text-primary">
           {site.name}
         </span>

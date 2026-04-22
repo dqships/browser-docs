@@ -21,6 +21,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   applicationName: site.name,
+  icons: {
+    icon: [{ url: "/icon.png", type: "image/png" }],
+    apple: [{ url: "/icon.png", type: "image/png" }],
+    shortcut: ["/icon.png"],
+  },
   ...createPageMetadata({
     title: site.defaultTitle,
     description: site.defaultDescription,

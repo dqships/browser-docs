@@ -4,12 +4,13 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = createPageMetadata({
   title: `Privacy Policy | ${site.name}`,
-  description: `Learn how ${site.name} handles your information. Our privacy practices are transparent, straightforward, and designed to respect your data.`,
+  description:
+    "Privacy details for the ${site.name} website and extension, including what stays local in your browser, what settings are stored, and what data we do not collect.",
   canonical: "/privacy",
 });
 
 export default function PrivacyPage() {
-  const lastUpdated = "January 1, 2026";
+  const lastUpdated = "April 22, 2026";
 
   return (
     <article className="px-6 py-20 md:py-28">
@@ -29,125 +30,183 @@ export default function PrivacyPage() {
           </p>
         </header>
 
+        <div className="legal-summary">
+          <p className="text-sm leading-relaxed text-text-secondary">
+            ${site.name} is designed so the core extraction flow happens
+            locally in your browser. This policy covers both the marketing site
+            and the extension, what stays on your device, and the limited data
+            we may receive when you visit the site or contact us.
+          </p>
+        </div>
+
         <div className="prose-legal">
           <section>
             <h2>Overview</h2>
             <p>
-              {site.name} (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;)
-              operates the website located at{" "}
-              <strong>{site.url}</strong>. This Privacy Policy
-              explains what information we collect, how we use it, and your
-              choices regarding that information.
+              This Privacy Policy explains how {site.name} handles information
+              when you use the website at <strong>{site.url}</strong> and the
+              browser extension distributed under the same name. In this policy,
+              &quot;we&quot; means the operator of {site.name}, and
+              &quot;you&quot; means a visitor or extension user.
             </p>
           </section>
 
           <section>
-            <h2>Information We Collect</h2>
-
-            <h3>Information You Provide</h3>
+            <h2>What the Extension Processes</h2>
             <p>
-              If you choose to contact us or submit information through our
-              website, you may voluntarily provide information such as:
+              When you trigger ${site.name} from the popup, context menu, or
+              keyboard shortcut, the extension reads the current page so it can
+              identify the primary content area, convert that content into
+              Markdown, and place the result on your clipboard.
             </p>
-            <ul>
-              <li>Your name and email address</li>
-              <li>Feedback, questions, or other messages</li>
-            </ul>
-
-            <h3>Information Collected Automatically</h3>
             <p>
-              When you visit our website, standard web server logs may
-              record:
-            </p>
-            <ul>
-              <li>IP address</li>
-              <li>Browser type and operating system</li>
-              <li>Pages visited and time spent</li>
-              <li>Referring URL</li>
-            </ul>
-            <p>
-              We use this data in aggregate to understand how visitors use
-              the site. We do not use this data to identify individuals.
+              This core conversion flow is intended to happen locally in your
+              browser. We do not require an account for the current core
+              feature set, and we do not operate a remote page-conversion
+              service for normal copy actions.
             </p>
           </section>
 
           <section>
-            <h2>How We Use Your Information</h2>
-            <p>We use the information we collect to:</p>
+            <h2>Settings Stored Locally</h2>
+            <p>
+              The extension stores your copy preferences in browser extension
+              storage so the product can remember how you want Markdown
+              exported. Those settings may include options such as:
+            </p>
             <ul>
-              <li>Improve our website content and user experience</li>
-              <li>Respond to your inquiries or feedback</li>
-              <li>Analyze site traffic and usage patterns</li>
+              <li>Aggressive pruning of page chrome and obvious noise</li>
+              <li>Whether to include frontmatter</li>
+              <li>Whether to include a source link</li>
+              <li>Whether to include a title heading</li>
+              <li>Whether to preserve tables when possible</li>
             </ul>
+            <p>
+              These preferences are stored locally for extension behavior. You
+              can reset them from the extension settings or by removing the
+              extension.
+            </p>
           </section>
 
           <section>
-            <h2>Information Sharing</h2>
+            <h2>Permissions We Use</h2>
             <p>
-              We do not sell, rent, or trade your personal information. We
-              may share information only in the following circumstances:
+              ${site.name} currently requests a small set of browser
+              permissions so the extension can perform the job you asked it to
+              do:
             </p>
             <ul>
               <li>
-                <strong>Service providers:</strong> Third-party tools (e.g.,
-                hosting, analytics) that help us operate the website, bound
-                by their own privacy policies.
+                <strong>activeTab</strong> and <strong>scripting</strong> so
+                the extension can work with the page you are currently viewing
+                after you invoke it.
               </li>
               <li>
-                <strong>Legal requirements:</strong> If required by law,
-                regulation, or valid legal process.
+                <strong>clipboardWrite</strong> so the exported Markdown can be
+                copied for you.
+              </li>
+              <li>
+                <strong>contextMenus</strong> so the extension can add its page
+                action to the browser context menu.
+              </li>
+              <li>
+                <strong>storage</strong> so your export preferences can be
+                remembered locally.
               </li>
             </ul>
           </section>
 
           <section>
-            <h2>Cookies</h2>
+            <h2>What We Do Not Collect for the Core Flow</h2>
             <p>
-              Our website may use essential cookies for basic functionality.
-              We do not use advertising cookies or cross-site tracking
-              cookies.
+              For the current core copy-to-Markdown workflow, we do not claim
+              ownership of the page content you copy and we do not intentionally
+              collect or store that copied page content on our servers as part
+              of the normal extension action.
             </p>
-          </section>
-
-          <section>
-            <h2>Your Rights</h2>
-            <p>Depending on your jurisdiction, you may have the right to:</p>
+            <p>We also do not use the website for:</p>
             <ul>
-              <li>Access the personal information we hold about you</li>
-              <li>Request correction or deletion of your data</li>
-              <li>Opt out of any future communications</li>
+              <li>Selling your copied content or browsing activity</li>
+              <li>Running advertising profiles or cross-site tracking</li>
+              <li>Requiring a user account just to use the core extension flow</li>
             </ul>
+          </section>
+
+          <section>
+            <h2>Website Information</h2>
             <p>
-              To exercise any of these rights, please contact us using the
-              information below.
+              If you visit the website, normal hosting infrastructure may
+              receive standard technical information such as IP address, browser
+              type, requested pages, referrer information, and timestamp data.
+              This information is used to deliver and secure the site.
+            </p>
+            <p>
+              If you voluntarily contact us, we will receive the information you
+              choose to send, such as your email address and the contents of
+              your message.
             </p>
           </section>
 
           <section>
-            <h2>Children&apos;s Privacy</h2>
+            <h2>Clipboard and Downstream Use</h2>
             <p>
-              Our website is not directed at children under 13. We do not
-              knowingly collect personal information from children. If you
-              believe a child has provided us with personal information,
-              please contact us and we will promptly delete it.
+              After ${site.name} copies content to your clipboard, the
+              handling of that content depends on your operating system and the
+              apps or services where you paste it. If you paste copied
+              documentation into third-party products, those products will
+              govern the pasted content under their own terms and privacy
+              policies.
+            </p>
+          </section>
+
+          <section>
+            <h2>Cookies and Tracking</h2>
+            <p>
+              We do not use advertising cookies or cross-site tracking cookies
+              on the website. Standard browser or hosting behavior may still
+              involve basic technical session handling, caching, or security
+              protections.
+            </p>
+          </section>
+
+          <section>
+            <h2>Third Parties</h2>
+            <p>
+              WebToMarkdown may be distributed through third-party browser
+              stores or linked from third-party websites. Those platforms may
+              collect their own telemetry, billing, or account information under
+              their own rules. We are not responsible for the privacy practices
+              of third-party platforms you use to install, discover, or discuss
+              the extension.
+            </p>
+          </section>
+
+          <section>
+            <h2>Data Retention and Control</h2>
+            <p>
+              Extension settings remain in local browser storage until you
+              change them, clear browser extension storage, or uninstall the
+              extension. Website-side technical logs, if any, are retained only
+              as long as reasonably necessary for security, operations, and
+              support.
             </p>
           </section>
 
           <section>
             <h2>Changes to This Policy</h2>
             <p>
-              We may update this Privacy Policy from time to time. Changes
-              will be posted on this page with an updated &quot;Last
-              updated&quot; date. We encourage you to review this page
-              periodically.
+              We may update this Privacy Policy from time to time. When we do,
+              we will post the revised version on this page and update the
+              &quot;Last updated&quot; date.
             </p>
           </section>
 
           <section>
             <h2>Contact</h2>
             <p>
-              If you have questions about this Privacy Policy, you can reach
-              us through the contact information provided on our website.
+              If you have privacy questions about {site.name}, use the support
+              or contact channel provided with the website, repository, or
+              browser store listing where you found the product.
             </p>
           </section>
         </div>
