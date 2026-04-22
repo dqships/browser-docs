@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { LandingScreenshotPreview } from "@/app/landing-screenshot-preview";
 import { SiteHeader } from "@/app/site-header";
 import { SiteFooter } from "@/app/site-footer";
 import { site } from "@/lib/site";
@@ -70,28 +71,6 @@ const TRUST_POINTS = [
   "Works locally",
   "Made for docs",
 ];
-
-const SOURCE_PAGE_LINES = [
-  "Sidebar navigation",
-  "Page title and intro",
-  "Code examples",
-  "Cookie prompt",
-  "Feedback widget",
-];
-
-const MARKDOWN_PREVIEW = `# Getting Started
-
-Use ${site.name} to copy the readable part of a docs page without the surrounding sidebar and UI.
-
-## Copy flow
-- Open the page
-- Trigger the extension
-- Paste clean Markdown
-
-| Setting | Effect |
-| --- | --- |
-| Source link | Keep citation |
-| Frontmatter | Keep metadata |`;
 
 export default function Home() {
   const revealRefs = useRef<HTMLElement[]>([]);
@@ -184,34 +163,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="animate-fade-up delay-500 hero-preview-stack">
-            <article className="preview-card preview-card-source">
-              <p className="preview-label">Before</p>
-              <h2 className="preview-title">A typical docs page</h2>
-              <div className="doc-wireframe">
-                <span className="doc-pill">Sidebar</span>
-                <span className="doc-pill">TOC</span>
-                <span className="doc-pill">Feedback</span>
-              </div>
-              <div className="doc-lines" aria-hidden="true">
-                {SOURCE_PAGE_LINES.map((line) => (
-                  <span key={line}>{line}</span>
-                ))}
-              </div>
-              <p className="preview-copy">
-                The useful part is mixed in with nav, table of contents,
-                cookie prompts, and feedback UI you do not want in Markdown.
-              </p>
-            </article>
-
-            <article className="preview-card preview-card-markdown">
-              <p className="preview-label">After</p>
-              <h2 className="preview-title">Markdown you can use</h2>
-              <pre className="markdown-preview">
-                <code>{MARKDOWN_PREVIEW}</code>
-              </pre>
-            </article>
-          </div>
+          <LandingScreenshotPreview />
         </div>
       </section>
 
