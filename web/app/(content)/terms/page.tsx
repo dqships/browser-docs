@@ -32,7 +32,7 @@ export default function TermsPage() {
 
         <div className="legal-summary">
           <p className="text-sm leading-relaxed text-text-secondary">
-            These terms apply to the ${site.name} website and extension. The
+            These terms apply to the {site.name} website and extension. The
             product is meant to help you copy page content as Markdown, not to
             transfer ownership of third-party content or guarantee compatibility
             with every site on the web.
@@ -87,7 +87,7 @@ export default function TermsPage() {
           <section>
             <h2>Third-Party Content Responsibility</h2>
             <p>
-              ${site.name} helps you copy and reformat content from pages you
+              {site.name} helps you copy and reformat content from pages you
               choose to view. The source page content remains the property of
               its respective owner, not ours.
             </p>
@@ -103,7 +103,7 @@ export default function TermsPage() {
           <section>
             <h2>Browser Stores and Third-Party Platforms</h2>
             <p>
-              If you install ${site.name} through a browser store or other
+              If you install {site.name} through a browser store or other
               third-party platform, that platform may impose additional rules,
               review policies, and billing or support procedures. Your use of
               those platforms is governed by their own agreements.
@@ -113,7 +113,7 @@ export default function TermsPage() {
           <section>
             <h2>Intellectual Property</h2>
             <p>
-              The ${site.name} software, website design, branding, and related
+              The {site.name} software, website design, branding, and related
               original materials are owned by us or our licensors and are
               protected by applicable intellectual property law. Except as
               allowed by law, you may not copy, resell, sublicense, or create

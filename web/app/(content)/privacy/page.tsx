@@ -32,7 +32,7 @@ export default function PrivacyPage() {
 
         <div className="legal-summary">
           <p className="text-sm leading-relaxed text-text-secondary">
-            ${site.name} is designed so the core extraction flow happens
+            {site.name} is designed so the core extraction flow happens
             locally in your browser. This policy covers both the marketing site
             and the extension, what stays on your device, and the limited data
             we may receive when you visit the site or contact us.
@@ -54,7 +54,7 @@ export default function PrivacyPage() {
           <section>
             <h2>What the Extension Processes</h2>
             <p>
-              When you trigger ${site.name} from the popup, context menu, or
+              When you trigger {site.name} from the popup, context menu, or
               keyboard shortcut, the extension reads the current page so it can
               identify the primary content area, convert that content into
               Markdown, and place the result on your clipboard.
@@ -91,7 +91,7 @@ export default function PrivacyPage() {
           <section>
             <h2>Permissions We Use</h2>
             <p>
-              ${site.name} currently requests a small set of browser
+              {site.name} currently requests a small set of browser
               permissions so the extension can perform the job you asked it to
               do:
             </p>
@@ -150,7 +150,7 @@ export default function PrivacyPage() {
           <section>
             <h2>Clipboard and Downstream Use</h2>
             <p>
-              After ${site.name} copies content to your clipboard, the
+              After {site.name} copies content to your clipboard, the
               handling of that content depends on your operating system and the
               apps or services where you paste it. If you paste copied
               documentation into third-party products, those products will

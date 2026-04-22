@@ -8,67 +8,67 @@ import { site } from "@/lib/site";
 const FEATURES = [
   {
     icon: "✂️",
-    title: "Cuts the page chrome",
+    title: "Skip the sidebar and site clutter",
     description:
-      "Targets the primary docs content instead of copying nav, sidebars, cookie banners, feedback widgets, and footer clutter.",
+      "Pulls the main docs content instead of copying nav, sidebars, cookie prompts, feedback widgets, and footer clutter.",
   },
   {
     icon: "##",
-    title: "Keeps Markdown structure",
+    title: "Keep headings, lists, and tables",
     description:
-      "Preserves headings, paragraphs, nested lists, links, blockquotes, code blocks, images, and tables where possible.",
+      "Preserves the structure you need for notes, prompts, READMEs, and internal docs.",
   },
   {
     icon: "⌘",
-    title: "Fast ways to trigger it",
+    title: "Copy from the popup, menu, or shortcut",
     description:
-      "Copy from the popup, the page context menu, or the keyboard shortcut without breaking your reading flow.",
+      "Use whichever entry point fits the moment and keep reading.",
   },
   {
     icon: "⚙️",
-    title: "Choose what gets exported",
+    title: "Choose what gets copied",
     description:
-      "Include frontmatter, source links, title headings, aggressive pruning, and table support from lightweight local settings.",
+      "Add title headings, source links, frontmatter, table support, or more aggressive pruning from local settings.",
   },
   {
     icon: "🔒",
-    title: "Runs locally",
+    title: "Works locally in your browser",
     description:
-      "The core flow works in your browser with no account, no hidden sync, and no server-side conversion step for the copied page.",
+      "No account, no upload, no hidden sync. The page stays on your machine.",
   },
   {
     icon: "🧠",
-    title: "Built for notes and LLM workflows",
+    title: "Stays focused on the job",
     description:
-      "Paste usable Markdown into prompts, local knowledge bases, README drafts, PKM tools, or a documentation archive.",
+      "Open the page, copy it, paste it, move on. That focus keeps the extension fast and easy to trust.",
   },
 ];
 
 const WORKFLOW = [
   {
     step: "01",
-    title: "Open any documentation page",
+    title: "Open any docs page",
     description:
-      "Use it on common docs layouts built with article, main, or markdown-rendered HTML.",
+      "Works on the docs layouts you see every day, including article, main, and common Markdown page shells.",
   },
   {
     step: "02",
-    title: "Trigger ${site.name}",
+    title: "Copy it in one step",
     description:
-      "Run the popup, right-click the page, or use the shortcut to capture the current page in one action.",
+      "Use the popup, page menu, or shortcut to grab the page without manual cleanup.",
   },
   {
     step: "03",
-    title: "Paste clean Markdown anywhere",
+    title: "Paste it where you need it",
     description:
-      "Drop the result into notes, prompts, tickets, docs, or a local RAG pipeline without hand-cleaning first.",
+      "Drop the Markdown into notes, prompts, tickets, or internal docs and keep moving.",
   },
 ];
 
 const TRUST_POINTS = [
-  "No account required",
-  "Copies the current page only",
-  "Made for docs, prompts, and notes",
+  "No account",
+  "Works locally",
+  "Made for docs",
 ];
 
 const SOURCE_PAGE_LINES = [
@@ -81,12 +81,12 @@ const SOURCE_PAGE_LINES = [
 
 const MARKDOWN_PREVIEW = `# Getting Started
 
-Use ${site.name} to capture the readable docs content without the surrounding site chrome.
+Use ${site.name} to copy the readable part of a docs page without the surrounding sidebar and UI.
 
-## Install
-- Open the extension
-- Copy as Markdown
-- Paste into notes or prompts
+## Copy flow
+- Open the page
+- Trigger the extension
+- Paste clean Markdown
 
 | Setting | Effect |
 | --- | --- |
@@ -139,13 +139,13 @@ export default function Home() {
 
             <h1 className="animate-fade-up delay-200 mt-6 max-w-4xl text-4xl font-bold leading-[1.02] tracking-tight text-text-primary sm:text-5xl md:text-6xl lg:text-7xl">
               Copy docs as
-              <br className="hidden sm:block" /> clean Markdown.
+              <br className="hidden sm:block" /> Markdown.
             </h1>
 
             <p className="animate-fade-up delay-300 mt-6 max-w-2xl text-lg leading-relaxed text-text-secondary md:text-xl">
-              {site.name} finds the main article, skips the page chrome, and
-              copies structured Markdown in one step. It is built for notes,
-              local knowledge bases, archives, and LLM prompts.
+              {site.name} grabs the main article, leaves the sidebar behind,
+              and puts clean Markdown on your clipboard. Built for notes,
+              prompts, and internal docs.
             </p>
 
             <div className="animate-fade-up delay-400 mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
@@ -199,8 +199,8 @@ export default function Home() {
                 ))}
               </div>
               <p className="preview-copy">
-                Useful content is mixed with interface clutter, widgets, and
-                layout chrome you do not want in your Markdown output.
+                The useful part is mixed in with nav, table of contents,
+                cookie prompts, and feedback UI you do not want in Markdown.
               </p>
             </article>
 
@@ -224,15 +224,16 @@ export default function Home() {
       >
         <div className="max-w-6xl mx-auto">
           <div ref={addRevealRef} className="reveal text-center mb-16">
-            <p className="section-kicker">Why people use it</p>
+            <p className="section-kicker">Built for docs</p>
             <h2 className="text-3xl font-bold text-text-primary sm:text-4xl md:text-5xl">
-              Built to copy documentation
-              <br className="hidden sm:block" /> without the cleanup pass.
+              Made for docs pages,
+              <br className="hidden sm:block" /> not generic page clipping.
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-lg text-text-secondary">
-              ${site.name} focuses on the job developers actually have:
-              turning a live docs page into readable Markdown that is ready for
-              notes, prompts, and internal docs.
+              A lot of web-to-Markdown tools try to handle every site, every
+              export path, and every AI workflow. {site.name} stays focused on
+              one job: copy the readable part of a docs page and keep the
+              structure intact.
             </p>
           </div>
 
@@ -269,8 +270,8 @@ export default function Home() {
               <br className="hidden md:block" /> Paste the result.
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-lg text-text-secondary">
-              The flow stays intentionally small so copying a docs page feels
-              faster than cleaning one up by hand.
+              The whole point is to make copying a docs page feel faster than
+              cleaning one up by hand.
             </p>
           </div>
 
@@ -294,14 +295,14 @@ export default function Home() {
           </div>
 
           <div ref={addRevealRef} className="reveal trust-panel mt-10">
-            <p className="section-kicker !mb-3">Trust boundary</p>
+            <p className="section-kicker !mb-3">Why it stays simple</p>
             <h3 className="text-2xl font-semibold text-text-primary">
-              No hidden sync. No surprise account wall.
+              No account. No upload. No extra layer to manage.
             </h3>
             <p className="mt-3 max-w-3xl text-base leading-relaxed text-text-secondary">
-              The core product is a focused utility: copy the current page as
-              Markdown, keep the important structure, and move on. That keeps
-              the extension understandable, fast, and easy to trust.
+              The page is processed locally in your browser. {site.name} does
+              not try to be a dashboard, an agent platform, or a research
+              workspace. It copies the page you are on and gets out of the way.
             </p>
           </div>
         </div>
@@ -312,12 +313,12 @@ export default function Home() {
           <div ref={addRevealRef} className="reveal">
             <p className="section-kicker">Ready</p>
             <h2 className="text-3xl font-bold text-text-primary sm:text-4xl md:text-5xl">
-              Stop cleaning pasted docs
+              Stop fixing copied docs
               <br className="hidden sm:block" /> by hand.
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-lg text-text-secondary">
-              Install ${site.name} and turn documentation pages into usable
-              Markdown the moment you need them.
+              Install {site.name} and copy docs as Markdown the moment you need
+              them.
             </p>
 
             <a

@@ -35,7 +35,7 @@ export const site = {
   publisherName: "dqstartupbuild",
   defaultTitle: "WebToMarkdown",
   defaultDescription:
-    "A browser extension designed to allow users to quickly and reliably copy the content of any webpage—specifically focusing on documentation pages—as formatted Markdown.",
+    "Copy documentation pages as clean Markdown with a lightweight browser extension that works locally and keeps headings, lists, code blocks, and tables intact.",
   keywords: [] as string[],
   ctaUrl: "https://chromewebstore.google.com/detail/webtomarkdown/gaglchmlnkelnokjkilcbkggfdembeem",
   ctaLabel: "Get Extension",
