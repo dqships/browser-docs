@@ -33,6 +33,9 @@ export const site = {
   name: "WebToMarkdown",
   url: configuredSiteUrl.replace(/\/$/, ""),
   publisherName: "dqstartupbuild",
+  supportEmail: "support@followusai.com",
+  supportXHandle: "@dqstartupbuild",
+  supportXUrl: "https://x.com/dqstartupbuild",
   defaultTitle: "WebToMarkdown",
   defaultDescription:
     "Copy readable web pages as clean Markdown with a lightweight browser extension that works locally and keeps headings, lists, code blocks, and tables intact.",
@@ -60,6 +63,11 @@ export const site = {
       pathname: "/privacy",
       changeFrequency: "yearly" as const,
       priority: 0.3,
+    },
+    {
+      pathname: "/support",
+      changeFrequency: "yearly" as const,
+      priority: 0.32,
     },
     {
       pathname: "/terms",

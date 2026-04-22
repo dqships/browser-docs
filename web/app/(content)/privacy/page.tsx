@@ -204,9 +204,8 @@ export default function PrivacyPage() {
           <section>
             <h2>Contact</h2>
             <p>
-              If you have privacy questions about {site.name}, use the support
-              or contact channel provided with the website, repository, or
-              browser store listing where you found the product.
+              If you have privacy questions about {site.name}, visit the{" "}
+              <a href="/support">support page</a> for current contact options.
             </p>
           </section>
         </div>

@@ -28,6 +28,7 @@ export function createLlmsTxt() {
     "## Core Reading Path",
     "- /",
     "- /privacy",
+    "- /support",
     "- /terms",
     "- /blog",
     "- /feed.xml",
@@ -35,6 +36,7 @@ export function createLlmsTxt() {
     "",
     "## Key Sections",
     "- Product overview and install CTA",
+    "- Support contact options for help with copied output or site issues",
     "- Privacy and terms for the local-first extension flow",
     "- Blog posts about product direction and Markdown workflows",
     "- RSS and llms.txt for machine-readable discovery",
@@ -42,6 +44,6 @@ export function createLlmsTxt() {
     "## Site Context",
     `${site.name} is the website for a browser extension that copies the readable part of the current web page as Markdown.`,
     `${site.name} is not limited to documentation pages. It is meant for readable web content such as docs, articles, release notes, blog posts, and reference pages with a clear main content area.`,
-    `The site covers the product, installation path, privacy terms, and blog updates, while the core extension flow stays local and does not require an account.`,
+    `The site covers the product, support, privacy terms, and blog updates, while the core extension flow stays local and does not require an account.`,
   ].join("\n");
 }

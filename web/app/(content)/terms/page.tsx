@@ -174,9 +174,8 @@ export default function TermsPage() {
           <section>
             <h2>Contact</h2>
             <p>
-              If you have questions about these terms, use the support or
-              contact channel provided with the website, repository, or browser
-              store listing where you found {site.name}.
+              If you have questions about these terms, visit the{" "}
+              <a href="/support">support page</a> for current contact options.
             </p>
           </section>
         </div>

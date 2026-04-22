@@ -46,6 +46,13 @@ export function SiteFooter() {
           </Link>
           <span className="text-border">·</span>
           <Link
+            href="/support"
+            className="transition-colors hover:text-text-secondary"
+          >
+            Support
+          </Link>
+          <span className="text-border">·</span>
+          <Link
             href="/terms"
             className="transition-colors hover:text-text-secondary"
           >
