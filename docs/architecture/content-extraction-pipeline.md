@@ -3,7 +3,7 @@
 ## Pipeline Stages
 
 1. Candidate discovery
-   Search common docs containers such as `article`, `main`, `role=main`, markdown render roots, and known docs-content wrappers.
+   Search common readable-content containers such as `article`, `main`, `role=main`, markdown render roots, and known content wrappers.
 2. Candidate scoring
    Prefer containers with meaningful text length, headings, paragraphs, code blocks, lists, and tables.
 3. DOM cloning
@@ -17,7 +17,7 @@
 
 ## Heuristics
 
-The extractor is optimized for documentation pages rather than arbitrary article summarization.
+The extractor is optimized for readable pages with a clear main content area. Documentation pages are a strong fit, but not the only fit.
 
 Signals that increase confidence:
 

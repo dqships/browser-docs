@@ -7,17 +7,18 @@ export const sourceAssets = {
 } as const;
 
 export const markdownExcerptLines = [
-  "# Using the Fixture API",
+  "# Release Notes",
   "",
-  "This page exists to test whether",
-  "the extension can convert a typical",
-  "documentation layout into clean",
-  "Markdown without copying site chrome.",
+  "This update improves extraction",
+  "for readable web pages and keeps",
+  "the Markdown cleaner when sidebars,",
+  "feedback widgets, and page chrome",
+  "would normally get in the way.",
   "",
-  "## Install",
-  "- Add the package",
-  "- Rotate the token before sharing",
-  "- Run a dry run",
+  "## Highlights",
+  "- Keep source links",
+  "- Preserve lists and code blocks",
+  "- Spend less time cleaning up",
 ] as const;
 
 export const permissionList = [

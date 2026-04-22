@@ -11,13 +11,13 @@ const FEATURES = [
     icon: "✂️",
     title: "Skip the sidebar and site clutter",
     description:
-      "Pulls the main docs content instead of copying nav, sidebars, cookie prompts, feedback widgets, and footer clutter.",
+      "Pulls the readable part of the page instead of copying nav, sidebars, cookie prompts, feedback widgets, and footer clutter.",
   },
   {
     icon: "##",
     title: "Keep headings, lists, and tables",
     description:
-      "Preserves the structure you need for notes, prompts, READMEs, and internal docs.",
+      "Preserves the structure you need from docs, articles, release notes, blog posts, and reference pages.",
   },
   {
     icon: "⌘",
@@ -48,9 +48,9 @@ const FEATURES = [
 const WORKFLOW = [
   {
     step: "01",
-    title: "Open any docs page",
+    title: "Open any readable page",
     description:
-      "Works on the docs layouts you see every day, including article, main, and common Markdown page shells.",
+      "Works best on pages with a clear main content area, including docs, articles, release notes, blog posts, and reference pages.",
   },
   {
     step: "02",
@@ -69,7 +69,7 @@ const WORKFLOW = [
 const TRUST_POINTS = [
   "No account",
   "Works locally",
-  "Made for docs",
+  "Readable pages",
 ];
 
 export default function Home() {
@@ -113,18 +113,18 @@ export default function Home() {
         <div className="max-w-6xl mx-auto w-full grid gap-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.95fr)] lg:items-center">
           <div className="relative z-10">
             <p className="eyebrow-badge animate-fade-up delay-100">
-              Browser extension for documentation pages
+              Browser extension for readable web pages
             </p>
 
             <h1 className="animate-fade-up delay-200 mt-6 max-w-4xl text-4xl font-bold leading-[1.02] tracking-tight text-text-primary sm:text-5xl md:text-6xl lg:text-7xl">
-              Copy docs as
-              <br className="hidden sm:block" /> Markdown.
+              Copy readable
+              <br className="hidden sm:block" /> web pages as Markdown.
             </h1>
 
             <p className="animate-fade-up delay-300 mt-6 max-w-2xl text-lg leading-relaxed text-text-secondary md:text-xl">
-              {site.name} grabs the main article, leaves the sidebar behind,
-              and puts clean Markdown on your clipboard. Built for notes,
-              prompts, and internal docs.
+              {site.name} grabs the main content area, leaves the page chrome
+              behind, and puts clean Markdown on your clipboard. Docs are a
+              strong fit, but they are not the only fit.
             </p>
 
             <div className="animate-fade-up delay-400 mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
@@ -176,16 +176,15 @@ export default function Home() {
       >
         <div className="max-w-6xl mx-auto">
           <div ref={addRevealRef} className="reveal text-center mb-16">
-            <p className="section-kicker">Built for docs</p>
+            <p className="section-kicker">Built for readable pages</p>
             <h2 className="text-3xl font-bold text-text-primary sm:text-4xl md:text-5xl">
-              Made for docs pages,
-              <br className="hidden sm:block" /> not generic page clipping.
+              Built for the readable part
+              <br className="hidden sm:block" /> of the web page.
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-lg text-text-secondary">
-              A lot of web-to-Markdown tools try to handle every site, every
-              export path, and every AI workflow. {site.name} stays focused on
-              one job: copy the readable part of a docs page and keep the
-              structure intact.
+              {site.name} is for the part of the page you actually want to
+              keep. That includes docs, but also articles, release notes, blog
+              posts, and other readable pages with a clear main content area.
             </p>
           </div>
 
@@ -222,7 +221,7 @@ export default function Home() {
               <br className="hidden md:block" /> Paste the result.
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-lg text-text-secondary">
-              The whole point is to make copying a docs page feel faster than
+              The whole point is to make copying a readable page feel faster than
               cleaning one up by hand.
             </p>
           </div>
@@ -254,7 +253,8 @@ export default function Home() {
             <p className="mt-3 max-w-3xl text-base leading-relaxed text-text-secondary">
               The page is processed locally in your browser. {site.name} does
               not try to be a dashboard, an agent platform, or a research
-              workspace. It copies the page you are on and gets out of the way.
+              workspace. It copies the readable part of the page you are on and
+              gets out of the way.
             </p>
           </div>
         </div>
@@ -265,12 +265,12 @@ export default function Home() {
           <div ref={addRevealRef} className="reveal">
             <p className="section-kicker">Ready</p>
             <h2 className="text-3xl font-bold text-text-primary sm:text-4xl md:text-5xl">
-              Stop fixing copied docs
+              Stop fixing copied pages
               <br className="hidden sm:block" /> by hand.
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-lg text-text-secondary">
-              Install {site.name} and copy docs as Markdown the moment you need
-              them.
+              Install {site.name} and copy readable web pages as Markdown the
+              moment you need them.
             </p>
 
             <a

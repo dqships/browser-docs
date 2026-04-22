@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = createPageMetadata({
   title: `Terms of Use | ${site.name}`,
   description:
-    "Terms for using the ${site.name} website and extension, including acceptable use, third-party content responsibilities, and service limitations.",
+    `Terms for using the ${site.name} website and extension, including acceptable use, third-party content responsibilities, and service limitations.`,
   canonical: "/terms",
 });
 
@@ -134,8 +134,9 @@ export default function TermsPage() {
               <li>The service will always be uninterrupted, secure, or error-free</li>
             </ul>
             <p>
-              Documentation sites vary widely. Some layouts, scripts, or
-              embedded content may not be captured correctly.
+              Web layouts vary widely. Readable pages with a clear main content
+              area are the best fit, but some layouts, scripts, or embedded
+              content may still fail or degrade.
             </p>
           </section>
 

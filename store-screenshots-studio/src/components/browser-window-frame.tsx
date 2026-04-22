@@ -16,7 +16,7 @@ export function BrowserWindowFrame({
   imageAlt,
   className = "",
   browserName = "Docs page",
-  urlLabel = "docs.vendor.dev/getting-started",
+  urlLabel = "example.com/readable-page",
   objectPosition = "top center",
   children,
   tone = "dark",

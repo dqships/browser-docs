@@ -35,8 +35,14 @@ export const site = {
   publisherName: "dqstartupbuild",
   defaultTitle: "WebToMarkdown",
   defaultDescription:
-    "Copy documentation pages as clean Markdown with a lightweight browser extension that works locally and keeps headings, lists, code blocks, and tables intact.",
-  keywords: [] as string[],
+    "Copy readable web pages as clean Markdown with a lightweight browser extension that works locally and keeps headings, lists, code blocks, and tables intact.",
+  keywords: [
+    "web page to markdown",
+    "copy web page as markdown",
+    "readable web content to markdown",
+    "markdown browser extension",
+    "copy article as markdown",
+  ] as string[],
   ctaUrl: "https://chromewebstore.google.com/detail/webtomarkdown/gaglchmlnkelnokjkilcbkggfdembeem",
   ctaLabel: "Get Extension",
   staticPages: [

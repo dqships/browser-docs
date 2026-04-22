@@ -21,7 +21,7 @@ export function MacosPrivateSlide({
           eyebrow="Works locally"
           headline={
             <>
-              Your docs stay
+              Your pages stay
               <br />
               on your Mac.
             </>

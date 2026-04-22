@@ -1,6 +1,6 @@
 # WebToMarkdown Extension
 
-This project builds a browser extension that turns the current page into clean Markdown and copies it to the clipboard.
+This project builds a browser extension that turns the readable part of the current page into clean Markdown and copies it to the clipboard.
 
 ## Documentation Map
 

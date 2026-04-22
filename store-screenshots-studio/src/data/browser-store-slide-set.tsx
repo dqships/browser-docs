@@ -15,9 +15,9 @@ export const browserStoreSlideSet: SlideSetDefinition = {
   storeTargets: browserStoreTargets,
   slides: [
     {
-      slug: "copy-docs-fast",
+      slug: "copy-pages-fast",
       name: "Hero",
-      headline: "Copy docs as Markdown.",
+      headline: "Copy readable pages as Markdown.",
       Component: BrowserHeroSlide,
     },
     {

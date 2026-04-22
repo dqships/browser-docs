@@ -20,13 +20,13 @@ export function BrowserHeroSlide({
         }}
       >
         <MarketingHeading
-          body="One click copies the page as clean Markdown for notes, prompts, or your own docs library."
+          body="One click copies the readable part of the page as clean Markdown for notes, prompts, or your own archive."
           eyebrow="Browser extension"
           headline={
             <>
-              Copy docs as
+              Copy readable pages
               <br />
-              Markdown.
+              as Markdown.
             </>
           }
         />
@@ -41,10 +41,10 @@ export function BrowserHeroSlide({
       >
         <BrowserWindowFrame
           browserName="Chrome"
-          imageAlt="WebToMarkdown on a documentation page"
+          imageAlt="WebToMarkdown on a readable web page"
           imageSrc={sourceAssets.browserContextMenu}
           objectPosition="top center"
-          urlLabel="docs.vendor.dev/getting-started"
+          urlLabel="example.com/readable-page"
           tone="dark"
         />
       </div>

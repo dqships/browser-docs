@@ -16,9 +16,9 @@ export const macosStoreSlideSet: SlideSetDefinition = {
   storeTargets: macAppStoreTargets,
   slides: [
     {
-      slug: "safari-docs-to-markdown",
+      slug: "safari-pages-to-markdown",
       name: "Hero",
-      headline: "Copy Safari docs as Markdown.",
+      headline: "Copy readable pages as Markdown.",
       Component: MacosHeroSlide,
     },
     {
@@ -42,7 +42,7 @@ export const macosStoreSlideSet: SlideSetDefinition = {
     {
       slug: "private-by-design",
       name: "Privacy",
-      headline: "Your docs stay on your Mac.",
+      headline: "Your pages stay on your Mac.",
       Component: MacosPrivateSlide,
     },
   ],

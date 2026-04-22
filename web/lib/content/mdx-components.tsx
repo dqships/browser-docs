@@ -8,8 +8,7 @@ function CallToAction() {
         {site.ctaLabel}
       </p>
       <p className="mt-3 text-base leading-7 text-text-secondary">
-        Interested in what we&apos;re building? We&apos;d love to hear from you.
-        Click the link below to get started.
+        Install WebToMarkdown and try it on the page you are reading.
       </p>
       <a
         href={site.ctaUrl}

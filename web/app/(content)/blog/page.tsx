@@ -9,7 +9,7 @@ import {
 
 export const metadata = createPageMetadata({
   title: `Blog | ${site.name}`,
-  description: `Articles, guides, and resources from the ${site.name} team. Stay up to date with our latest content and insights.`,
+  description: `Notes on copying readable web pages as Markdown, product updates, and practical workflows from the ${site.name} team.`,
   canonical: "/blog",
 });
 
@@ -48,7 +48,8 @@ export default function BlogIndexPage() {
             The {site.name} Blog.
           </h1>
           <p className="mt-6 text-lg leading-8 text-text-secondary">
-            Articles, guides, and resources from our team.
+            Product notes, workflows, and updates on turning readable web
+            pages into Markdown.
           </p>
           {categories.length > 0 && (
             <div className="mt-8 flex flex-wrap gap-3 text-sm text-text-tertiary">

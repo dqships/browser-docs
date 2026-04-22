@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = createPageMetadata({
   title: `Privacy Policy | ${site.name}`,
   description:
-    "Privacy details for the ${site.name} website and extension, including what stays local in your browser, what settings are stored, and what data we do not collect.",
+    `Privacy details for the ${site.name} website and extension, including what stays local in your browser, what settings are stored, and what data we do not collect.`,
   canonical: "/privacy",
 });
 
@@ -56,7 +56,7 @@ export default function PrivacyPage() {
             <p>
               When you trigger {site.name} from the popup, context menu, or
               keyboard shortcut, the extension reads the current page so it can
-              identify the primary content area, convert that content into
+              identify the readable content area, convert that content into
               Markdown, and place the result on your clipboard.
             </p>
             <p>
@@ -153,7 +153,7 @@ export default function PrivacyPage() {
               After {site.name} copies content to your clipboard, the
               handling of that content depends on your operating system and the
               apps or services where you paste it. If you paste copied
-              documentation into third-party products, those products will
+              page content into third-party products, those products will
               govern the pasted content under their own terms and privacy
               policies.
             </p>

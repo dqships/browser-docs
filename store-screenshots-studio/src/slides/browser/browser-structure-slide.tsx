@@ -12,12 +12,12 @@ export function BrowserStructureSlide({
     <SlideShell className={className} variant="light">
       <div style={{ left: 130, position: "absolute", top: 242, width: 1450 }}>
         <BrowserWindowFrame
-          browserName="Docs page"
-          imageAlt="Documentation source page"
+          browserName="Web page"
+          imageAlt="Readable web page source"
           imageSrc={sourceAssets.browserContextMenu}
           objectPosition="top center"
           tone="light"
-          urlLabel="docs.vendor.dev/getting-started"
+          urlLabel="example.com/readable-page"
         />
       </div>
       <div
@@ -29,7 +29,7 @@ export function BrowserStructureSlide({
         }}
       >
         <MarketingHeading
-          body="Get Markdown you can actually use: headings, nested lists, code blocks, and tables stay intact."
+          body="Get Markdown you can actually use: headings, nested lists, code blocks, and tables stay intact across readable page types."
           eyebrow="Keeps structure"
           headline={
             <>

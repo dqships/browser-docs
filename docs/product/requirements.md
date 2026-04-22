@@ -2,13 +2,14 @@
 
 ## Goal
 
-Let a user visit a documentation page, trigger the extension, and immediately get a clean Markdown copy of the page content.
+Let a user visit a readable web page, trigger the extension, and immediately get a clean Markdown copy of the page content.
 
 ## Primary Use Cases
 
-1. Copy a docs page into notes or a local knowledge base.
-2. Feed vendor documentation into an LLM prompt or a local RAG workflow.
-3. Save a readable Markdown snapshot when the source site offers no native export.
+1. Copy a docs page, article, or reference page into notes or a local knowledge base.
+2. Copy an article, release note, or reference page into notes or a local knowledge base.
+3. Feed readable page content into an LLM prompt or a local RAG workflow.
+4. Save a readable Markdown snapshot when the source site offers no native export.
 
 ## Core User Experience
 
@@ -19,7 +20,7 @@ Let a user visit a documentation page, trigger the extension, and immediately ge
 
 ## Functional Requirements
 
-- Extract the most likely documentation container instead of copying the entire page chrome.
+- Extract the most likely readable-content container instead of copying the entire page chrome.
 - Remove obvious noise such as nav, sidebars, cookie banners, feedback widgets, and footer controls.
 - Preserve important structure:
   - headings
@@ -36,13 +37,13 @@ Let a user visit a documentation page, trigger the extension, and immediately ge
 ## Non-Goals
 
 - Perfect semantic conversion for every website.
-- Crawling entire docs sites.
+- Crawling entire sites.
 - Server-side processing.
 - Dependency-heavy build tooling for the initial version.
 
 ## Success Criteria
 
-- Works on common docs layouts built with `article`, `main`, or markdown-rendered HTML.
+- Works on readable page layouts built with `article`, `main`, or markdown-rendered HTML.
 - Produces Markdown that is immediately usable without hand-cleaning in the common case.
 - Keeps permissions lean enough to feel trustworthy.
 - Remains easy to extend with site-specific heuristics later.

@@ -18,13 +18,13 @@ export function MacosHeroSlide({
         }}
       >
         <MarketingHeading
-          body="Grab the page you're reading and paste clean Markdown into notes, prompts, or your own docs library."
+          body="Grab the readable part of the page and paste clean Markdown into notes, prompts, or your own archive."
           eyebrow="Safari extension"
           headline={
             <>
-              Copy docs as
+              Copy readable pages
               <br />
-              Markdown.
+              as Markdown.
             </>
           }
         />
@@ -32,11 +32,11 @@ export function MacosHeroSlide({
       <div style={{ position: "absolute", right: 120, top: 160, width: 1500 }}>
         <BrowserWindowFrame
           browserName="Safari"
-          imageAlt="Safari documentation page"
+          imageAlt="Safari readable web page"
           imageSrc={sourceAssets.browserContextMenu}
           objectPosition="top center"
           tone="light"
-          urlLabel="docs.vendor.dev/getting-started"
+          urlLabel="example.com/readable-page"
         />
       </div>
       <img

@@ -34,11 +34,11 @@ export function MacosWorkflowSlide({
       <div style={{ left: 160, position: "absolute", top: 806, width: 1180 }}>
         <BrowserWindowFrame
           browserName="Safari"
-          imageAlt="Safari documentation page"
+          imageAlt="Safari readable web page"
           imageSrc={sourceAssets.browserContextMenu}
           objectPosition="top center"
           tone="light"
-          urlLabel="docs.vendor.dev/getting-started"
+          urlLabel="example.com/readable-page"
         />
       </div>
       <div

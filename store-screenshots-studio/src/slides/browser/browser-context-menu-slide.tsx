@@ -33,11 +33,11 @@ export function BrowserContextMenuSlide({
       <div style={{ left: 230, position: "absolute", top: 712, width: 2420 }}>
         <BrowserWindowFrame
           browserName="Firefox"
-          imageAlt="Context menu toast on docs page"
+          imageAlt="Context menu toast on a readable web page"
           imageSrc={sourceAssets.browserContextMenu}
           objectPosition="top center"
           tone="dark"
-          urlLabel="docs.vendor.dev/getting-started"
+          urlLabel="example.com/readable-page"
         />
       </div>
     </SlideShell>

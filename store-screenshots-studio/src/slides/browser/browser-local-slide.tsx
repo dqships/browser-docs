@@ -17,7 +17,7 @@ export function BrowserLocalSlide({
         }}
       >
         <MarketingHeading
-          body="No account, no upload, no hidden sync. Just copy the page and move on."
+          body="No account, no upload, no hidden sync. Just copy the readable part of the page and move on."
           eyebrow="Works locally"
           headline={
             <>

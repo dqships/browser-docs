@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const PREVIEW_IMAGES = {
   browser: {
-    alt: "Documentation page with the WebToMarkdown page menu action visible",
+    alt: "Readable web page with the WebToMarkdown page menu action visible",
     height: 1509,
     src: "/source/browser/context-menu-toast.png",
     width: 1440,
@@ -20,7 +20,7 @@ export function LandingScreenshotPreview() {
     <div className="animate-fade-up delay-500 hero-preview-stack">
       <article className="preview-card preview-card-browser">
         <p className="preview-label">Before</p>
-        <h2 className="preview-title">The docs page you are already on</h2>
+        <h2 className="preview-title">The page you are already reading</h2>
         <div className="preview-screenshot-frame preview-screenshot-frame-browser">
           <Image
             src={PREVIEW_IMAGES.browser.src}

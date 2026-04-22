@@ -1,6 +1,6 @@
 # WebToMarkdown
 
-A browser extension designed to allow users to quickly and reliably copy the content of any webpage—specifically focusing on documentation pages—as formatted Markdown.
+A site for WebToMarkdown, a browser extension that copies the readable part of a web page as clean Markdown.
 
 Built with [Next.js](https://nextjs.org), [Tailwind CSS](https://tailwindcss.com), and [Content Collections](https://www.content-collections.dev).
 
@@ -93,7 +93,7 @@ category: "guides"
 tags:
   - "your-tag"
 image: "/og/default.png"
-canonical: "web-markdown.com/blog/your-post-slug"
+canonical: "http://localhost:3000/blog/your-post-slug"
 targetKeyword: "your keyword"
 intent: "informational"
 ctaVariant: "primary"
