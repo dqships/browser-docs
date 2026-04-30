@@ -46,8 +46,19 @@ export const site = {
     "markdown browser extension",
     "copy article as markdown",
   ] as string[],
-  ctaUrl: "https://chromewebstore.google.com/detail/webtomarkdown/gaglchmlnkelnokjkilcbkggfdembeem",
   ctaLabel: "Get Extension",
+  downloadTargets: {
+    chrome: {
+      browserLabel: "Chrome",
+      ctaLabel: "Add to Chrome",
+      url: "https://chromewebstore.google.com/detail/webtomarkdown/gaglchmlnkelnokjkilcbkggfdembeem",
+    },
+    safari: {
+      browserLabel: "Safari",
+      ctaLabel: "Download for Safari",
+      url: "https://apps.apple.com/us/app/webtomarkdown/id6762680685?mt=12",
+    },
+  },
   staticPages: [
     {
       pathname: "/",

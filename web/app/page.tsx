@@ -1,7 +1,6 @@
-"use client";
-
-import { useEffect, useRef } from "react";
+import { BrowserAwareInstallCta } from "@/app/browser-aware-install-cta";
 import { LandingScreenshotPreview } from "@/app/landing-screenshot-preview";
+import { RevealOnScroll } from "@/app/reveal-on-scroll";
 import { SiteHeader } from "@/app/site-header";
 import { SiteFooter } from "@/app/site-footer";
 import { site } from "@/lib/site";
@@ -73,37 +72,9 @@ const TRUST_POINTS = [
 ];
 
 export default function Home() {
-  const revealRefs = useRef<HTMLElement[]>([]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      },
-      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" },
-    );
-
-    revealRefs.current.forEach((element) => {
-      if (element) {
-        observer.observe(element);
-      }
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  const addRevealRef = (element: HTMLElement | null) => {
-    if (element && !revealRefs.current.includes(element)) {
-      revealRefs.current.push(element);
-    }
-  };
-
   return (
     <div className="flex flex-col flex-1 bg-background font-sans">
+      <RevealOnScroll />
       <SiteHeader variant="landing" />
 
       <section
@@ -128,26 +99,16 @@ export default function Home() {
             </p>
 
             <div className="animate-fade-up delay-400 mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-              <a
+              <BrowserAwareInstallCta
                 id="hero-cta"
-                href={site.ctaUrl}
                 className="btn-primary text-lg animate-pulse-glow"
-              >
-                {site.ctaLabel}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M7 17L17 7" />
-                  <path d="M7 7h10v10" />
-                </svg>
-              </a>
+                fallbackContainerClassName="flex flex-wrap items-center gap-3"
+                fallbackPrimaryClassName="btn-primary text-lg"
+                fallbackSecondaryClassName="btn-secondary text-lg"
+                fallbackLabelMode="cta"
+                resolvedLabelMode="cta"
+                includeArrowIcon
+              />
 
               <a href="#features" className="btn-secondary">
                 See how it works
@@ -175,7 +136,7 @@ export default function Home() {
         style={{ background: "var(--surface)" }}
       >
         <div className="max-w-6xl mx-auto">
-          <div ref={addRevealRef} className="reveal text-center mb-16">
+          <div data-reveal className="reveal text-center mb-16">
             <p className="section-kicker">Built for readable pages</p>
             <h2 className="text-3xl font-bold text-text-primary sm:text-4xl md:text-5xl">
               Built for the readable part
@@ -191,8 +152,8 @@ export default function Home() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {FEATURES.map((feature, index) => (
               <article
-                ref={addRevealRef}
                 key={feature.title}
+                data-reveal
                 className="reveal card feature-card"
                 style={{ transitionDelay: `${index * 80}ms` }}
               >
@@ -213,7 +174,7 @@ export default function Home() {
 
       <section className="relative px-6 py-24 md:py-32">
         <div className="max-w-6xl mx-auto">
-          <div ref={addRevealRef} className="reveal text-center mb-16">
+          <div data-reveal className="reveal text-center mb-16">
             <p className="section-kicker">Workflow</p>
             <h2 className="text-3xl font-bold text-text-primary sm:text-4xl md:text-5xl">
               Open the page.
@@ -229,8 +190,8 @@ export default function Home() {
           <div className="grid gap-6 md:grid-cols-3">
             {WORKFLOW.map((item, index) => (
               <article
-                ref={addRevealRef}
                 key={item.step}
+                data-reveal
                 className="reveal workflow-card"
                 style={{ transitionDelay: `${index * 90}ms` }}
               >
@@ -245,7 +206,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div ref={addRevealRef} className="reveal trust-panel mt-10">
+          <div data-reveal className="reveal trust-panel mt-10">
             <p className="section-kicker !mb-3">Why it stays simple</p>
             <h3 className="text-2xl font-semibold text-text-primary">
               No account. No upload. No extra layer to manage.
@@ -262,7 +223,7 @@ export default function Home() {
 
       <section id="cta" className="cta-shell px-6 py-24 text-center md:py-32">
         <div className="max-w-3xl mx-auto">
-          <div ref={addRevealRef} className="reveal">
+          <div data-reveal className="reveal">
             <p className="section-kicker">Ready</p>
             <h2 className="text-3xl font-bold text-text-primary sm:text-4xl md:text-5xl">
               Stop fixing copied pages
@@ -273,26 +234,16 @@ export default function Home() {
               moment you need them.
             </p>
 
-            <a
+            <BrowserAwareInstallCta
               id="cta-button"
-              href={site.ctaUrl}
               className="btn-primary mt-10 text-lg animate-pulse-glow"
-            >
-              {site.ctaLabel}
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M7 17L17 7" />
-                <path d="M7 7h10v10" />
-              </svg>
-            </a>
+              fallbackContainerClassName="mt-10 flex flex-wrap items-center justify-center gap-3"
+              fallbackPrimaryClassName="btn-primary text-lg"
+              fallbackSecondaryClassName="btn-secondary text-lg"
+              fallbackLabelMode="cta"
+              resolvedLabelMode="cta"
+              includeArrowIcon
+            />
           </div>
         </div>
       </section>

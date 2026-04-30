@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { BrowserAwareInstallCta } from "@/app/browser-aware-install-cta";
 import { site } from "@/lib/site";
 
 /** Shared site footer used across all pages. */
@@ -30,12 +31,14 @@ export function SiteFooter() {
           >
             Blog
           </Link>
-          <a
-            href={site.ctaUrl}
+          <BrowserAwareInstallCta
             className="transition-colors hover:text-text-primary"
-          >
-            {site.ctaLabel}
-          </a>
+            fallbackContainerClassName="flex items-center gap-5"
+            fallbackPrimaryClassName="transition-colors hover:text-text-primary"
+            fallbackSecondaryClassName="transition-colors hover:text-text-primary"
+            fallbackLabelMode="browser"
+            resolvedLabelMode="cta"
+          />
         </nav>
         <nav className="flex items-center justify-center gap-4 text-xs text-text-tertiary mb-4">
           <Link

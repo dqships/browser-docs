@@ -71,7 +71,7 @@ All site-wide values live in **`lib/site.ts`**:
 
 - Site name, URL, and description
 - Publisher name (for JSON-LD)
-- CTA URL and label
+- Browser-specific download targets and CTA label
 - Static pages for the sitemap
 - Keywords
 
@@ -118,7 +118,7 @@ Your MDX content here.
 
 ### Available MDX Components
 
-- `<CallToAction />` — Inline CTA block using `site.ctaUrl`
+- `<CallToAction />` — Inline CTA block using the browser-aware install CTA
 
 Do not import components inside MDX files. All components are registered globally in `lib/content/mdx-components.tsx`.
 

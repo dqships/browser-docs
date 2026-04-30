@@ -1,4 +1,5 @@
 import type { ComponentPropsWithoutRef } from "react";
+import { BrowserAwareInstallCta } from "@/app/browser-aware-install-cta";
 import { site } from "@/lib/site";
 
 function CallToAction() {
@@ -10,14 +11,16 @@ function CallToAction() {
       <p className="mt-3 text-base leading-7 text-text-secondary">
         Install WebToMarkdown and try it on the page you are reading.
       </p>
-      <a
-        href={site.ctaUrl}
+      <BrowserAwareInstallCta
+        className="btn-primary mt-5"
+        fallbackContainerClassName="mt-5 flex flex-wrap items-center gap-3"
+        fallbackPrimaryClassName="btn-primary"
+        fallbackSecondaryClassName="btn-secondary"
+        fallbackLabelMode="cta"
+        resolvedLabelMode="cta"
         target="_blank"
         rel="noopener noreferrer"
-        className="btn-primary mt-5"
-      >
-        {site.ctaLabel}
-      </a>
+      />
     </div>
   );
 }

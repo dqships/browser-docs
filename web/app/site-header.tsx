@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { BrowserAwareInstallCta } from "@/app/browser-aware-install-cta";
 import { site } from "@/lib/site";
 
 /**
@@ -71,22 +72,26 @@ export function SiteHeader({
             </Link>
           </>
         )}
-        <a
-          href={site.ctaUrl}
+        <BrowserAwareInstallCta
           className="btn-primary !py-2 !px-5 !text-sm"
-        >
-          {site.ctaLabel}
-        </a>
+          fallbackContainerClassName="flex items-center gap-2"
+          fallbackPrimaryClassName="btn-primary !py-2 !px-4 !text-sm"
+          fallbackSecondaryClassName="btn-secondary !py-2 !px-4 !text-sm"
+          fallbackLabelMode="browser"
+          resolvedLabelMode="cta"
+        />
       </div>
 
       {/* Mobile CTA */}
       <div className="sm:hidden">
-        <a
-          href={site.ctaUrl}
+        <BrowserAwareInstallCta
           className="btn-primary !py-2 !px-4 !text-xs"
-        >
-          {site.ctaLabel}
-        </a>
+          fallbackContainerClassName="flex items-center gap-2"
+          fallbackPrimaryClassName="btn-primary !py-2 !px-3 !text-xs"
+          fallbackSecondaryClassName="btn-secondary !py-2 !px-3 !text-xs"
+          fallbackLabelMode="browser"
+          resolvedLabelMode="cta"
+        />
       </div>
     </nav>
   );
