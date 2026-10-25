@@ -55,7 +55,7 @@ Follow these steps for every extension update:
 1. Update code once in the repository.
 2. Bump the extension version in `manifest.json`.
 3. Run `./release.sh`.
-4. **Chrome**: Zip `dist/chrome` and upload it to the Chrome Web Store dashboard.
+4. **Chrome**: Run `node scripts/build-chrome-store-assets.mjs` (needs Playwright, see the script header). It writes `dist/chrome-web-store/` with the upload ZIP, the five 1280x800 screenshots as JPEG (the store rejects PNGs with an alpha channel), the 128px store icon, and the 440x280 and 1400x560 promo tiles. Upload the ZIP under **Package**, and the images under **Store listing**, in the Chrome Web Store dashboard.
 5. **Firefox**: Zip `dist/firefox` and upload it to Mozilla AMO for signing and publishing.
 6. **Safari**: `./release.sh` automatically syncs the Safari `MARKETING_VERSION` from `manifest.json` and increments the Safari `CURRENT_PROJECT_VERSION` build number. Open `safari/WebToMarkdown.xcodeproj`, Archive, then upload via Xcode/App Store Connect.
 
