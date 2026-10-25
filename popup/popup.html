@@ -5,24 +5,30 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>WebToMarkdown</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap"
-    rel="stylesheet">
+  <link rel="stylesheet" href="../shared/styles/fonts.css">
+  <link rel="stylesheet" href="../shared/styles/tokens.css">
   <link rel="stylesheet" href="./popup.css">
   <script src="../shared/vendor/browser-polyfill.min.js"></script>
 </head>
 
 <body>
   <main class="popup-shell">
-    <header class="hero">
-      <p class="eyebrow">WebToMarkdown</p>
-      <h1>Copy the readable part of this page as Markdown.</h1>
-      <p class="subcopy">
-        Extract the readable page content, keep its structure, and copy it in one step.
-      </p>
+    <header class="masthead">
+      <span class="brand">
+        <img class="brand-mark" src="../shared/icons/logo-mark.svg" alt="" width="20" height="20">
+        WebToMarkdown
+      </span>
+      <span class="shortcut" title="Keyboard shortcut">
+        <kbd>⌥</kbd><kbd>⇧</kbd><kbd>M</kbd>
+      </span>
     </header>
+
+    <section class="hero">
+      <h1>Copy this page as Markdown.</h1>
+      <p class="subcopy">
+        Takes the readable part of the page, keeps its structure, and puts it on your clipboard.
+      </p>
+    </section>
 
     <section class="actions">
       <button id="copy-button" class="primary-button" type="button">
@@ -36,16 +42,16 @@
     <p id="status" class="status" aria-live="polite">Ready.</p>
 
     <section id="result-panel" class="result-panel hidden" aria-live="polite">
-      <div class="stat-grid">
+      <dl class="stat-grid">
         <div class="stat-card">
-          <span class="stat-label">Words</span>
-          <strong id="word-count">0</strong>
+          <dt class="stat-label">Words</dt>
+          <dd id="word-count">0</dd>
         </div>
         <div class="stat-card">
-          <span class="stat-label">Characters</span>
-          <strong id="char-count">0</strong>
+          <dt class="stat-label">Characters</dt>
+          <dd id="char-count">0</dd>
         </div>
-      </div>
+      </dl>
 
       <label class="preview-label" for="preview">Preview</label>
       <textarea id="preview" class="preview" readonly></textarea>

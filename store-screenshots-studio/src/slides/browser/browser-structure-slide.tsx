@@ -9,39 +9,28 @@ export function BrowserStructureSlide({
   className = "",
 }: SlideComponentProps) {
   return (
-    <SlideShell className={className} variant="light">
-      <div style={{ left: 130, position: "absolute", top: 242, width: 1450 }}>
-        <BrowserWindowFrame
-          browserName="Web page"
-          imageAlt="Readable web page source"
-          imageSrc={sourceAssets.browserContextMenu}
-          objectPosition="top center"
-          tone="light"
-          urlLabel="example.com/readable-page"
-        />
-      </div>
-      <div
-        style={{
-          position: "absolute",
-          right: 156,
-          top: 184,
-          width: 930,
-        }}
-      >
+    <SlideShell className={className} label="Keeps structure" tone="paper">
+      <div style={{ left: 156, position: "absolute", top: 300, width: 1080 }}>
         <MarketingHeading
-          body="Get Markdown you can actually use: headings, nested lists, code blocks, and tables stay intact across readable page types."
-          eyebrow="Keeps structure"
+          body="Headings, nested lists, code blocks, and tables stay intact. Navigation, sidebars, and cookie prompts stay behind."
+          eyebrow="02 — What it keeps"
           headline={
             <>
-              Keep headings,
+              Content in.
               <br />
-              lists, and tables.
+              Chrome out.
             </>
           }
-          tone="light"
         />
       </div>
-      <div style={{ bottom: 122, position: "absolute", right: 136, width: 980 }}>
+      <div style={{ left: 1360, position: "absolute", top: 252, width: 1360 }}>
+        <BrowserWindowFrame
+          browserName="Chrome"
+          imageAlt="Readable web page before copying"
+          imageSrc={sourceAssets.browserContextMenu}
+        />
+      </div>
+      <div style={{ left: 1700, position: "absolute", top: 760, width: 1020 }}>
         <MarkdownCard lines={markdownExcerptLines} />
       </div>
     </SlideShell>

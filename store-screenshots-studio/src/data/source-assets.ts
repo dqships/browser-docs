@@ -6,19 +6,24 @@ export const sourceAssets = {
   optionsUpdated: "/source/options/options-updated.png",
 } as const;
 
+/** An excerpt of what the extension copies from the capture fixture page. */
 export const markdownExcerptLines = [
-  "# Release Notes",
+  "# Using the Fixture API",
   "",
-  "This update improves extraction",
-  "for readable web pages and keeps",
-  "the Markdown cleaner when sidebars,",
-  "feedback widgets, and page chrome",
-  "would normally get in the way.",
+  "## Install",
   "",
-  "## Highlights",
-  "- Keep source links",
-  "- Preserve lists and code blocks",
-  "- Spend less time cleaning up",
+  "Start by running `npm install fixture-sdk`",
+  "in your project.",
+  "",
+  "## Configure",
+  "",
+  "- Add a token",
+  "  - Use a development token for local work.",
+  "- Enable logging",
+  "",
+  "```js",
+  "import { createFixtureClient } from \"fixture-sdk\";",
+  "```",
 ] as const;
 
 export const permissionList = [

@@ -1,43 +1,85 @@
-import { CANVAS_HEIGHT, CANVAS_WIDTH, brandTokens } from "@/data/design-tokens";
+import { BrandMark } from "@/components/brand-mark";
+import {
+  CANVAS_HEIGHT,
+  CANVAS_WIDTH,
+  brandTokens,
+  isInkTone,
+  type SlideTone,
+} from "@/data/design-tokens";
 
 type SlideShellProps = {
   children: React.ReactNode;
   className?: string;
-  variant?: "dark" | "light" | "electric";
+  tone?: SlideTone;
+  label: string;
 };
 
-const variantStyles = {
-  dark: {
-    background:
-      "radial-gradient(circle at 15% 20%, rgba(0, 229, 255, 0.16), transparent 24%), radial-gradient(circle at 86% 16%, rgba(59, 130, 246, 0.14), transparent 24%), linear-gradient(135deg, #04070D 0%, #08111B 54%, #05080F 100%)",
-    color: brandTokens.textPrimary,
-  },
-  electric: {
-    background:
-      "radial-gradient(circle at 18% 14%, rgba(0, 229, 255, 0.24), transparent 28%), radial-gradient(circle at 82% 12%, rgba(8, 47, 73, 0.62), transparent 26%), linear-gradient(135deg, #03060C 0%, #081522 45%, #07131E 100%)",
-    color: brandTokens.textPrimary,
-  },
-  light: {
-    background:
-      "radial-gradient(circle at 18% 18%, rgba(0, 229, 255, 0.12), transparent 22%), radial-gradient(circle at 80% 10%, rgba(56, 189, 248, 0.14), transparent 18%), linear-gradient(135deg, #F5FAFF 0%, #EDF4FB 52%, #E8F0F7 100%)",
-    color: brandTokens.lightText,
-  },
+const toneBackground = {
+  paper: brandTokens.paper,
+  deep: brandTokens.paperDeep,
+  ink: brandTokens.ink,
 } as const;
 
+/** Flat slide canvas with a masthead: lockup on the left, mono label on the right. */
 export function SlideShell({
   children,
   className = "",
-  variant = "dark",
+  tone = "paper",
+  label,
 }: SlideShellProps) {
+  const onInk = isInkTone(tone);
+  const foreground = onInk ? brandTokens.onInk : brandTokens.ink;
+
   return (
     <div
       className={`relative overflow-hidden ${className}`}
       style={{
-        width: CANVAS_WIDTH,
+        background: toneBackground[tone],
+        color: foreground,
+        fontFamily: "var(--font-sans-stack)",
         height: CANVAS_HEIGHT,
-        ...variantStyles[variant],
+        width: CANVAS_WIDTH,
       }}
     >
+      <div
+        style={{
+          alignItems: "center",
+          borderBottom: `3px solid ${foreground}`,
+          display: "flex",
+          height: 132,
+          justifyContent: "space-between",
+          left: 156,
+          position: "absolute",
+          right: 156,
+          top: 0,
+        }}
+      >
+        <span
+          style={{
+            alignItems: "center",
+            display: "flex",
+            fontSize: 40,
+            fontWeight: 700,
+            gap: 20,
+            letterSpacing: "-0.01em",
+          }}
+        >
+          <BrandMark onInk={onInk} size={52} />
+          WebToMarkdown
+        </span>
+        <span
+          style={{
+            color: onInk ? brandTokens.onInkMuted : brandTokens.inkMuted,
+            fontFamily: "var(--font-mono-stack)",
+            fontSize: 26,
+            fontWeight: 500,
+            letterSpacing: "0.08em",
+            textTransform: "uppercase",
+          }}
+        >
+          {label}
+        </span>
+      </div>
       {children}
     </div>
   );

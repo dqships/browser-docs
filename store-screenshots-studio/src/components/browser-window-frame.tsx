@@ -1,4 +1,6 @@
-import { brandTokens } from "@/data/design-tokens";
+import { frameStyle } from "@/components/frame-style";
+import { WindowChromeBar } from "@/components/window-chrome-bar";
+import { brandTokens, type SlideTone } from "@/data/design-tokens";
 
 type BrowserWindowFrameProps = {
   imageSrc: string;
@@ -8,97 +10,41 @@ type BrowserWindowFrameProps = {
   urlLabel?: string;
   objectPosition?: string;
   children?: React.ReactNode;
-  tone?: "dark" | "light";
+  tone?: SlideTone;
 };
 
 export function BrowserWindowFrame({
   imageSrc,
   imageAlt,
   className = "",
-  browserName = "Docs page",
-  urlLabel = "example.com/readable-page",
+  browserName = "Browser",
+  urlLabel = "docs.example.com/guides/fixture-api",
   objectPosition = "top center",
   children,
-  tone = "dark",
+  tone = "paper",
 }: BrowserWindowFrameProps) {
-  const surface =
-    tone === "dark"
-      ? "linear-gradient(180deg, rgba(17, 24, 39, 0.96) 0%, rgba(12, 18, 31, 0.98) 100%)"
-      : "linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(244, 247, 251, 0.96) 100%)";
-  const textColor =
-    tone === "dark" ? brandTokens.textSecondary : brandTokens.lightMuted;
-  const addressFill =
-    tone === "dark" ? "rgba(255,255,255,0.04)" : "rgba(15, 23, 42, 0.06)";
-
   return (
-    <div
-      className={`relative overflow-hidden ${className}`}
-      style={{
-        background: surface,
-        border: `1px solid ${tone === "dark" ? brandTokens.borderStrong : "rgba(15, 23, 42, 0.08)"}`,
-        borderRadius: 40,
-        boxShadow: brandTokens.shadow,
-      }}
-    >
-      <div
-        style={{
-          alignItems: "center",
-          borderBottom: `1px solid ${tone === "dark" ? "rgba(130, 153, 183, 0.18)" : "rgba(15, 23, 42, 0.08)"}`,
-          display: "grid",
-          gap: 26,
-          gridTemplateColumns: "120px 1fr auto",
-          padding: "26px 30px",
-        }}
-      >
-        <div style={{ display: "flex", gap: 14 }}>
-          {["#FF5F57", "#FFBD2F", "#28C840"].map((dot) => (
-            <span
-              key={dot}
-              style={{
-                background: dot,
-                borderRadius: "50%",
-                display: "block",
-                height: 18,
-                width: 18,
-              }}
-            />
-          ))}
-        </div>
-        <div
-          style={{
-            alignItems: "center",
-            background: addressFill,
-            borderRadius: 999,
-            color: textColor,
-            display: "flex",
-            fontFamily: "var(--font-mono-stack)",
-            fontSize: 22,
-            gap: 14,
-            letterSpacing: "0.08em",
-            padding: "18px 24px",
-            textTransform: "uppercase",
-          }}
-        >
-          <span>{browserName}</span>
-          <span style={{ opacity: 0.5 }}>•</span>
-          <span style={{ overflow: "hidden", textOverflow: "ellipsis" }}>
+    <div className={`relative ${className}`} style={frameStyle(tone)}>
+      <WindowChromeBar
+        left={
+          <div
+            style={{
+              background: brandTokens.paperDeep,
+              border: `2px solid ${brandTokens.ink}`,
+              color: brandTokens.inkSoft,
+              fontFamily: "var(--font-mono-stack)",
+              fontSize: 24,
+              overflow: "hidden",
+              padding: "14px 22px",
+              textOverflow: "ellipsis",
+              whiteSpace: "nowrap",
+            }}
+          >
             {urlLabel}
-          </span>
-        </div>
-        <div
-          style={{
-            background: addressFill,
-            borderRadius: 999,
-            color: textColor,
-            fontFamily: "var(--font-mono-stack)",
-            fontSize: 20,
-            padding: "18px 22px",
-            textTransform: "uppercase",
-          }}
-        >
-          live page
-        </div>
-      </div>
+          </div>
+        }
+        right={browserName}
+      />
       <div className="relative">
         <img
           alt={imageAlt}

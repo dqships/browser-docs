@@ -56,7 +56,7 @@ export default function BlogIndexPage() {
               {categories.map((category) => (
                 <span
                   key={category}
-                  className="rounded-full border border-border px-3 py-1.5"
+                  className="border border-border px-3 py-1.5"
                 >
                   {category}
                 </span>
@@ -74,7 +74,7 @@ export default function BlogIndexPage() {
                 <p className="text-sm font-semibold uppercase tracking-[0.16em] text-accent">
                   Featured article
                 </p>
-                <article className="mt-5 rounded-3xl border border-border bg-surface p-8 shadow-2xl shadow-black/15">
+                <article className="mt-5 border border-border bg-surface p-8">
                   <p className="text-sm text-text-tertiary">
                     {featured.category} • {featured.readingTimeMinutes} min read
                   </p>
@@ -90,7 +90,7 @@ export default function BlogIndexPage() {
                     {featured.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="rounded-full border border-border px-3 py-1 text-xs text-text-tertiary"
+                        className="border border-border px-3 py-1 text-xs text-text-tertiary"
                       >
                         {tag}
                       </span>
@@ -104,7 +104,7 @@ export default function BlogIndexPage() {
               {posts.map((post) => (
                 <article
                   key={post.slug}
-                  className="rounded-3xl border border-border bg-surface p-7 transition-transform duration-300 hover:-translate-y-1"
+                  className="border border-border bg-surface p-7 transition-transform duration-300 hover:-translate-y-1"
                 >
                   <p className="text-sm text-text-tertiary">
                     {post.category} • {post.readingTimeMinutes} min read
@@ -121,7 +121,7 @@ export default function BlogIndexPage() {
                     {post.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="rounded-full border border-border px-3 py-1 text-xs text-text-tertiary"
+                        className="border border-border px-3 py-1 text-xs text-text-tertiary"
                       >
                         {tag}
                       </span>

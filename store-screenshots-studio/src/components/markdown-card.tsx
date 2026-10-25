@@ -1,68 +1,76 @@
-import { brandTokens } from "@/data/design-tokens";
+import { frameStyle } from "@/components/frame-style";
+import { brandTokens, type SlideTone } from "@/data/design-tokens";
 
 type MarkdownCardProps = {
   lines: readonly string[];
   className?: string;
+  tone?: SlideTone;
 };
+
+const LEADING_SYNTAX = /^(#{1,6} |- |\d+\. |```|\| |---)/;
+
+function MarkdownLine({ line }: { line: string }) {
+  const syntax = line.match(LEADING_SYNTAX)?.[0] ?? "";
+
+  return (
+    <>
+      <span style={{ color: brandTokens.signalText }}>{syntax}</span>
+      {line.slice(syntax.length)}
+    </>
+  );
+}
 
 export function MarkdownCard({
   lines,
   className = "",
+  tone = "paper",
 }: MarkdownCardProps) {
   return (
     <div
       className={className}
-      style={{
-        background:
-          "linear-gradient(180deg, rgba(6, 9, 15, 0.96) 0%, rgba(3, 4, 7, 0.98) 100%)",
-        border: `1px solid ${brandTokens.borderStrong}`,
-        borderRadius: 36,
-        boxShadow: brandTokens.shadow,
-        color: brandTokens.textPrimary,
-        overflow: "hidden",
-        padding: 42,
-      }}
+      style={{ ...frameStyle(tone), background: brandTokens.paperDeep, color: brandTokens.ink }}
     >
       <div
         style={{
           alignItems: "center",
+          borderBottom: `3px solid ${brandTokens.ink}`,
           display: "flex",
-          gap: 18,
-          marginBottom: 28,
+          fontFamily: "var(--font-mono-stack)",
+          fontSize: 24,
+          justifyContent: "space-between",
+          padding: "22px 36px",
         }}
       >
+        <span style={{ color: brandTokens.inkMuted }}>Clipboard</span>
         <span
           style={{
-            background: brandTokens.accent,
-            borderRadius: "50%",
-            boxShadow: `0 0 28px ${brandTokens.accentGlow}`,
-            display: "block",
-            height: 16,
-            width: 16,
-          }}
-        />
-        <span
-          style={{
-            color: brandTokens.textSecondary,
-            fontFamily: "var(--font-mono-stack)",
-            fontSize: 22,
-            letterSpacing: "0.18em",
+            alignItems: "center",
+            display: "flex",
+            fontWeight: 500,
+            gap: 14,
+            letterSpacing: "0.08em",
             textTransform: "uppercase",
           }}
         >
-          Markdown preview
+          <span style={{ background: brandTokens.signal, display: "block", height: 14, width: 14 }} />
+          Markdown
         </span>
       </div>
       <pre
         style={{
           fontFamily: "var(--font-mono-stack)",
-          fontSize: 28,
+          fontSize: 30,
           lineHeight: 1.6,
           margin: 0,
+          padding: "32px 36px 40px",
           whiteSpace: "pre-wrap",
         }}
       >
-        {lines.join("\n")}
+        {lines.map((line, index) => (
+          <span key={index} style={{ display: "block" }}>
+            {line ? <MarkdownLine line={line} /> : " "}
+          </span>
+        ))}
       </pre>
     </div>
   );

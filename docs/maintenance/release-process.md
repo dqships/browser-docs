@@ -42,6 +42,8 @@ Under the hood this calls the dedicated refresh script, which preserves committe
 - Safari app and extension `INFOPLIST_KEY_ITSAppUsesNonExemptEncryption`
 - project and target deployment minimums such as `MACOSX_DEPLOYMENT_TARGET`
 
+The PNGs inside `AppIcon.appiconset` and `LargeIcon.imageset` (and every other icon PNG in the repo) are generated from the master SVGs in `docs/brand/` by `scripts/render-brand-icons.mjs`; see `DESIGN.md` §2. To change the icon, edit the SVGs, re-run that script, and commit the regenerated PNGs. The refresh script then preserves them like any other committed asset.
+
 Important caveat: only the files and patches in that preservation list are guaranteed. If you later add other native Safari customizations such as `Info.plist` keys, entitlements, storyboard changes, or extra native resources, you must update the Safari refresh automation to preserve or reapply them too.
 
 For this project, the Safari app and extension explicitly set `ITSAppUsesNonExemptEncryption = NO` through Xcode build settings. That matches the current implementation, which does not ship custom cryptographic code and only relies on platform-provided browser and OS networking behavior. If a future release adds bundled cryptography beyond Apple's exempt platform encryption, change the value to `YES` and complete the App Store Connect export compliance flow before submission.

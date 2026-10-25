@@ -1,14 +1,26 @@
-import Image from "next/image";
 import Link from "next/link";
+import { BrandMark } from "@/app/brand-mark";
 import { BrowserAwareInstallCta } from "@/app/browser-aware-install-cta";
 import { site } from "@/lib/site";
+
+const LANDING_LINKS = [
+  { href: "#keeps", label: "What it keeps" },
+  { href: "#copy", label: "How to copy" },
+  { href: "/blog", label: "Blog" },
+];
+
+const CONTENT_LINKS = [
+  { href: "/", label: "Home" },
+  { href: "/blog", label: "Blog" },
+  { href: "/support", label: "Support" },
+];
 
 /**
  * Shared site header used across the landing page and content pages.
  *
  * @param variant
- *   - `"landing"` – fixed, transparent backdrop with section anchor links
- *   - `"content"` – static, solid background with page navigation links
+ *   - `"landing"` – sticky, with section anchor links
+ *   - `"content"` – static, with page navigation links
  */
 export function SiteHeader({
   variant = "content",
@@ -16,82 +28,42 @@ export function SiteHeader({
   variant?: "landing" | "content";
 }) {
   const isLanding = variant === "landing";
+  const links = isLanding ? LANDING_LINKS : CONTENT_LINKS;
 
   return (
     <nav
       id="navbar"
-      className={`site-nav flex items-center justify-between px-6 py-4 backdrop-blur-xl z-50 ${
-        isLanding
-          ? "site-nav--landing fixed top-0 left-0 right-0"
-          : "site-nav--content"
-      }`}
+      className={`site-nav z-50 ${isLanding ? "sticky top-0" : ""}`}
     >
-      <Link href="/" className="brand-lockup">
-        <Image
-          src="/icon.png"
-          alt=""
-          aria-hidden="true"
-          width={22}
-          height={22}
-          className="brand-icon"
-        />
-        <span className="text-base font-semibold tracking-tight text-text-primary">
-          {site.name}
-        </span>
-      </Link>
+      <div className="page-frame flex h-16 items-center justify-between gap-6">
+        <Link href="/" className="brand-lockup text-[1.0625rem]">
+          <BrandMark size={26} />
+          <span>{site.name}</span>
+        </Link>
 
-      <div className="hidden sm:flex items-center gap-6 text-sm text-text-secondary">
-        {isLanding ? (
-          <>
-            <a
-              href="#features"
-              className="transition-colors hover:text-text-primary"
-            >
-              Features
-            </a>
-            <Link
-              href="/blog"
-              className="transition-colors hover:text-text-primary"
-            >
-              Blog
-            </Link>
-          </>
-        ) : (
-          <>
-            <Link
-              href="/"
-              className="transition-colors hover:text-text-primary"
-            >
-              Home
-            </Link>
-            <Link
-              href="/blog"
-              className="transition-colors hover:text-text-primary"
-            >
-              Blog
-            </Link>
-          </>
-        )}
-        <BrowserAwareInstallCta
-          className="btn-primary !py-2 !px-5 !text-sm"
-          fallbackContainerClassName="flex items-center gap-2"
-          fallbackPrimaryClassName="btn-primary !py-2 !px-4 !text-sm"
-          fallbackSecondaryClassName="btn-secondary !py-2 !px-4 !text-sm"
-          fallbackLabelMode="browser"
-          resolvedLabelMode="cta"
-        />
-      </div>
+        <div className="flex items-center gap-8">
+          <ul className="hidden md:flex items-center gap-7">
+            {links.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="mono-label text-ink-soft transition-colors hover:text-ink"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
 
-      {/* Mobile CTA */}
-      <div className="sm:hidden">
-        <BrowserAwareInstallCta
-          className="btn-primary !py-2 !px-4 !text-xs"
-          fallbackContainerClassName="flex items-center gap-2"
-          fallbackPrimaryClassName="btn-primary !py-2 !px-3 !text-xs"
-          fallbackSecondaryClassName="btn-secondary !py-2 !px-3 !text-xs"
-          fallbackLabelMode="browser"
-          resolvedLabelMode="cta"
-        />
+          <BrowserAwareInstallCta
+            className="btn-primary !py-2.5 !px-4 !text-sm"
+            fallbackContainerClassName="flex items-center gap-2"
+            fallbackPrimaryClassName="btn-primary !py-2.5 !px-4 !text-sm"
+            fallbackSecondaryClassName="btn-secondary !py-2.5 !px-4 !text-sm hidden sm:inline-flex"
+            fallbackLabelMode="browser"
+            resolvedLabelMode="cta"
+          />
+        </div>
       </div>
     </nav>
   );

@@ -1,5 +1,6 @@
 import { BrowserWindowFrame } from "@/components/browser-window-frame";
 import { MarketingHeading } from "@/components/marketing-heading";
+import { ScreenshotCard } from "@/components/screenshot-card";
 import { SlideShell } from "@/components/slide-shell";
 import { sourceAssets } from "@/data/source-assets";
 import type { SlideComponentProps } from "@/types/slide-definition";
@@ -8,59 +9,34 @@ export function BrowserHeroSlide({
   className = "",
 }: SlideComponentProps) {
   return (
-    <SlideShell className={className} variant="electric">
-      <div
-        style={{
-          display: "grid",
-          gap: 28,
-          left: 156,
-          position: "absolute",
-          top: 180,
-          width: 1020,
-        }}
-      >
+    <SlideShell className={className} label="Browser extension" tone="ink">
+      <div style={{ left: 156, position: "absolute", top: 300, width: 1080 }}>
         <MarketingHeading
           body="One click copies the readable part of the page as clean Markdown for notes, prompts, or your own archive."
-          eyebrow="Browser extension"
+          eyebrow="01 — Copy any page"
           headline={
             <>
-              Copy readable pages
+              Web page in.
               <br />
-              as Markdown.
+              Markdown out.
             </>
           }
+          tone="ink"
         />
       </div>
-      <div
-        style={{
-          position: "absolute",
-          right: 110,
-          top: 152,
-          width: 1460,
-        }}
-      >
+      <div style={{ left: 1320, position: "absolute", top: 252, width: 1404 }}>
         <BrowserWindowFrame
           browserName="Chrome"
-          imageAlt="WebToMarkdown on a readable web page"
+          imageAlt="WebToMarkdown copy confirmation on a readable web page"
           imageSrc={sourceAssets.browserContextMenu}
-          objectPosition="top center"
-          urlLabel="example.com/readable-page"
-          tone="dark"
+          tone="ink"
         />
       </div>
-      <img
-        alt="WebToMarkdown popup success"
-        draggable={false}
+      <ScreenshotCard
+        alt="WebToMarkdown popup after a successful copy"
         src={sourceAssets.popupSuccess}
-        style={{
-          borderRadius: 28,
-          border: "1px solid rgba(0, 229, 255, 0.24)",
-          boxShadow: "0 36px 92px rgba(0, 0, 0, 0.45)",
-          position: "absolute",
-          right: 54,
-          top: 900,
-          width: 360,
-        }}
+        style={{ left: 2240, position: "absolute", top: 820, width: 520 }}
+        tone="paper"
       />
     </SlideShell>
   );

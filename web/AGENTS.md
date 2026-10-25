@@ -22,3 +22,8 @@ This version has breaking changes — APIs, conventions, and file structure may 
 - Canonical URLs in content frontmatter must be absolute and must match the configured site URL plus the post slug.
 - Keep MDX component registration centralized in `lib/content/mdx-components.tsx`; do not import components directly inside MDX files.
 - Keep FAQ data in frontmatter when the same questions should power both page content and JSON-LD.
+
+# Design
+
+- Follow `/DESIGN.md` at the repository root for tokens, typography, the brand mark, and landing page structure.
+- Keep each landing page section in its own file under `app/landing/`; render the logo through `app/brand-mark.tsx`, never an image of it.

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <title>WebToMarkdown</title>
+  <!-- Mark on a paper tile: toolbar icon, favicon, apple-touch icon. See DESIGN.md §2. -->
+  <defs><clipPath id="disc"><circle cx="60" cy="60" r="60"/></clipPath></defs>
+  <rect width="120" height="120" rx="24" fill="#F2EEE5"/>
+  <g transform="translate(60 60) scale(0.78) translate(-60 -60)">
+    <g clip-path="url(#disc)" fill="#151412"><rect x="0" y="0" width="31" height="31"/><rect x="41" y="0" width="38" height="31"/><rect x="89" y="0" width="31" height="31"/><rect x="0" y="41" width="31" height="38"/><rect x="89" y="41" width="31" height="38"/><rect x="0" y="89" width="31" height="31"/><rect x="41" y="89" width="38" height="31"/><rect x="89" y="89" width="31" height="31"/></g><rect x="41" y="41" width="38" height="38" fill="#E2401C"/>
+  </g>
+</svg>
