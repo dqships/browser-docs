@@ -1,6 +1,7 @@
 import { BrowserAwareInstallCta } from "@/app/browser-aware-install-cta";
 import { PageToMarkdownDiagram } from "@/app/landing/page-to-markdown-diagram";
 import { ShortcutKeys } from "@/app/landing/shortcut-keys";
+import { formatAvailableBrowsers } from "@/lib/download-targets";
 import { site } from "@/lib/site";
 
 export function HeroSection() {
@@ -8,7 +9,7 @@ export function HeroSection() {
     <section id="hero" className="pt-8 pb-16 md:pt-10 md:pb-24">
       <div className="page-frame">
         <p className="mono-label flex flex-wrap justify-between gap-x-6 gap-y-1 border-b border-rule pb-3 text-ink-muted">
-          <span>Browser extension — Chrome &amp; Safari</span>
+          <span>Browser extension — {formatAvailableBrowsers("&")}</span>
           <span>No account · Runs locally</span>
         </p>
 

@@ -10,6 +10,24 @@ export function getDownloadTarget(target: DownloadTargetId) {
   return site.downloadTargets[target];
 }
 
+export function isDownloadTargetAvailable(target: DownloadTargetId) {
+  return getDownloadTarget(target).available;
+}
+
+/** Targets with a live store listing, in display order. */
+export const availableDownloadTargetIds: DownloadTargetId[] =
+  downloadTargetIds.filter(isDownloadTargetAvailable);
+
+/** "Chrome", "Chrome and Safari", … for availability copy. */
+export function formatAvailableBrowsers(conjunction = "and") {
+  const labels = availableDownloadTargetIds.map(
+    (target) => getDownloadTarget(target).browserLabel,
+  );
+  return labels.length > 1
+    ? `${labels.slice(0, -1).join(", ")} ${conjunction} ${labels.at(-1)}`
+    : (labels[0] ?? "");
+}
+
 export function getDownloadTargetLabel(
   target: DownloadTargetId,
   mode: DownloadLabelMode,
@@ -20,7 +38,16 @@ export function getDownloadTargetLabel(
     : targetDetails.ctaLabel;
 }
 
+/** The visitor's store target, if it is one with a live listing. */
 export function detectPreferredDownloadTarget(userAgent: string) {
+  const target = detectBrowserDownloadTarget(userAgent);
+  return target !== null && isDownloadTargetAvailable(target) ? target : null;
+}
+
+/** The store target that matches the visitor's browser, live or not. */
+export function detectBrowserDownloadTarget(
+  userAgent: string,
+): DownloadTargetId | null {
   const normalizedUserAgent = userAgent.toLowerCase();
 
   if (!normalizedUserAgent) {
