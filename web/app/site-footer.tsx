@@ -1,72 +1,82 @@
-import Image from "next/image";
 import Link from "next/link";
+import { BrandMark } from "@/app/brand-mark";
 import { BrowserAwareInstallCta } from "@/app/browser-aware-install-cta";
 import { site } from "@/lib/site";
 
-/** Shared site footer used across all pages. */
+const FOOTER_COLUMNS = [
+  {
+    heading: "Product",
+    links: [
+      { href: "/#keeps", label: "What it keeps" },
+      { href: "/#copy", label: "How to copy" },
+      { href: "/#settings", label: "Settings" },
+    ],
+  },
+  {
+    heading: "Read",
+    links: [
+      { href: "/blog", label: "Blog" },
+      { href: "/support", label: "Support" },
+    ],
+  },
+  {
+    heading: "Legal",
+    links: [
+      { href: "/privacy", label: "Privacy Policy" },
+      { href: "/terms", label: "Terms of Use" },
+    ],
+  },
+];
+
+/** Shared site footer used across all pages, set like a colophon. */
 export function SiteFooter() {
   return (
-    <footer className="site-footer-shell px-6 py-10 text-center">
-      <div className="max-w-4xl mx-auto">
-        <div className="brand-lockup justify-center mb-4">
-          <Image
-            src="/icon.png"
-            alt=""
-            aria-hidden="true"
-            width={22}
-            height={22}
-            className="brand-icon"
-          />
-          <span className="text-sm font-semibold text-text-primary">
-            {site.name}
-          </span>
-        </div>
-        <nav className="flex items-center justify-center gap-5 text-sm text-text-secondary mb-4">
-          <Link href="/" className="transition-colors hover:text-text-primary">
-            Home
+    <footer className="site-footer-shell py-14">
+      <div className="page-frame grid gap-10 md:grid-cols-12">
+        <div className="md:col-span-5">
+          <Link href="/" className="brand-lockup text-lg">
+            <BrandMark size={30} />
+            <span>{site.name}</span>
           </Link>
-          <Link
-            href="/blog"
-            className="transition-colors hover:text-text-primary"
-          >
-            Blog
-          </Link>
+          <p className="mt-5 max-w-sm text-sm text-ink-soft">
+            {site.defaultDescription}
+          </p>
           <BrowserAwareInstallCta
-            className="transition-colors hover:text-text-primary"
-            fallbackContainerClassName="flex items-center gap-5"
-            fallbackPrimaryClassName="transition-colors hover:text-text-primary"
-            fallbackSecondaryClassName="transition-colors hover:text-text-primary"
-            fallbackLabelMode="browser"
+            className="text-link mt-5 inline-block text-sm font-semibold"
+            fallbackContainerClassName="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold"
+            fallbackPrimaryClassName="text-link"
+            fallbackSecondaryClassName="text-link"
+            fallbackLabelMode="cta"
             resolvedLabelMode="cta"
           />
-        </nav>
-        <nav className="flex items-center justify-center gap-4 text-xs text-text-tertiary mb-4">
-          <Link
-            href="/privacy"
-            className="transition-colors hover:text-text-secondary"
+        </div>
+
+        {FOOTER_COLUMNS.map((column) => (
+          <nav
+            key={column.heading}
+            aria-label={column.heading}
+            className="md:col-span-2 md:first-of-type:col-start-7"
           >
-            Privacy Policy
-          </Link>
-          <span className="text-border">·</span>
-          <Link
-            href="/support"
-            className="transition-colors hover:text-text-secondary"
-          >
-            Support
-          </Link>
-          <span className="text-border">·</span>
-          <Link
-            href="/terms"
-            className="transition-colors hover:text-text-secondary"
-          >
-            Terms of Use
-          </Link>
-        </nav>
-        <p className="text-sm text-text-tertiary mb-2">
-          {site.defaultDescription}
-        </p>
-        <p className="text-xs text-text-tertiary">
-          © {new Date().getFullYear()} {site.name}. All rights reserved.
+            <p className="mono-label text-ink-muted">{column.heading}</p>
+            <ul className="mt-4 space-y-2 text-sm">
+              {column.links.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="text-ink hover:underline">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        ))}
+      </div>
+
+      <div className="page-frame mt-14">
+        <p className="mono-label flex flex-wrap justify-between gap-3 border-t border-rule pt-5 text-ink-muted">
+          <span>
+            © {new Date().getFullYear()} {site.name}
+          </span>
+          <span>Made by {site.supportXHandle}</span>
         </p>
       </div>
     </footer>

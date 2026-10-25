@@ -29,7 +29,9 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ```
 ├── app/
-│   ├── page.tsx                 # Landing page
+│   ├── page.tsx                 # Landing page (composes app/landing/*)
+│   ├── landing/                 # One file per landing section (see /DESIGN.md)
+│   ├── brand-mark.tsx           # Inline SVG logo
 │   ├── layout.tsx               # Root layout (fonts, JSON-LD)
 │   ├── globals.css              # Design system tokens + utilities
 │   ├── site-header.tsx          # Shared header

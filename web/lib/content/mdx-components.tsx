@@ -4,7 +4,7 @@ import { site } from "@/lib/site";
 
 function CallToAction() {
   return (
-    <div className="rounded-2xl border border-border bg-surface p-6">
+    <div className="border border-border bg-surface p-6">
       <p className="text-sm font-semibold uppercase tracking-[0.18em] text-accent">
         {site.ctaLabel}
       </p>
@@ -60,13 +60,13 @@ export const mdxComponents = {
   code: (props: ComponentPropsWithoutRef<"code">) => (
     <code
       {...props}
-      className="rounded bg-surface-elevated px-1.5 py-1 font-mono text-[0.95em] text-text-primary"
+      className="bg-surface-elevated px-1.5 py-1 font-mono text-[0.95em] text-text-primary"
     />
   ),
   pre: (props: ComponentPropsWithoutRef<"pre">) => (
     <pre
       {...props}
-      className="overflow-x-auto rounded-2xl border border-border bg-surface-elevated p-5"
+      className="overflow-x-auto border border-border bg-surface-elevated p-5"
     />
   ),
   CallToAction,

@@ -83,7 +83,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             {post.tags.map((tag) => (
               <span
                 key={tag}
-                className="rounded-full border border-border px-3 py-1 text-xs text-text-tertiary"
+                className="border border-border px-3 py-1 text-xs text-text-tertiary"
               >
                 {tag}
               </span>
@@ -96,7 +96,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </article>
 
         {post.faq?.length ? (
-          <section className="mt-16 rounded-3xl border border-border bg-surface p-8">
+          <section className="mt-16 border border-border bg-surface p-8">
             <h2 className="text-2xl font-semibold text-text-primary">
               Frequently asked questions
             </h2>
@@ -125,7 +125,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 <Link
                   key={relatedPost.slug}
                   href={relatedPost.url}
-                  className="rounded-3xl border border-border bg-surface p-6 transition-transform duration-300 hover:-translate-y-1"
+                  className="border border-border bg-surface p-6 transition-transform duration-300 hover:-translate-y-1"
                 >
                   <p className="text-sm text-text-tertiary">
                     {relatedPost.category}
