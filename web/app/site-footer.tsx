@@ -74,18 +74,10 @@ export function SiteFooter() {
       <div className="page-frame mt-14">
         <p className="mono-label flex flex-wrap justify-between gap-3 border-t border-rule pt-5 text-ink-muted">
           <span>
-            © {new Date().getFullYear()} {site.name}
+            © {new Date().getFullYear()} {site.publisherName}. Source code
+            available under the MIT License.
           </span>
           <span>Made by {site.supportXHandle}</span>
-            Terms of Use
-          </Link>
-        </nav>
-        <p className="text-sm text-text-tertiary mb-2">
-          {site.defaultDescription}
-        </p>
-        <p className="text-xs text-text-tertiary">
-          © {new Date().getFullYear()} {site.publisherName}. Source code
-          available under the MIT License.
         </p>
       </div>
     </footer>
