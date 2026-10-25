@@ -1,4 +1,5 @@
 import { BrowserAwareInstallCta } from "@/app/browser-aware-install-cta";
+import { formatAvailableBrowsers } from "@/lib/download-targets";
 
 export function ClosingCtaSection() {
   return (
@@ -9,7 +10,7 @@ export function ClosingCtaSection() {
         </h2>
         <div className="lg:col-span-4">
           <p className="text-lg text-ink-soft">
-            Available for Chrome and Safari. Open a page, press the
+            Available for {formatAvailableBrowsers()}. Open a page, press the
             shortcut, paste.
           </p>
           <BrowserAwareInstallCta

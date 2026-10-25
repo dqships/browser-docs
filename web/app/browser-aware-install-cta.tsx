@@ -1,7 +1,8 @@
 import {
-  downloadTargetIds,
+  availableDownloadTargetIds,
   getDownloadTarget,
   getDownloadTargetLabel,
+  isDownloadTargetAvailable,
   type DownloadLabelMode,
   type DownloadTargetId,
 } from "@/lib/download-targets";
@@ -46,14 +47,19 @@ export async function BrowserAwareInstallCta({
   fallbackPrimaryClassName,
   fallbackSecondaryClassName,
   fallbackLabelMode = "browser",
-  fallbackTargets = [...downloadTargetIds],
+  fallbackTargets = availableDownloadTargetIds,
   id,
   includeArrowIcon = false,
   rel,
   resolvedLabelMode = "cta",
   target,
 }: BrowserAwareInstallCtaProps) {
-  const preferredTarget = await getRequestDownloadTarget();
+  const liveFallbackTargets = fallbackTargets.filter(isDownloadTargetAvailable);
+  // With a single live store there is nothing to choose between, so show it
+  // as the resolved CTA rather than a one-item browser picker.
+  const preferredTarget =
+    (await getRequestDownloadTarget()) ??
+    (liveFallbackTargets.length === 1 ? liveFallbackTargets[0] : null);
 
   if (preferredTarget !== null) {
     const targetDetails = getDownloadTarget(preferredTarget);
@@ -75,7 +81,7 @@ export async function BrowserAwareInstallCta({
 
   return (
     <div id={id} className={fallbackContainerClassName}>
-      {fallbackTargets.map((fallbackTarget, index) => {
+      {liveFallbackTargets.map((fallbackTarget, index) => {
         const targetDetails = getDownloadTarget(fallbackTarget);
         const fallbackClassName =
           index === 0

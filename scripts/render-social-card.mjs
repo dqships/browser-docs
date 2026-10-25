@@ -46,7 +46,7 @@ function cardHtml({ archivoUrl, plexMonoUrl, markSvg }) {
   </style></head><body>
     <header>
       <span class="lockup">${markSvg}WebToMarkdown</span>
-      <span class="mono">Chrome &amp; Safari</span>
+      <span class="mono">Chrome extension</span>
     </header>
     <h1>Web page in.<br>Markdown out<span class="dot"></span></h1>
     <footer class="mono"><span class="cell"></span>Copy the readable part of any page as clean Markdown</footer>

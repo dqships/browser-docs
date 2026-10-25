@@ -1,13 +1,30 @@
 import { describe, expect, it } from "vitest";
-import { detectPreferredDownloadTarget } from "@/lib/download-targets";
+import {
+  availableDownloadTargetIds,
+  detectBrowserDownloadTarget,
+  detectPreferredDownloadTarget,
+  formatAvailableBrowsers,
+} from "@/lib/download-targets";
+
+const DESKTOP_SAFARI_UA =
+  "Mozilla/5.0 (Macintosh; Intel Mac OS X 15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Safari/605.1.15";
+
+describe("available download targets", () => {
+  it("lists only Chrome while the Safari app is pulled from the App Store", () => {
+    expect(availableDownloadTargetIds).toEqual(["chrome"]);
+    expect(formatAvailableBrowsers()).toBe("Chrome");
+  });
+});
+
+describe("detectBrowserDownloadTarget", () => {
+  it("still recognizes desktop Safari on macOS", () => {
+    expect(detectBrowserDownloadTarget(DESKTOP_SAFARI_UA)).toBe("safari");
+  });
+});
 
 describe("detectPreferredDownloadTarget", () => {
-  it("returns safari for desktop Safari on macOS", () => {
-    expect(
-      detectPreferredDownloadTarget(
-        "Mozilla/5.0 (Macintosh; Intel Mac OS X 15_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Safari/605.1.15",
-      ),
-    ).toBe("safari");
+  it("returns null for desktop Safari while the Safari listing is unavailable", () => {
+    expect(detectPreferredDownloadTarget(DESKTOP_SAFARI_UA)).toBeNull();
   });
 
   it("returns chrome for desktop Chrome on macOS", () => {

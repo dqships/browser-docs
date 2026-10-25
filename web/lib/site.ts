@@ -48,12 +48,17 @@ export const site = {
   ] as string[],
   ctaLabel: "Get Extension",
   downloadTargets: {
+    // Set `available: false` to hide a store from every install CTA and
+    // availability line without losing its listing details.
     chrome: {
+      available: true,
       browserLabel: "Chrome",
       ctaLabel: "Add to Chrome",
       url: "https://chromewebstore.google.com/detail/webtomarkdown/gaglchmlnkelnokjkilcbkggfdembeem",
     },
     safari: {
+      // The Safari app is currently pulled from the App Store.
+      available: false,
       browserLabel: "Safari",
       ctaLabel: "Download for Safari",
       url: "https://apps.apple.com/us/app/webtomarkdown/id6762680685?mt=12",
