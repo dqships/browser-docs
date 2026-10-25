@@ -8,18 +8,11 @@ export function BrowserSettingsSlide({
   className = "",
 }: SlideComponentProps) {
   return (
-    <SlideShell className={className} variant="light">
-      <div
-        style={{
-          left: 158,
-          position: "absolute",
-          top: 212,
-          width: 920,
-        }}
-      >
+    <SlideShell className={className} label="Copy options" tone="paper">
+      <div style={{ left: 156, position: "absolute", top: 300, width: 1000 }}>
         <MarketingHeading
-          body="Add title headings, source links, frontmatter, or table support before you copy."
-          eyebrow="Copy options"
+          body="Frontmatter, title heading, source link, tables, and pruning. Five switches, all on by default."
+          eyebrow="04 — Settings"
           headline={
             <>
               Choose what
@@ -27,22 +20,15 @@ export function BrowserSettingsSlide({
               gets copied.
             </>
           }
-          tone="light"
         />
       </div>
-      <div style={{ position: "absolute", right: 120, top: 148, width: 1520 }}>
-        <MacAppWindow title="WebToMarkdown Settings" tone="light">
+      <div style={{ left: 1260, position: "absolute", top: 252, width: 1464 }}>
+        <MacAppWindow title="WebToMarkdown Settings">
           <img
-            alt="WebToMarkdown settings UI"
+            alt="WebToMarkdown settings page"
             draggable={false}
             src={sourceAssets.optionsUpdated}
-            style={{
-              display: "block",
-              height: "100%",
-              objectFit: "cover",
-              objectPosition: "center top",
-              width: "100%",
-            }}
+            style={{ display: "block", width: "100%" }}
           />
         </MacAppWindow>
       </div>

@@ -8,23 +8,11 @@ export function MacosWrapperSlide({
   className = "",
 }: SlideComponentProps) {
   return (
-    <SlideShell className={className} variant="light">
-      <div style={{ left: 120, position: "absolute", top: 170, width: 1420 }}>
-        <MacAppWindow title="WebToMarkdown" tone="light">
-          <WrapperStateCard state="off" />
-        </MacAppWindow>
-      </div>
-      <div
-        style={{
-          position: "absolute",
-          right: 156,
-          top: 220,
-          width: 860,
-        }}
-      >
+    <SlideShell className={className} label="Easy setup" tone="paper">
+      <div style={{ left: 156, position: "absolute", top: 300, width: 1000 }}>
         <MarketingHeading
           body="The Mac app takes you straight to Safari settings so setup stays simple."
-          eyebrow="Easy setup"
+          eyebrow="04 — One-time setup"
           headline={
             <>
               Turn it on
@@ -32,8 +20,12 @@ export function MacosWrapperSlide({
               in Safari.
             </>
           }
-          tone="light"
         />
+      </div>
+      <div style={{ left: 1260, position: "absolute", top: 300, width: 1464 }}>
+        <MacAppWindow title="WebToMarkdown">
+          <WrapperStateCard state="off" />
+        </MacAppWindow>
       </div>
     </SlideShell>
   );

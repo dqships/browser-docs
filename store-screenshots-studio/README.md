@@ -12,15 +12,17 @@ current extension assets.
 
 ## Source assets
 
-The studio copies and reuses:
+Everything under `public/source/` is generated from the extension itself, so the
+generator stays self-contained:
 
-- `../shared/icon.png`
-- `../docs/testing/reports/report-2/screenshots/01-popup-success.png`
-- `../docs/testing/reports/report-2/screenshots/02-context-menu-toast.png`
-- `../docs/testing/reports/report-2/screenshots/03-options-updated.png`
-- `../docs/testing/reports/report-2/screenshots/04-popup-after-settings.png`
+- `icon/app-icon.png` comes from `node scripts/render-brand-icons.mjs` (the
+  master SVGs in `docs/brand/`).
+- `popup/`, `browser/`, and `options/` captures come from
+  `node scripts/capture-extension-screenshots.mjs`, which loads the real
+  extension in Chromium against the report-1 fixture page.
+- `fonts/` mirrors `shared/fonts/` (Archivo and IBM Plex Mono, SIL OFL 1.1).
 
-These are mirrored into `public/source/` so the generator is self-contained.
+Slide styling follows `/DESIGN.md` at the repository root.
 
 ## Run locally
 

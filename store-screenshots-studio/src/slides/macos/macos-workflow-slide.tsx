@@ -9,46 +9,28 @@ export function MacosWorkflowSlide({
   className = "",
 }: SlideComponentProps) {
   return (
-    <SlideShell className={className} variant="light">
-      <div
-        style={{
-          left: 160,
-          position: "absolute",
-          top: 176,
-          width: 920,
-        }}
-      >
+    <SlideShell className={className} label="Simple flow" tone="paper">
+      <div style={{ left: 156, position: "absolute", top: 300, width: 1080 }}>
         <MarketingHeading
-          body="Use the keyboard shortcut or copy right from the extension then paste anywhere."
-          eyebrow="Simple flow"
+          body="Press ⌥⇧M or use the toolbar popup, then paste anywhere. Headings, lists, code, and tables come with it."
+          eyebrow="02 — Open, copy, paste"
           headline={
             <>
-              Open, copy,
+              Open. Copy.
               <br />
-              paste, done.
+              Paste.
             </>
           }
-          tone="light"
         />
       </div>
-      <div style={{ left: 160, position: "absolute", top: 806, width: 1180 }}>
+      <div style={{ left: 1360, position: "absolute", top: 252, width: 1360 }}>
         <BrowserWindowFrame
           browserName="Safari"
-          imageAlt="Safari readable web page"
+          imageAlt="Readable web page in Safari"
           imageSrc={sourceAssets.browserContextMenu}
-          objectPosition="top center"
-          tone="light"
-          urlLabel="example.com/readable-page"
         />
       </div>
-      <div
-        style={{
-          position: "absolute",
-          right: 132,
-          top: 572,
-          width: 1040,
-        }}
-      >
+      <div style={{ left: 1700, position: "absolute", top: 760, width: 1020 }}>
         <MarkdownCard lines={markdownExcerptLines} />
       </div>
     </SlideShell>

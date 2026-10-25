@@ -38,8 +38,6 @@ export function WrapperStateCard({
         draggable={false}
         src={sourceAssets.icon}
         style={{
-          borderRadius: 34,
-          boxShadow: "0 24px 80px rgba(0, 0, 0, 0.18)",
           display: "block",
           height: 172,
           width: 172,
@@ -48,11 +46,11 @@ export function WrapperStateCard({
       <div style={{ maxWidth: 820, textAlign: "center" }}>
         <p
           style={{
-            color: brandTokens.lightText,
+            color: brandTokens.ink,
             fontFamily: "var(--font-heading-stack)",
             fontSize: 62,
             fontWeight: 700,
-            letterSpacing: "-0.05em",
+            letterSpacing: "-0.03em",
             lineHeight: 1.02,
             margin: 0,
           }}
@@ -61,7 +59,7 @@ export function WrapperStateCard({
         </p>
         <p
           style={{
-            color: brandTokens.lightMuted,
+            color: brandTokens.inkSoft,
             fontSize: 30,
             lineHeight: 1.4,
             margin: "18px 0 0",
@@ -72,10 +70,10 @@ export function WrapperStateCard({
       </div>
       <button
         style={{
-          background: "linear-gradient(180deg, #F5F7FB 0%, #E8EDF4 100%)",
-          border: "1px solid rgba(15, 23, 42, 0.08)",
-          borderRadius: 16,
-          color: brandTokens.lightText,
+          background: brandTokens.paper,
+          border: `3px solid ${brandTokens.ink}`,
+          borderRadius: 0,
+          color: brandTokens.ink,
           fontSize: 28,
           fontWeight: 600,
           padding: "22px 40px",

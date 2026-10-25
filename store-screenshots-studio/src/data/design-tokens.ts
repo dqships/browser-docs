@@ -1,25 +1,23 @@
 export const CANVAS_WIDTH = 2880;
 export const CANVAS_HEIGHT = 1800;
 
+/** Mirrors /DESIGN.md §3. */
 export const brandTokens = {
-  background: "#05080F",
-  panel: "#111827",
-  surface: "#1F2937",
-  surfaceRaised: "#273345",
-  border: "rgba(130, 153, 183, 0.28)",
-  borderStrong: "rgba(0, 229, 255, 0.28)",
-  accent: "#00E5FF",
-  accentSoft: "#67F5FF",
-  accentGhost: "rgba(0, 229, 255, 0.12)",
-  accentGlow: "rgba(0, 229, 255, 0.26)",
-  textPrimary: "#F3F4F6",
-  textSecondary: "#B6C2D4",
-  textMuted: "#8A96A8",
-  success: "#10B981",
-  warning: "#F59E0B",
-  shadow: "0 42px 120px rgba(0, 0, 0, 0.42)",
-  lightBackground: "#EFF5FB",
-  lightPanel: "rgba(255, 255, 255, 0.92)",
-  lightText: "#0F172A",
-  lightMuted: "#475569",
+  paper: "#F2EEE5",
+  paperDeep: "#E7E2D6",
+  ink: "#151412",
+  inkSoft: "#45413B",
+  inkMuted: "#6C675E",
+  rule: "#CFC8BA",
+  signal: "#E2401C",
+  signalText: "#B5300F",
+  onInk: "#F2EEE5",
+  onInkMuted: "#A39E93",
 } as const;
+
+/** Slide background, which decides how frames and type are inked on top of it. */
+export type SlideTone = "paper" | "deep" | "ink";
+
+export function isInkTone(tone: SlideTone) {
+  return tone === "ink";
+}

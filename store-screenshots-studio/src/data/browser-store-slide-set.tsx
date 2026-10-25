@@ -17,19 +17,19 @@ export const browserStoreSlideSet: SlideSetDefinition = {
     {
       slug: "copy-pages-fast",
       name: "Hero",
-      headline: "Copy readable pages as Markdown.",
+      headline: "Web page in. Markdown out.",
       Component: BrowserHeroSlide,
     },
     {
       slug: "keep-structure",
       name: "Structure",
-      headline: "Keep headings, lists, and tables.",
+      headline: "Content in. Chrome out.",
       Component: BrowserStructureSlide,
     },
     {
       slug: "copy-from-page-menu",
       name: "Context Menu",
-      headline: "Copy from the page menu.",
+      headline: "Three ways to copy.",
       Component: BrowserContextMenuSlide,
     },
     {
@@ -41,7 +41,7 @@ export const browserStoreSlideSet: SlideSetDefinition = {
     {
       slug: "local-no-cloud",
       name: "Trust",
-      headline: "Works locally in your browser.",
+      headline: "Nothing leaves your browser.",
       Component: BrowserLocalSlide,
     },
   ],

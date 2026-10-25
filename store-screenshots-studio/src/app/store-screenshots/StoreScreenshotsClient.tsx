@@ -109,11 +109,11 @@ export default function StoreScreenshotsClient() {
               <strong className="block font-mono text-[11px] uppercase tracking-[0.24em] text-cyan-200">
                 Current assumptions
               </strong>
-              Existing brand palette: dark navy + cyan accent.
+              Brand: paper, ink, and signal red, per `/DESIGN.md`.
               <br />
-              Existing font direction: Inter, Space Grotesk, JetBrains Mono.
+              Type: Archivo and IBM Plex Mono, bundled from `shared/fonts`.
               <br />
-              Existing sources: `shared/icon.png` and `docs/testing/reports/report-2/screenshots`.
+              Sources: `scripts/render-brand-icons.mjs` and `scripts/capture-extension-screenshots.mjs`.
             </div>
           </div>
           <p className="mt-6 mb-0 rounded-2xl border border-cyan-400/14 bg-cyan-400/[0.06] px-4 py-3 text-sm text-cyan-100">

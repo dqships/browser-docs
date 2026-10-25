@@ -18,13 +18,13 @@ export const macosStoreSlideSet: SlideSetDefinition = {
     {
       slug: "safari-pages-to-markdown",
       name: "Hero",
-      headline: "Copy readable pages as Markdown.",
+      headline: "Web page in. Markdown out.",
       Component: MacosHeroSlide,
     },
     {
       slug: "open-copy-paste",
       name: "Workflow",
-      headline: "Copy the page. Paste anywhere.",
+      headline: "Open. Copy. Paste.",
       Component: MacosWorkflowSlide,
     },
     {

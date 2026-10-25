@@ -1,11 +1,10 @@
-import { brandTokens } from "@/data/design-tokens";
+import { brandTokens, isInkTone, type SlideTone } from "@/data/design-tokens";
 
 type MarketingHeadingProps = {
   eyebrow: string;
   headline: React.ReactNode;
   body: React.ReactNode;
-  align?: "left" | "center";
-  tone?: "dark" | "light";
+  tone?: SlideTone;
   className?: string;
 };
 
@@ -13,52 +12,59 @@ export function MarketingHeading({
   eyebrow,
   headline,
   body,
-  align = "left",
-  tone = "dark",
+  tone = "paper",
   className = "",
 }: MarketingHeadingProps) {
-  const centered = align === "center";
-  const headlineColor =
-    tone === "dark" ? brandTokens.textPrimary : brandTokens.lightText;
-  const bodyColor =
-    tone === "dark" ? brandTokens.textSecondary : brandTokens.lightMuted;
+  const onInk = isInkTone(tone);
 
   return (
-    <div className={className} style={{ textAlign: centered ? "center" : "left" }}>
+    <div className={className}>
       <p
         style={{
-          color: brandTokens.accent,
+          alignItems: "center",
+          color: onInk ? brandTokens.onInk : brandTokens.ink,
+          display: "flex",
           fontFamily: "var(--font-mono-stack)",
-          fontSize: 32,
-          fontWeight: 700,
-          letterSpacing: "0.28em",
+          fontSize: 30,
+          fontWeight: 500,
+          gap: 18,
+          letterSpacing: "0.08em",
           margin: 0,
           textTransform: "uppercase",
         }}
       >
+        <span
+          style={{
+            background: brandTokens.signal,
+            display: "block",
+            height: 20,
+            width: 20,
+          }}
+        />
         {eyebrow}
       </p>
       <h2
         style={{
-          color: headlineColor,
+          color: onInk ? brandTokens.onInk : brandTokens.ink,
           fontFamily: "var(--font-heading-stack)",
-          fontSize: 158,
-          fontWeight: 700,
-          letterSpacing: "-0.06em",
+          fontSize: 116,
+          fontStretch: "112%",
+          fontWeight: 800,
+          letterSpacing: "-0.04em",
           lineHeight: 0.92,
-          margin: "28px 0 22px",
-          maxWidth: 980,
+          margin: "40px 0 36px",
+          whiteSpace: "nowrap",
         }}
       >
         {headline}
       </h2>
       <p
         style={{
-          color: bodyColor,
-          fontSize: 46,
-          lineHeight: 1.3,
+          color: onInk ? brandTokens.onInkMuted : brandTokens.inkSoft,
+          fontSize: 44,
+          lineHeight: 1.35,
           margin: 0,
-          maxWidth: centered ? 980 : 860,
+          maxWidth: 900,
         }}
       >
         {body}

@@ -8,36 +8,27 @@ export function BrowserContextMenuSlide({
   className = "",
 }: SlideComponentProps) {
   return (
-    <SlideShell className={className} variant="dark">
-      <div
-        style={{
-          left: 500,
-          position: "absolute",
-          top: 128,
-          width: 1760,
-        }}
-      >
+    <SlideShell className={className} label="Fast access" tone="deep">
+      <div style={{ left: 156, position: "absolute", top: 300, width: 1000 }}>
         <MarketingHeading
-          align="center"
-          body="Use the keyboard shortcut or copy right from the extension while you read."
-          eyebrow="Fast access"
+          body="Right-click the page, use the toolbar popup, or press ⌥⇧M. A small toast confirms what was copied."
+          eyebrow="03 — Three ways in"
           headline={
             <>
-              Copy from the
+              Three ways
               <br />
-              page menu.
+              to copy.
             </>
           }
+          tone="deep"
         />
       </div>
-      <div style={{ left: 230, position: "absolute", top: 712, width: 2420 }}>
+      <div style={{ left: 1260, position: "absolute", top: 252, width: 1464 }}>
         <BrowserWindowFrame
           browserName="Firefox"
-          imageAlt="Context menu toast on a readable web page"
+          imageAlt="Copy confirmation toast on a readable web page"
           imageSrc={sourceAssets.browserContextMenu}
-          objectPosition="top center"
-          tone="dark"
-          urlLabel="example.com/readable-page"
+          tone="deep"
         />
       </div>
     </SlideShell>
