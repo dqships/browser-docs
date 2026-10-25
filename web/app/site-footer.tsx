@@ -77,6 +77,15 @@ export function SiteFooter() {
             © {new Date().getFullYear()} {site.name}
           </span>
           <span>Made by {site.supportXHandle}</span>
+            Terms of Use
+          </Link>
+        </nav>
+        <p className="text-sm text-text-tertiary mb-2">
+          {site.defaultDescription}
+        </p>
+        <p className="text-xs text-text-tertiary">
+          © {new Date().getFullYear()} {site.publisherName}. Source code
+          available under the MIT License.
         </p>
       </div>
     </footer>

@@ -10,7 +10,7 @@ export const metadata: Metadata = createPageMetadata({
 });
 
 export default function PrivacyPage() {
-  const lastUpdated = "April 22, 2026";
+  const lastUpdated = "October 25, 2026";
 
   return (
     <article className="px-6 py-20 md:py-28">
@@ -46,7 +46,8 @@ export default function PrivacyPage() {
               This Privacy Policy explains how {site.name} handles information
               when you use the website at <strong>{site.url}</strong> and the
               browser extension distributed under the same name. In this policy,
-              &quot;we&quot; means the operator of {site.name}, and
+              &quot;we&quot; means {site.publisherName}, the owner and operator
+              of {site.name}, and
               &quot;you&quot; means a visitor or extension user.
             </p>
           </section>
