@@ -163,4 +163,6 @@ Set `NEXT_PUBLIC_SITE_URL` to your production domain before deploying. Update al
 
 ## License
 
-MIT
+The website source code is available under the [MIT License](../LICENSE). The
+WebToMarkdown name, icon, and other brand assets are not covered by that
+license. See [BRAND_ASSETS.md](../BRAND_ASSETS.md).

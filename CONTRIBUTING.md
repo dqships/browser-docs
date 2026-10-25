@@ -40,7 +40,7 @@ static documentation sites, React or Next.js docs, and long articles. See
 
 ```sh
 cd web
-npm ci
+npm install
 npm run dev
 ```
 

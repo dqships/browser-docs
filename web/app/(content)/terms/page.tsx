@@ -10,7 +10,7 @@ export const metadata: Metadata = createPageMetadata({
 });
 
 export default function TermsPage() {
-  const lastUpdated = "April 22, 2026";
+  const lastUpdated = "October 25, 2026";
 
   return (
     <article className="px-6 py-20 md:py-28">
@@ -42,6 +42,10 @@ export default function TermsPage() {
         <div className="prose-legal">
           <section>
             <h2>Agreement to These Terms</h2>
+            <p>
+              {site.name} is owned and operated by {site.publisherName}
+              (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;).
+            </p>
             <p>
               By accessing the {site.name} website at <strong>{site.url}</strong>{" "}
               or installing or using the {site.name} extension, you agree to
@@ -113,11 +117,17 @@ export default function TermsPage() {
           <section>
             <h2>Intellectual Property</h2>
             <p>
-              The {site.name} software, website design, branding, and related
-              original materials are owned by us or our licensors and are
-              protected by applicable intellectual property law. Except as
-              allowed by law, you may not copy, resell, sublicense, or create
-              derivative works from our software or website content without
+              The source code for the {site.name} extension and website is
+              open source under the MIT License. You may use, copy, modify, and
+              distribute that code under the terms of the license included with
+              it.
+            </p>
+            <p>
+              The MIT License covers the code only. The {site.name} name, icon,
+              store screenshots, website branding, and other brand assets are
+              owned by {site.publisherName} and are not licensed for reuse. You
+              may not use them to suggest that your version is official,
+              approved, or connected with {site.name} without written
               permission.
             </p>
           </section>

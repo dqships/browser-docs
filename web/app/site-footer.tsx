@@ -66,7 +66,8 @@ export function SiteFooter() {
           {site.defaultDescription}
         </p>
         <p className="text-xs text-text-tertiary">
-          © {new Date().getFullYear()} {site.name}. All rights reserved.
+          © {new Date().getFullYear()} {site.publisherName}. Source code
+          available under the MIT License.
         </p>
       </div>
     </footer>
