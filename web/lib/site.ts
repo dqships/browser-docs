@@ -32,7 +32,7 @@ function normalizePathname(pathname = "/") {
 export const site = {
   name: "WebToMarkdown",
   url: configuredSiteUrl.replace(/\/$/, ""),
-  publisherName: "dqships",
+  publisherName: "FollowUs AI LLC",
   supportEmail: "support@followusai.com",
   supportXHandle: "@dqships",
   supportXUrl: "https://x.com/dqships",
