@@ -32,10 +32,10 @@ function normalizePathname(pathname = "/") {
 export const site = {
   name: "WebToMarkdown",
   url: configuredSiteUrl.replace(/\/$/, ""),
-  publisherName: "dqstartupbuild",
+  publisherName: "dqships",
   supportEmail: "support@followusai.com",
-  supportXHandle: "@dqstartupbuild",
-  supportXUrl: "https://x.com/dqstartupbuild",
+  supportXHandle: "@dqships",
+  supportXUrl: "https://x.com/dqships",
   defaultTitle: "WebToMarkdown",
   defaultDescription:
     "Copy readable web pages as clean Markdown with a lightweight browser extension that works locally and keeps headings, lists, code blocks, and tables intact.",
