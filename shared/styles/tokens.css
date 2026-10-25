@@ -1,0 +1,16 @@
+/* Design tokens shared by extension pages. Source of truth: /DESIGN.md §3–4. */
+:root {
+  color-scheme: light;
+  --paper: #f2eee5;
+  --paper-deep: #e7e2d6;
+  --ink: #151412;
+  --ink-soft: #45413b;
+  --ink-muted: #6c675e;
+  --rule: #cfc8ba;
+  --signal: #e2401c;
+  --signal-text: #b5300f;
+
+  --font-sans: "Archivo", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+  --duration-fast: 120ms;
+}

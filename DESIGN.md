@@ -162,3 +162,10 @@ Each section is its own component in `web/app/landing/`, following the repo's si
 ## 10. Content pages
 
 Blog, privacy, terms, and support pages inherit the same tokens. Keep them as plain reading columns (max 68ch), with mono running heads and square corners, and don't add hero art.
+
+## 11. Extension UI & store screenshots
+
+- The popup (`popup/`), settings page (`options/`), and in-page toast (`content/ui/show-toast.js`) use the same tokens. Extension pages load `shared/styles/tokens.css` and `shared/styles/fonts.css`.
+- Fonts are bundled in `shared/fonts/` (SIL OFL 1.1). Extension pages never load fonts or other assets from a CDN, because "nothing leaves your browser" has to hold for the extension's own UI too.
+- The toast is injected into arbitrary pages, so it uses system fonts with the brand colors, square corners, and a hard ink offset shadow.
+- Product screenshots are captured from the real extension by `scripts/capture-extension-screenshots.mjs`. Store slides are built in `store-screenshots-studio/` from those captures and follow this document: flat paper, deep-paper, or ink backgrounds, a masthead with the lockup, square ink-bordered frames, and display headlines that fit on two lines.

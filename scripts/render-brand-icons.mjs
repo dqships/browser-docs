@@ -27,6 +27,9 @@ const OUTPUTS = [
   { source: "logo-tile.svg", size: 512, target: "web/public/icon.png" },
   { source: "logo-tile.svg", size: 180, target: "web/public/apple-icon.png" },
 
+  // Store screenshots studio
+  { source: "logo-tile.svg", size: 512, target: "store-screenshots-studio/public/source/icon/app-icon.png" },
+
   // Safari container app
   { source: "logo-tile.svg", size: 1024, target: "safari/WebToMarkdown/WebToMarkdown/Resources/Icon.png" },
   { source: "logo-app-icon.svg", size: 16, target: `${APP_ICON_SET}/mac-icon-16@1x.png` },
@@ -45,7 +48,10 @@ const OUTPUTS = [
 ];
 
 // SVGs shipped as-is.
-const COPIES = [{ source: "logo-tile.svg", target: "web/public/icon.svg" }];
+const COPIES = [
+  { source: "logo-tile.svg", target: "web/public/icon.svg" },
+  { source: "logo-mark.svg", target: "shared/icons/logo-mark.svg" },
+];
 
 async function renderSvg(page, svgMarkup, size) {
   await page.setViewportSize({ width: size, height: size });
