@@ -45,7 +45,7 @@ describe("content SEO helpers", () => {
 
     expect(xml).toContain('<rss version="2.0">');
     expect(xml).toContain(
-      "http://localhost:3000/blog/getting-started",
+      "http://localhost:3000/blog/what-webtomarkdown-is-for",
     );
   });
 });

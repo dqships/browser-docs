@@ -9,7 +9,7 @@ describe("sitemap", () => {
     expect(urls).toContain("http://localhost:3000/");
     expect(urls).toContain("http://localhost:3000/blog");
     expect(urls).toContain(
-      "http://localhost:3000/blog/getting-started",
+      "http://localhost:3000/blog/what-webtomarkdown-is-for",
     );
   });
 });
