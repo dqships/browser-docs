@@ -1,7 +1,9 @@
+// Production is the default so local, preview, and production builds all
+// emit the same canonical URLs, and blog frontmatter canonicals match.
 const configuredSiteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ??
   process.env.SITE_URL ??
-  "http://localhost:3000";
+  "https://web-markdown.com";
 
 function normalizePathname(pathname = "/") {
   if (!pathname) {
@@ -33,10 +35,15 @@ export const site = {
   name: "WebToMarkdown",
   url: configuredSiteUrl.replace(/\/$/, ""),
   publisherName: "FollowUs AI LLC",
+  publisherUrl: "https://www.followusai.com",
+  publisherLocality: "Swartz Creek",
+  publisherRegion: "MI",
+  publisherRegionName: "Michigan",
+  sourceUrl: "https://github.com/dqships/browser-docs",
   supportEmail: "support@followusai.com",
   supportXHandle: "@dqships",
   supportXUrl: "https://x.com/dqships",
-  defaultTitle: "WebToMarkdown",
+  defaultTitle: "WebToMarkdown: Copy Any Web Page as Clean Markdown",
   defaultDescription:
     "Copy readable web pages as clean Markdown with a lightweight browser extension that works locally and keeps headings, lists, code blocks, and tables intact.",
   keywords: [
@@ -69,6 +76,11 @@ export const site = {
       pathname: "/",
       changeFrequency: "weekly" as const,
       priority: 1,
+    },
+    {
+      pathname: "/about",
+      changeFrequency: "yearly" as const,
+      priority: 0.4,
     },
     {
       pathname: "/blog",
@@ -120,8 +132,25 @@ export function createOrganizationJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": `${site.publisherUrl}/#organization`,
     name: site.publisherName,
-    url: site.url,
-    description: site.defaultDescription,
+    url: site.publisherUrl,
+    logo: createCanonicalUrl("/icon.png"),
+    description: `${site.publisherName} makes ${site.name}, a browser extension that copies web pages as clean Markdown.`,
+    email: site.supportEmail,
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer support",
+      email: site.supportEmail,
+      url: createCanonicalUrl("/support"),
+      availableLanguage: "en",
+    },
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: site.publisherLocality,
+      addressRegion: site.publisherRegion,
+      addressCountry: "US",
+    },
+    sameAs: [site.supportXUrl, site.sourceUrl, site.downloadTargets.chrome.url],
   };
 }

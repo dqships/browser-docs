@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = createPageMetadata({
   title: `Privacy Policy | ${site.name}`,
   description:
-    `Privacy details for the ${site.name} website and extension, including what stays local in your browser, what settings are stored, and what data we do not collect.`,
+    `Privacy details for the ${site.name} website and extension: what stays local in your browser, what settings are stored, and what data we do not collect.`,
   canonical: "/privacy",
 });
 

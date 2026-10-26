@@ -3,7 +3,7 @@ import { createPageMetadata } from "@/lib/metadata";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = createPageMetadata({
-  title: `Terms of Use | ${site.name}`,
+  title: `Terms of Use for the Extension | ${site.name}`,
   description:
     `Terms for using the ${site.name} website and extension, including acceptable use, third-party content responsibilities, and service limitations.`,
   canonical: "/terms",

@@ -11,9 +11,9 @@ describe("createPageMetadata", () => {
       keywords: ["blog"],
     });
 
-    expect(metadata.alternates?.canonical).toBe("http://localhost:3000/blog");
+    expect(metadata.alternates?.canonical).toBe("https://web-markdown.com/blog");
     expect(metadata.openGraph).toMatchObject({
-      url: "http://localhost:3000/blog",
+      url: "https://web-markdown.com/blog",
     });
     expect(metadata.twitter).toMatchObject({
       title: "Blog | My Site",
