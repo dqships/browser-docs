@@ -8,7 +8,7 @@ import {
 } from "@/lib/content/queries";
 
 export const metadata = createPageMetadata({
-  title: `Blog | ${site.name}`,
+  title: `Blog: Markdown Workflows and Updates | ${site.name}`,
   description: `Notes on copying readable web pages as Markdown, product updates, and practical workflows from the ${site.name} team.`,
   canonical: "/blog",
 });

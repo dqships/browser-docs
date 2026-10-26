@@ -3,7 +3,7 @@ import { createPageMetadata } from "@/lib/metadata";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = createPageMetadata({
-  title: `Support | ${site.name}`,
+  title: `Support and Help With Copied Pages | ${site.name}`,
   description:
     `Support for ${site.name}. Reach out on X or by email if you need help with the extension, copied output, or store listing questions.`,
   canonical: "/support",

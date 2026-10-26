@@ -6,10 +6,10 @@ describe("sitemap", () => {
     const entries = sitemap();
     const urls = entries.map((entry) => entry.url);
 
-    expect(urls).toContain("http://localhost:3000/");
-    expect(urls).toContain("http://localhost:3000/blog");
+    expect(urls).toContain("https://web-markdown.com/");
+    expect(urls).toContain("https://web-markdown.com/blog");
     expect(urls).toContain(
-      "http://localhost:3000/blog/getting-started",
+      "https://web-markdown.com/blog/what-webtomarkdown-is-for",
     );
   });
 });
