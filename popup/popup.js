@@ -7,8 +7,10 @@ import { copyText } from "./copy-text.js";
 import { recordMarkdownAction } from "../shared/actions/record-markdown-action.js";
 import { bindViewButtons } from "./views/bind-view-buttons.js";
 import { mountSettingsView } from "./settings/mount-settings-view.js";
+import { bindDownloadButton } from "./bind-download-button.js";
 
 const copyButton = document.querySelector("#copy-button");
+const downloadButton = document.querySelector("#download-button");
 const statusElement = document.querySelector("#status");
 const resultPanel = document.querySelector("#result-panel");
 const previewElement = document.querySelector("#preview");
@@ -46,4 +48,13 @@ copyButton.addEventListener("click", async () => {
   } finally {
     copyButton.disabled = false;
   }
+});
+
+bindDownloadButton({
+  button: downloadButton,
+  statusElement,
+  resultPanel,
+  previewElement,
+  wordCountElement,
+  charCountElement
 });

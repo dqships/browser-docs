@@ -3,8 +3,10 @@
 WebToMarkdown is a browser extension that copies the readable part of a web page
 as clean Markdown. Click the toolbar button, use the right-click menu, or press
 `Alt+Shift+M` and the page's main content goes to your clipboard with headings,
-lists, tables, links, and code blocks kept intact. It works in Chrome, Firefox,
-and Safari, and converts pages locally in your browser.
+lists, tables, links, and code blocks kept intact. You can also save the page as
+a `.md` file from the popup, the right-click menu, or a shortcut you assign in
+the browser's shortcut settings. It works in Chrome, Firefox, and Safari, and
+converts pages locally in your browser.
 
 [Get WebToMarkdown on the Chrome Web Store](https://chromewebstore.google.com/detail/webtomarkdown/gaglchmlnkelnokjkilcbkggfdembeem)
 
