@@ -261,6 +261,10 @@ Always available:
 - **Rate** and **Share** buttons in the popup footer, next to Settings and
   History. Share copies the store link and shows "Link copied." in the status
   line.
+- The footer buttons record the same answers as the cards: Rate counts as
+  rated (the review card stops for good), and Share counts as shared (the
+  share card never appears afterwards), so nobody is asked for something they
+  already did.
 
 Implementation notes:
 

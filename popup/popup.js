@@ -9,6 +9,7 @@ import { bindViewButtons } from "./views/bind-view-buttons.js";
 import { mountSettingsView } from "./settings/mount-settings-view.js";
 import { mountHistoryView } from "./history/mount-history-view.js";
 import { bindDownloadButton } from "./bind-download-button.js";
+import { mountEngagementPrompts } from "./engagement/mount-engagement-prompts.js";
 
 const copyButton = document.querySelector("#copy-button");
 const downloadButton = document.querySelector("#download-button");
@@ -21,6 +22,11 @@ const charCountElement = document.querySelector("#char-count");
 mountSettingsView(document.querySelector('[data-view="settings"]'));
 mountHistoryView(document.querySelector('[data-view="history"]'));
 bindViewButtons();
+mountEngagementPrompts({
+  slot: document.querySelector("#prompt-slot"),
+  footer: document.querySelector(".popup-footer"),
+  statusElement
+});
 
 copyButton.addEventListener("click", async () => {
   copyButton.disabled = true;

@@ -1,4 +1,5 @@
 import { recordCopyHistory } from "../history/record-copy-history.js";
+import { advancePromptsAfterSuccess } from "../engagement/advance-prompts-after-success.js";
 
 // Every successful copy or download, from the popup, the context menu, or the
 // keyboard shortcut, ends here. Features that react to a finished action
@@ -10,11 +11,15 @@ import { recordCopyHistory } from "../history/record-copy-history.js";
 // source: "popup" | "context-menu" | "shortcut"
 // result: the extraction result ({ markdown, meta, stats })
 export async function recordMarkdownAction({ kind, source, result }) {
-  void source;
-
   try {
     await recordCopyHistory({ kind, result });
   } catch {
     /* Copy history is a convenience; never fail the copy because of it. */
+  }
+
+  try {
+    await advancePromptsAfterSuccess({ source });
+  } catch {
+    /* The review and share prompts are optional. */
   }
 }

@@ -1,0 +1,61 @@
+/* Review and share prompt card, rendered into #prompt-slot. See /DESIGN.md. */
+
+.prompt-card {
+  border: 1px solid var(--ink);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px 14px 14px;
+}
+
+.prompt-card-label {
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.prompt-card-label::before {
+  background: var(--signal);
+  content: "";
+  display: inline-block;
+  height: 8px;
+  margin-right: 8px;
+  vertical-align: 1px;
+  width: 8px;
+}
+
+.prompt-card-text {
+  color: var(--ink);
+  margin: 0;
+}
+
+.prompt-card-actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+}
+
+.prompt-card-actions button {
+  font-size: 13px;
+  padding: 8px 12px;
+}
+
+.prompt-card-actions .text-button {
+  background: transparent;
+  border: 0;
+  color: var(--ink);
+  font-weight: 500;
+  padding: 8px 0;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.prompt-card-actions .text-button:hover {
+  text-decoration-color: var(--signal);
+}
