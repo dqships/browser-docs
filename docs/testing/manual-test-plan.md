@@ -119,6 +119,58 @@ Results so far (Playwright Chromium, built `dist/chrome`, 2026-10-30):
 - Not yet checked: the real github.com (the test sandbox could not reach it),
   Firefox, and Safari. These need a manual run.
 
+## Rate and Share Prompt Tests
+
+Use a fresh profile (or clear `engagementPrompts` from the extension's
+`storage.local`). A "success" is any successful copy or download from the
+popup, the context menu, or the shortcut. Failed copies do not count.
+
+Review card schedule:
+
+1. Successes 1 and 2: no card.
+2. Success 3: the review card appears above the footer with
+   `Rate WebToMarkdown` and `Not now`, and no `I already did`.
+3. Close the popup without answering, reopen it: the card is still there.
+   Restart the browser and reopen: still there.
+4. Do a copy from the context menu: the card is still the review card, and in
+   Chrome the popup opens on its own. If the browser refuses to open it, the
+   card is there the next time you open the popup.
+5. Click `Not now`: the card goes away.
+6. Successes 4 and 5: no card.
+
+Share card:
+
+7. Success 6: the share card appears (`Copy link`, `Not now`). The review card
+   does not appear on the same success.
+8. Leave it unanswered through success 8: the share card stays and the review
+   card does not replace it.
+9. Click `Copy link`: the status line reads `Link copied.` and the clipboard
+   holds the Chrome Web Store listing. The share card never comes back.
+10. Success 9: the review card returns, now with `I already did`.
+11. Click `Not now`, then do 5 more successes: the review card returns on the
+    5th (success 14).
+12. Click `Rate WebToMarkdown`: the Chrome Web Store reviews page opens in a new
+    tab. Do 20 more successes: no card ever appears.
+
+Other paths:
+
+- Fresh profile, success 3, `Not now`, then click footer `Rate` before success
+  6: the review page opens and the review card never returns. The next success
+  shows the share card.
+- Fresh profile, success 3, `Rate WebToMarkdown`: success 4 shows the share
+  card.
+- `I already did` (from the second showing on) ends the review card for good,
+  the same as rating.
+- Footer `Share` copies the listing link, shows `Link copied.`, and stops the
+  share card from appearing later.
+- Firefox and Safari: `Rate` opens https://web-markdown.com and `Share` copies
+  it, until their store listings are added to
+  `shared/constants/store-links.js`.
+- Only one card is ever visible.
+
+The schedule logic is also covered by `node --test shared/` (see
+`shared/engagement/advance-prompt-schedule.test.js`).
+
 ## Failure Tests
 
 - Browser internal pages should fail gracefully.

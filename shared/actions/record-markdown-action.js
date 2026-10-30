@@ -1,3 +1,5 @@
+import { advancePromptsAfterSuccess } from "../engagement/advance-prompts-after-success.js";
+
 // Every successful copy or download, from the popup, the context menu, or the
 // keyboard shortcut, ends here. Features that react to a finished action
 // (copy history, review and share prompts) are called from this function.
@@ -9,6 +11,11 @@
 // result: the extraction result ({ markdown, meta, stats })
 export async function recordMarkdownAction({ kind, source, result }) {
   void kind;
-  void source;
   void result;
+
+  try {
+    await advancePromptsAfterSuccess({ source });
+  } catch {
+    /* The review and share prompts are optional. */
+  }
 }
