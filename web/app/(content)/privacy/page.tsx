@@ -5,12 +5,12 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = createPageMetadata({
   title: `Privacy Policy | ${site.name}`,
   description:
-    `Privacy details for the ${site.name} website and extension: what stays local in your browser, what settings are stored, and what data we do not collect.`,
+    `Privacy details for the ${site.name} website and extension: what stays local in your browser, what settings and copy history are stored, and what data we do not collect.`,
   canonical: "/privacy",
 });
 
 export default function PrivacyPage() {
-  const lastUpdated = "October 25, 2026";
+  const lastUpdated = "October 30, 2026";
 
   return (
     <article className="px-6 py-20 md:py-28">
@@ -81,11 +81,37 @@ export default function PrivacyPage() {
               <li>Whether to include a source link</li>
               <li>Whether to include a title heading</li>
               <li>Whether to preserve tables when possible</li>
+              <li>Whether to save copy history</li>
             </ul>
             <p>
               These preferences are stored locally for extension behavior. You
               can reset them from the extension settings or by removing the
               extension.
+            </p>
+          </section>
+
+          <section>
+            <h2>Copy History Stored Locally</h2>
+            <p>
+              When the &quot;Save copy history&quot; setting is on (it is on by
+              default), the extension keeps a list of the pages you copy so you
+              can copy, download, or revisit them later from the History view
+              in the popup. Each entry holds the page title, the page address,
+              the copied Markdown, its word and character counts, and when you
+              copied it. Only copies are saved; downloads are not.
+            </p>
+            <p>
+              This history is stored only in your browser&apos;s local extension
+              storage, is limited to the 100 most recent copies, and never
+              leaves your device. It is not synced to other browsers and is not
+              sent to us or anyone else.
+            </p>
+            <p>
+              You can delete single entries or clear the whole history from the
+              History view at any time. Turning &quot;Save copy history&quot;
+              off stops new copies from being saved but keeps entries already
+              saved until you clear them. Removing the extension deletes the
+              history too.
             </p>
           </section>
 
@@ -111,8 +137,8 @@ export default function PrivacyPage() {
                 action to the browser context menu.
               </li>
               <li>
-                <strong>storage</strong> so your export preferences can be
-                remembered locally.
+                <strong>storage</strong> so your export preferences and, when it
+                is on, your copy history can be remembered locally.
               </li>
             </ul>
           </section>
@@ -123,7 +149,8 @@ export default function PrivacyPage() {
               For the current core copy-to-Markdown workflow, we do not claim
               ownership of the page content you copy and we do not intentionally
               collect or store that copied page content on our servers as part
-              of the normal extension action.
+              of the normal extension action. Copy history, when it is on, stays
+              in your browser as described above.
             </p>
             <p>We also do not use the website for:</p>
             <ul>
@@ -187,7 +214,9 @@ export default function PrivacyPage() {
             <p>
               Extension settings remain in local browser storage until you
               change them, clear browser extension storage, or uninstall the
-              extension. Website-side technical logs, if any, are retained only
+              extension. Copy history remains in local browser storage until
+              you delete it from the History view, clear browser extension
+              storage, or uninstall the extension. Website-side technical logs, if any, are retained only
               as long as reasonably necessary for security, operations, and
               support.
             </p>

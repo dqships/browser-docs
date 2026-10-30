@@ -26,5 +26,11 @@ export const SETTING_DEFINITIONS = Object.freeze([
     key: "preserveTables",
     label: "Preserve tables",
     description: "Convert HTML tables into Markdown pipe tables where possible."
+  }),
+  Object.freeze({
+    key: "saveCopyHistory",
+    label: "Save copy history",
+    description:
+      "Keep a local list of pages you copy so you can copy or download them again. Turning this off stops saving new copies but keeps the ones already saved; clear them from History."
   })
 ]);

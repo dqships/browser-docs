@@ -1,3 +1,4 @@
+import { recordCopyHistory } from "../history/record-copy-history.js";
 import { advancePromptsAfterSuccess } from "../engagement/advance-prompts-after-success.js";
 
 // Every successful copy or download, from the popup, the context menu, or the
@@ -10,8 +11,11 @@ import { advancePromptsAfterSuccess } from "../engagement/advance-prompts-after-
 // source: "popup" | "context-menu" | "shortcut"
 // result: the extraction result ({ markdown, meta, stats })
 export async function recordMarkdownAction({ kind, source, result }) {
-  void kind;
-  void result;
+  try {
+    await recordCopyHistory({ kind, result });
+  } catch {
+    /* Copy history is a convenience; never fail the copy because of it. */
+  }
 
   try {
     await advancePromptsAfterSuccess({ source });

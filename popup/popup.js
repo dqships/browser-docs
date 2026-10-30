@@ -7,6 +7,7 @@ import { copyText } from "./copy-text.js";
 import { recordMarkdownAction } from "../shared/actions/record-markdown-action.js";
 import { bindViewButtons } from "./views/bind-view-buttons.js";
 import { mountSettingsView } from "./settings/mount-settings-view.js";
+import { mountHistoryView } from "./history/mount-history-view.js";
 import { bindDownloadButton } from "./bind-download-button.js";
 import { mountEngagementPrompts } from "./engagement/mount-engagement-prompts.js";
 
@@ -19,6 +20,7 @@ const wordCountElement = document.querySelector("#word-count");
 const charCountElement = document.querySelector("#char-count");
 
 mountSettingsView(document.querySelector('[data-view="settings"]'));
+mountHistoryView(document.querySelector('[data-view="history"]'));
 bindViewButtons();
 mountEngagementPrompts({
   slot: document.querySelector("#prompt-slot"),

@@ -1,0 +1,187 @@
+/* History view inside the popup. Tokens come from shared/styles/tokens.css,
+   shared button and status styles from popup.css. See /DESIGN.md. */
+
+[data-view="history"] {
+  gap: 14px;
+}
+
+/* ─── Toolbar: count and Clear all ─── */
+
+.history-toolbar {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+  min-height: 30px;
+}
+
+.history-toolbar[hidden],
+.history-confirm[hidden],
+.history-clear[hidden] {
+  display: none;
+}
+
+.history-count {
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.history-confirm {
+  align-items: center;
+  display: flex;
+  font-size: 13px;
+  font-weight: 600;
+  gap: 6px;
+}
+
+.history-toolbar button,
+.history-action {
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 5px 8px;
+}
+
+/* Row buttons use the narrower sans face so all four fit on one line at the
+   popup's 360px width. They still wrap if a translation makes them longer. */
+.history-action {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0;
+  padding: 5px 9px;
+}
+
+.history-toolbar button:hover:not(:disabled),
+.history-action:hover:not(:disabled) {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.history-toolbar .history-confirm-yes {
+  background: var(--signal-text);
+  border-color: var(--signal-text);
+  color: var(--paper);
+}
+
+.history-toolbar .history-confirm-yes:hover:not(:disabled) {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+/* The status stays in view while the list scrolls under it. */
+.history-status {
+  background: var(--paper);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+/* ─── Empty state and notes ─── */
+
+.history-empty,
+.history-note {
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.history-empty {
+  border: 1px dashed var(--rule);
+  padding: 24px 16px;
+  text-align: center;
+}
+
+.history-note {
+  border-left: 3px solid var(--signal);
+  font-size: 13px;
+  padding-left: 10px;
+}
+
+/* ─── List ─── */
+
+.history-list {
+  border-top: 1px solid var(--ink);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.history-list[hidden] {
+  display: none;
+}
+
+.history-row {
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 0;
+}
+
+.history-title {
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+}
+
+.history-meta {
+  color: var(--ink-muted);
+  display: flex;
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  gap: 0 6px;
+  margin: 0;
+}
+
+.history-meta > * + *::before {
+  color: var(--rule);
+  content: "/";
+  margin-right: 6px;
+}
+
+.history-host {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.history-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.history-action[data-history-action="delete"] {
+  border-color: var(--rule);
+  color: var(--signal-text);
+  margin-left: auto;
+}
+
+.history-action[data-history-action="delete"]:hover:not(:disabled) {
+  background: var(--signal-text);
+  border-color: var(--signal-text);
+  color: var(--paper);
+}
+
+.history-action:disabled {
+  border-color: var(--rule);
+  color: var(--ink-muted);
+  cursor: not-allowed;
+}

@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="../shared/styles/tokens.css">
   <link rel="stylesheet" href="../shared/styles/settings-form.css">
   <link rel="stylesheet" href="./popup.css">
+  <link rel="stylesheet" href="./history/history-view.css">
   <link rel="stylesheet" href="./engagement/prompt-card.css">
   <script src="../shared/vendor/browser-polyfill.min.js"></script>
 </head>
@@ -87,14 +88,33 @@
 
         <p class="status" aria-live="polite" data-settings-status>Changes save as you go.</p>
       </section>
-      <!-- T3 adds data-view="history" -->
+
+      <section class="popup-view" data-view="history" aria-labelledby="history-heading" hidden>
+        <div class="view-header"><button class="back-button" type="button" data-back-view="main">Back</button><h1 id="history-heading" tabindex="-1" data-view-heading>History</h1></div>
+
+        <div class="history-toolbar" data-history-toolbar hidden>
+          <p class="history-count" data-history-count></p>
+          <button class="history-clear" type="button" data-history-clear-start>Clear all</button>
+          <div class="history-confirm" role="group" aria-label="Confirm clear all" data-history-clear-confirm hidden>
+            <span>Clear all?</span>
+            <button class="history-confirm-yes" type="button" data-history-clear-yes>Yes</button>
+            <button type="button" data-history-clear-cancel>Cancel</button>
+          </div>
+        </div>
+
+        <p class="status history-status" aria-live="polite" data-history-status>Saved copies stay on this device.</p>
+
+        <p class="history-note" data-history-off-note hidden>Copy history is off, so new copies are not saved. Turn it back on in Settings.</p>
+        <p class="history-empty" data-history-empty hidden></p>
+        <ol class="history-list" aria-labelledby="history-heading" data-history-list></ol>
+      </section>
     </div>
 
     <div id="prompt-slot" class="prompt-slot"></div>
 
     <nav class="popup-footer" aria-label="More">
       <button type="button" data-open-view="settings">Settings</button>
-      <!-- T3 adds History -->
+      <button type="button" data-open-view="history">History</button>
       <button type="button" data-rate-button>Rate</button>
       <button type="button" data-share-button>Share</button>
     </nav>

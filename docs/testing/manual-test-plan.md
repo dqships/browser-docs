@@ -119,6 +119,78 @@ Results so far (Playwright Chromium, built `dist/chrome`, 2026-10-30):
 - Not yet checked: the real github.com (the test sandbox could not reach it),
   Firefox, and Safari. These need a manual run.
 
+## Copy History Tests
+
+Run the unit tests first:
+
+```sh
+node --test shared/history/*.test.js popup/history/*.test.js
+```
+
+They cover the entry shape, dedupe (same URL and identical Markdown moves to
+the top), the 100-entry cap, the http(s)-only rule for **Visit site**, and the
+relative time labels.
+
+Recording:
+
+1. Open the popup, then **History**. With nothing saved, the empty state reads
+   "Nothing here yet."
+2. Copy a page from the popup, another from the context menu, and another with
+   `Alt+Shift+M`. Reopen **History** and confirm all three are listed, newest
+   first, each with title, hostname, relative time ("Just now"), and word
+   count.
+3. Copy the first page again without changes. Confirm it moves to the top and
+   is not listed twice. Change a setting that alters the Markdown (for example
+   **Include frontmatter**) and copy it again: it is listed as a new entry.
+4. Use **Download .md** on the main view, the context menu, and the download
+   shortcut. Confirm downloads are not added to the history.
+
+Row actions:
+
+- **Copy again** puts the saved Markdown on the clipboard and shows "Markdown
+  copied to the clipboard." It does not add or move a history entry.
+- **Download .md** saves the saved Markdown as `<title-slug>.md` and shows
+  "Saved <filename>."
+- **Visit site** opens the source page in a new tab. It is disabled for entries
+  without an http(s) address.
+- **Delete** removes only that row and keeps keyboard focus in the list.
+- **Clear all** turns into "Clear all? Yes / Cancel". **Cancel** (or `Escape`)
+  keeps everything; **Yes** empties the list and shows "History cleared."
+
+Setting:
+
+1. In **Settings**, turn off **Save copy history**. Copy a page. Confirm it is
+   not added, and the existing entries are still listed under a note that
+   history is off.
+2. Turn it back on and confirm new copies are recorded again.
+3. Confirm the setting also appears on the options page and stays in sync.
+
+Layout and safety:
+
+- At the popup's 360px width, the four row buttons fit on one line, long
+  titles clamp to two lines, and the list scrolls inside the popup while the
+  status line stays visible.
+- A page whose title contains HTML (for example `<img src=x onerror=alert(1)>`)
+  shows the text literally.
+- Fill the history past 100 copies and confirm only the newest 100 are kept.
+
+Results so far (Playwright Chromium, built `dist/chrome`, 2026-10-30):
+
+- Two copies and one download recorded through `recordMarkdownAction` at the
+  same time saved exactly the two copies. Five copies recorded at the same time
+  from two extension pages all landed (no lost writes).
+- Re-copying the same URL with identical Markdown moved the entry to the top
+  (6 entries before and after).
+- Copy again, Download .md (`img-src-x-onerror-alert-1-tricky-title.md`),
+  Visit site, Delete, and Clear all with Cancel and Yes all behaved as above.
+  An HTML title rendered as text and its `javascript:` URL left **Visit site**
+  disabled. No horizontal scroll at 360px.
+- With the setting off, a copy was not recorded and the empty state explained
+  why.
+- Screenshots: `docs/testing/screenshots/copy-history/`.
+- Not yet checked: the real context menu and keyboard shortcut paths (driven
+  through the same hook in the test), Firefox, and Safari.
+
 ## Rate and Share Prompt Tests
 
 Use a fresh profile (or clear `engagementPrompts` from the extension's
@@ -168,7 +240,7 @@ Other paths:
   `shared/constants/store-links.js`.
 - Only one card is ever visible.
 
-The schedule logic is also covered by `node --test shared/` (see
+The schedule logic is also covered by `node --test 'shared/**/*.test.js'` (see
 `shared/engagement/advance-prompt-schedule.test.js`).
 
 ## Failure Tests
