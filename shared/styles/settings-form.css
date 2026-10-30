@@ -1,0 +1,74 @@
+/* Settings checkbox list shared by the popup settings view and the options
+   page. Rows come from shared/settings/render-settings-form.js. See /DESIGN.md. */
+
+.settings-list {
+  border-top: 1px solid var(--ink);
+  display: flex;
+  flex-direction: column;
+}
+
+.setting {
+  align-items: flex-start;
+  border-bottom: 1px solid var(--rule);
+  cursor: pointer;
+  display: grid;
+  gap: 12px;
+  grid-template-columns: auto 1fr;
+  padding: 12px 0;
+}
+
+.setting input[type="checkbox"] {
+  appearance: none;
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  cursor: pointer;
+  display: grid;
+  height: 18px;
+  margin: 2px 0 0;
+  place-content: center;
+  transition: background-color var(--duration-fast) linear;
+  width: 18px;
+}
+
+.setting input[type="checkbox"]::before {
+  background: var(--signal);
+  content: "";
+  height: 8px;
+  transform: scale(0);
+  transition: transform var(--duration-fast) linear;
+  width: 8px;
+}
+
+.setting input[type="checkbox"]:checked {
+  background: var(--ink);
+}
+
+.setting input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+.setting input[type="checkbox"]:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 2px;
+}
+
+.setting:hover strong {
+  text-decoration: underline;
+  text-decoration-color: var(--signal);
+  text-underline-offset: 3px;
+}
+
+.setting strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.setting small {
+  color: var(--ink-soft);
+  display: block;
+  font-size: 13px;
+  line-height: 1.45;
+}
