@@ -11,6 +11,7 @@ This project builds a browser extension that turns the readable part of the curr
 - [`docs/implementation/build-plan.md`](implementation/build-plan.md): implementation phases and file responsibilities.
 - [`docs/testing/manual-test-plan.md`](testing/manual-test-plan.md): sanity checks and browser validation steps.
 - [`docs/web/agent-access.md`](web/agent-access.md): how the website serves agents: llms.txt, Markdown negotiation, JSON-LD, trust pages.
+- [`store/README.md`](../store/README.md): store images, listing text, privacy answers, and the submission steps for each store.
 
 ## Build Constraints
 

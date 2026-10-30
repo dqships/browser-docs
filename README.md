@@ -55,7 +55,9 @@ and also bumps the Safari build number in the Xcode project.
 - `scripts`: build and Safari maintenance scripts used by `build.mjs` and
   `release.sh`.
 - `web`: the WebToMarkdown website.
-- `store-screenshots-studio`: a local tool for making store screenshots.
+- `store`: store images and the submission runbook. Start at
+  [store/README.md](store/README.md).
+- `store-screenshots-studio`: a local tool for making Mac App Store screenshots.
 - `docs`: architecture, testing, and release notes.
 
 ## Contributing

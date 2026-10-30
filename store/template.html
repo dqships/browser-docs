@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>WebToMarkdown store image</title>
+    <!-- Rendered by scripts/store-assets.mjs. Query: kind (shot | tile | marquee | icon).
+         A shot also takes tone (paper | deep | ink), n, head, label, title, lede, frame
+         (browser | window | bare), img, x, w, url or name, and an optional overlay:
+         over (image path, or "markdown" with md) plus ox, oy, ow. -->
+    <link rel="stylesheet" href="../shared/styles/tokens.css" />
+    <link rel="stylesheet" href="../shared/styles/fonts.css" />
+    <style>
+      /* Store image scale, DESIGN.md §11. Sizes are for the 1280×800 canvas. */
+      :root {
+        --store-margin: 69px;
+        --store-masthead: 59px;
+        --store-stage-top: 112px;
+        --store-copy-top: 133px;
+        --store-copy-width: 400px;
+        --store-offset: 11px;
+        --store-text-xs: 11px;
+        --store-text-sm: 12px;
+        --store-text-md: 14px;
+        --store-text-lg: 18px;
+        --store-text-lede: 20px;
+        --store-text-title: 52px;
+        --store-tracking-mono: 0.08em;
+        --store-tracking-title: -0.04em;
+        --store-mark: 23px;
+        --store-cell: 8px;
+      }
+
+      html,
+      body {
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+      }
+      body {
+        position: relative;
+        background: var(--paper);
+        color: var(--ink);
+        font-family: var(--font-sans);
+        --frame-line: var(--ink);
+        --frame-shadow: var(--store-offset) var(--store-offset) 0 var(--ink);
+        --muted: var(--ink-muted);
+        --soft: var(--ink-soft);
+      }
+      body.deep {
+        background: var(--paper-deep);
+      }
+      body.ink,
+      body.tile,
+      body.marquee {
+        background: var(--ink);
+        color: var(--paper);
+        --frame-line: var(--paper);
+        --frame-shadow: none;
+        --muted: var(--on-ink-muted);
+        --soft: var(--on-ink-muted);
+      }
+      body.icon {
+        background: transparent;
+      }
+
+      .masthead {
+        position: absolute;
+        top: 0;
+        left: var(--store-margin);
+        right: var(--store-margin);
+        height: var(--store-masthead);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid currentColor;
+      }
+      .lockup {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        font-size: var(--store-text-lg);
+        font-weight: 700;
+        letter-spacing: -0.01em;
+      }
+      .lockup img {
+        width: var(--store-mark);
+        height: var(--store-mark);
+      }
+      .mono {
+        font-family: var(--font-mono);
+        font-weight: 500;
+        letter-spacing: var(--store-tracking-mono);
+        text-transform: uppercase;
+      }
+      .head {
+        color: var(--muted);
+        font-size: var(--store-text-sm);
+      }
+
+      .copy {
+        position: absolute;
+        top: var(--store-copy-top);
+        left: var(--store-margin);
+      }
+      .label {
+        display: flex;
+        align-items: center;
+        gap: var(--store-cell);
+        margin: 0;
+        font-size: var(--store-text-md);
+      }
+      .label::before {
+        content: "";
+        width: var(--store-cell);
+        height: var(--store-cell);
+        background: var(--signal);
+      }
+      h1 {
+        margin: 18px 0 16px;
+        font-size: var(--store-text-title);
+        font-weight: 800;
+        font-stretch: 112%;
+        letter-spacing: var(--store-tracking-title);
+        line-height: 0.92;
+        white-space: pre-line;
+      }
+      .lede {
+        margin: 0;
+        max-width: var(--store-copy-width);
+        color: var(--soft);
+        font-size: var(--store-text-lede);
+        line-height: 1.35;
+      }
+
+      .frame {
+        position: absolute;
+        top: var(--store-stage-top);
+        box-sizing: border-box;
+        overflow: hidden;
+        background: var(--paper);
+        color: var(--ink);
+        border: 1px solid var(--frame-line);
+        box-shadow: var(--frame-shadow);
+      }
+      .frame img {
+        display: block;
+        width: 100%;
+      }
+      /* An overlay sits on the product capture, so it is inked as on paper. */
+      .frame.overlay {
+        border-color: var(--ink);
+        box-shadow: var(--store-offset) var(--store-offset) 0 var(--ink);
+      }
+      .bar {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 12px;
+        padding: 11px 13px;
+        border-bottom: 1px solid var(--ink);
+      }
+      .dots {
+        display: flex;
+        gap: 5px;
+      }
+      .dots i {
+        width: 9px;
+        height: 9px;
+        box-sizing: border-box;
+        border: 1px solid var(--ink);
+      }
+      .url {
+        padding: 6px 10px;
+        overflow: hidden;
+        background: var(--paper-deep);
+        border: 1px solid var(--ink);
+        color: var(--ink-soft);
+        font-family: var(--font-mono);
+        font-size: var(--store-text-xs);
+        white-space: nowrap;
+      }
+      .name {
+        font-size: var(--store-text-md);
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        text-align: center;
+      }
+      .browser {
+        color: var(--ink-muted);
+        font-size: var(--store-text-xs);
+      }
+
+      .card-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 16px;
+        background: var(--paper-deep);
+        border-bottom: 1px solid var(--ink);
+        font-family: var(--font-mono);
+        font-size: var(--store-text-xs);
+      }
+      .card-head span:first-child {
+        color: var(--ink-muted);
+      }
+      .card-head .mono {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .card-head .mono::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        background: var(--signal);
+      }
+      pre {
+        margin: 0;
+        padding: 14px 16px 18px;
+        background: var(--paper-deep);
+        font-family: var(--font-mono);
+        font-size: 13px;
+        line-height: 1.6;
+        white-space: pre-wrap;
+      }
+      pre b {
+        color: var(--signal-text);
+        font-weight: 400;
+      }
+
+      /* Promo tiles: the mark and the line from the masthead of the website. */
+      body.tile,
+      body.marquee {
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+      }
+      body.tile {
+        gap: 34px;
+        padding: 0 34px;
+        --mark: 96px;
+        --headline: 30px;
+      }
+      body.marquee {
+        gap: 67px;
+        padding: 0 67px;
+        --mark: 300px;
+        --headline: 112px;
+      }
+      .promo-mark {
+        width: var(--mark);
+        height: var(--mark);
+      }
+      .promo h1 {
+        margin: 0;
+        font-size: var(--headline);
+        letter-spacing: -0.035em;
+        line-height: 0.95;
+      }
+      .promo p {
+        margin: 39px 0 0;
+        color: var(--muted);
+        font-size: 29px;
+      }
+
+      body.icon img {
+        display: block;
+        width: 96px;
+        height: 96px;
+        padding: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="module">
+      const q = new URLSearchParams(location.search);
+      const kind = q.get("kind") ?? "shot";
+      const tone = q.get("tone") ?? "paper";
+      document.body.className = kind === "shot" ? tone : kind;
+
+      const el = (tag, cls = "", text = "") => {
+        const node = document.createElement(tag);
+        node.className = cls;
+        node.textContent = text;
+        return node;
+      };
+      const image = (src) => Object.assign(document.createElement("img"), { src, alt: "" });
+
+      function masthead() {
+        const bar = el("div", "masthead");
+        const lockup = el("span", "lockup");
+        lockup.append(image(`../docs/brand/logo-mark${tone === "ink" ? "-reversed" : ""}.svg`), "WebToMarkdown");
+        bar.append(lockup, el("span", "head mono", q.get("head")));
+        return bar;
+      }
+
+      function copy() {
+        const block = el("div", "copy");
+        const label = `${String(q.get("n")).padStart(2, "0")} — ${q.get("label")}`;
+        block.append(el("p", "label mono", label), el("h1", "", q.get("title")), el("p", "lede", q.get("lede")));
+        return block;
+      }
+
+      function windowBar() {
+        const bar = el("div", "bar");
+        const dots = el("div", "dots");
+        dots.append(el("i"), el("i"), el("i"));
+        const middle = q.get("frame") === "browser" ? el("div", "url", q.get("url")) : el("div", "name", q.get("name"));
+        bar.append(dots, middle, el("span", "browser mono", "Chrome"));
+        return bar;
+      }
+
+      function placed(node, left, width, top) {
+        node.style.left = `${left}px`;
+        node.style.width = `${width}px`;
+        if (top) node.style.top = `${top}px`;
+        return node;
+      }
+
+      function stage() {
+        const frame = el("div", "frame");
+        if (q.get("frame") !== "bare") frame.append(windowBar());
+        frame.append(image(q.get("img")));
+        return placed(frame, q.get("x"), q.get("w"));
+      }
+
+      // Colours the Markdown syntax at the start of a line, as DESIGN.md §4 asks.
+      function markdownLine(line) {
+        const syntax = line.match(/^(#{1,6} |- |\d+\. |```|\| |---)/)?.[0] ?? "";
+        const row = el("span");
+        row.style.display = "block";
+        row.append(el("b", "", syntax), line.slice(syntax.length) || (syntax ? "" : " "));
+        return row;
+      }
+
+      function overlay() {
+        const over = q.get("over");
+        const frame = el("div", "frame overlay");
+        if (over === "markdown") {
+          const head = el("div", "card-head");
+          head.append(el("span", "", "Clipboard"), el("span", "mono", "Markdown"));
+          const pre = el("pre");
+          pre.append(...q.get("md").split("\n").map(markdownLine));
+          frame.append(head, pre);
+        } else {
+          frame.append(image(over));
+        }
+        return placed(frame, q.get("ox"), q.get("ow"), q.get("oy"));
+      }
+
+      function promo() {
+        const text = el("div", "promo");
+        text.append(el("h1", "", "Web page in.\nMarkdown out."));
+        if (kind === "marquee") text.append(el("p", "mono", "WebToMarkdown · Browser extension"));
+        const mark = image("../docs/brand/logo-mark-reversed.svg");
+        mark.className = "promo-mark";
+        return [mark, text];
+      }
+
+      if (kind === "shot") {
+        document.body.append(masthead(), copy(), stage());
+        if (q.get("over")) document.body.append(overlay());
+      } else if (kind === "icon") {
+        document.body.append(image("../docs/brand/logo-tile.svg"));
+      } else {
+        document.body.append(...promo());
+      }
+
+      await document.fonts.ready;
+      await Promise.all([...document.images].map((img) => img.decode().catch(() => {})));
+      document.body.dataset.ready = "1";
+    </script>
+  </body>
+</html>

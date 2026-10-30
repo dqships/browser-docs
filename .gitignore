@@ -28,3 +28,6 @@ xcuserdata/
 .AppleDouble
 .LSOverride
 Icon
+
+# Upload zips
+release/
