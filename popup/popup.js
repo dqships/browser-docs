@@ -4,6 +4,7 @@ import { runPageExtraction } from "../shared/extraction/run-page-extraction.js";
 import { renderStatus } from "./render-status.js";
 import { renderResult } from "./render-result.js";
 import { copyText } from "./copy-text.js";
+import { recordMarkdownAction } from "../shared/actions/record-markdown-action.js";
 
 const copyButton = document.querySelector("#copy-button");
 const optionsButton = document.querySelector("#options-button");
@@ -31,6 +32,7 @@ copyButton.addEventListener("click", async () => {
       result
     );
     renderStatus(statusElement, "Markdown copied to the clipboard.", "success");
+    await recordMarkdownAction({ kind: "copy", source: "popup", result });
   } catch (error) {
     renderStatus(
       statusElement,
