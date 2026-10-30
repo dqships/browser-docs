@@ -32,6 +32,9 @@
         "mac": "Alt+Shift+M"
       },
       "description": "Copy as Markdown"
+    },
+    "download_markdown": {
+      "description": "Download as Markdown"
     }
   }
 }
