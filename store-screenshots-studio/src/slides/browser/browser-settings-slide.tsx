@@ -11,8 +11,8 @@ export function BrowserSettingsSlide({
     <SlideShell className={className} label="Copy options" tone="paper">
       <div style={{ left: 156, position: "absolute", top: 300, width: 1000 }}>
         <MarketingHeading
-          body="Frontmatter, title heading, source link, tables, and pruning. Five switches, all on by default."
-          eyebrow="04 — Settings"
+          body="Frontmatter, title heading, source link, tables, pruning, and copy history. Six switches, all on by default, saved as you change them."
+          eyebrow="05 — Settings"
           headline={
             <>
               Choose what

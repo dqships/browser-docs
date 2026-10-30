@@ -1,5 +1,5 @@
-// Captures the extension's real UI (popup, settings page, in-page toast) for the
-// website and the store-screenshots studio.
+// Captures the extension's real UI (popup views, settings page, in-page toast)
+// for the website and the store-screenshots studio.
 // Usage: node scripts/capture-extension-screenshots.mjs
 // Requires Playwright with Chromium (see scripts/render-brand-icons.mjs for setup).
 //
@@ -32,12 +32,41 @@ const TARGETS = {
     "store-screenshots-studio/public/source/popup/popup-success.png",
   ],
   popupBlocked: ["store-screenshots-studio/public/source/popup/popup-blocked.png"],
+  popupHistory: ["store-screenshots-studio/public/source/popup/popup-history.png"],
   contextMenuToast: [
     "web/public/source/browser/context-menu-toast.png",
     "store-screenshots-studio/public/source/browser/context-menu-toast.png",
   ],
   optionsUpdated: ["store-screenshots-studio/public/source/options/options-updated.png"],
 };
+
+// The review and share cards count as answered, so no card covers the popup.
+const ENGAGEMENT_PROMPTS_SEED = {
+  successCount: 0,
+  activeCard: null,
+  review: { done: true, nextAt: 3, showings: 1 },
+  share: { done: true },
+};
+
+// Copies from a few docs sites, newest first, for the History view. Three
+// rows fit in the popup's 600px height without scrolling.
+const HISTORY_SEED = [
+  { minutesAgo: 4, title: "Fetch API - Web APIs | MDN", url: "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API", wordCount: 1184 },
+  { minutesAgo: 130, title: "useEffect – React", url: "https://react.dev/reference/react/useEffect", wordCount: 3412 },
+  { minutesAgo: 60 * 24, title: "Writing your first Django app, part 1", url: "https://docs.djangoproject.com/en/5.2/intro/tutorial01/", wordCount: 2267 },
+];
+
+function buildHistorySeed(now) {
+  return HISTORY_SEED.map(({ minutesAgo, title, url, wordCount }, index) => ({
+    id: `capture-history-${index + 1}`,
+    title,
+    url,
+    markdown: `# ${title}\n\nSource: <${url}>\n`,
+    wordCount,
+    charCount: wordCount * 6,
+    copiedAt: new Date(now - minutesAgo * 60 * 1000).toISOString(),
+  }));
+}
 
 const CONTENT_TYPES = {
   ".html": "text/html; charset=utf-8",
@@ -92,7 +121,8 @@ function writeScreenshot(buffer, targets) {
 
 async function openPopupForTab(context, extensionOrigin, tabId) {
   const popupPage = await context.newPage();
-  await popupPage.setViewportSize({ width: 420, height: 400 });
+  // The popup body is 360px wide, and Chrome sizes the real popup to fit it.
+  await popupPage.setViewportSize({ width: 360, height: 400 });
   await popupPage.goto(`${extensionOrigin}/popup/popup.html`);
   await popupPage.evaluate((targetTabId) => {
     Object.defineProperty(chrome.tabs, "query", {
@@ -106,6 +136,14 @@ async function openPopupForTab(context, extensionOrigin, tabId) {
 async function copyFromPopup(popupPage) {
   await popupPage.getByRole("button", { name: "Copy Current Page" }).click();
   await popupPage.waitForFunction(() => ["success", "error"].includes(document.querySelector("#status")?.dataset.kind));
+  await popupPage.evaluate(() => document.activeElement?.blur());
+  await popupPage.mouse.move(0, 0);
+}
+
+async function openPopupView(popupPage, viewName) {
+  const footer = popupPage.getByRole("navigation", { name: "More" });
+  await footer.getByRole("button", { name: viewName }).click();
+  await popupPage.waitForSelector(`[data-view="${viewName.toLowerCase()}"]:not([hidden])`);
   await popupPage.evaluate(() => document.activeElement?.blur());
   await popupPage.mouse.move(0, 0);
 }
@@ -140,6 +178,10 @@ async function main() {
       const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
       return tab.id;
     });
+    await serviceWorker.evaluate(
+      (engagementPrompts) => chrome.storage.local.set({ engagementPrompts }),
+      ENGAGEMENT_PROMPTS_SEED,
+    );
 
     // In-page toast after copying from the page menu.
     await serviceWorker.evaluate(async (activeTabId) => {
@@ -166,12 +208,22 @@ async function main() {
     await copyFromPopup(blockedPopup);
     writeScreenshot(await blockedPopup.screenshot({ fullPage: true }), TARGETS.popupBlocked);
 
-    // Settings page.
+    // History view, with a seeded list in place of the copies made above.
+    await serviceWorker.evaluate(
+      (copyHistory) => chrome.storage.local.set({ copyHistory }),
+      buildHistorySeed(Date.now()),
+    );
+    const historyPopup = await openPopupForTab(context, extensionOrigin, tabId);
+    await openPopupView(historyPopup, "History");
+    await historyPopup.waitForSelector(".history-row");
+    writeScreenshot(await historyPopup.screenshot({ fullPage: true }), TARGETS.popupHistory);
+
+    // Settings page with all six settings. The popup's settings view scrolls
+    // at the popup's height, so the full page shows them better. It saves on
+    // change, so there is no button to press.
     const optionsPage = await context.newPage();
     await optionsPage.goto(`${extensionOrigin}/options/options.html`);
-    await optionsPage.waitForFunction(() => document.querySelector("#aggressivePruning")?.checked);
-    await optionsPage.getByRole("button", { name: "Save Settings" }).click();
-    await optionsPage.waitForFunction(() => document.querySelector("#status")?.textContent);
+    await optionsPage.waitForFunction(() => document.querySelector("#setting-saveCopyHistory")?.checked);
     await optionsPage.mouse.move(0, 0);
     writeScreenshot(await optionsPage.screenshot({ fullPage: true }), TARGETS.optionsUpdated);
   } finally {

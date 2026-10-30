@@ -11,13 +11,13 @@ export function BrowserContextMenuSlide({
     <SlideShell className={className} label="Fast access" tone="deep">
       <div style={{ left: 156, position: "absolute", top: 300, width: 1000 }}>
         <MarketingHeading
-          body="Right-click the page, use the toolbar popup, or press ⌥⇧M. A small toast confirms what was copied."
-          eyebrow="03 — Three ways in"
+          body="Right-click any page and pick “Copy page as Markdown” or “Download page as Markdown”. A small toast confirms it. ⌥⇧M copies too."
+          eyebrow="03 — Page menu"
           headline={
             <>
-              Three ways
+              Right-click.
               <br />
-              to copy.
+              Copy or save.
             </>
           }
           tone="deep"
