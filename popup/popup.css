@@ -15,11 +15,37 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* ─── Shell and views ─── */
+
+/* Chrome caps a popup at 800x600, so the views scroll between a fixed
+   masthead and footer. */
 .popup-shell {
   display: flex;
   flex-direction: column;
+  max-height: 600px;
+}
+
+.popup-views {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-color: var(--rule) transparent;
+  scrollbar-width: thin;
+}
+
+.popup-view {
+  display: flex;
+  flex-direction: column;
   gap: 18px;
-  padding: 0 20px 20px;
+  padding: 18px 20px 20px;
+}
+
+.popup-view[hidden] {
+  display: none;
+}
+
+[data-view-heading]:focus {
+  outline: none;
 }
 
 /* ─── Masthead ─── */
@@ -28,8 +54,8 @@ body {
   align-items: center;
   border-bottom: 1px solid var(--ink);
   display: flex;
+  flex-shrink: 0;
   justify-content: space-between;
-  margin: 0 -20px;
   padding: 12px 20px;
 }
 
@@ -83,9 +109,12 @@ kbd {
 /* ─── Buttons ─── */
 
 .actions {
-  display: grid;
+  display: flex;
   gap: 8px;
-  grid-template-columns: 1fr auto;
+}
+
+.actions .primary-button {
+  flex: 1 1 auto;
 }
 
 button {
@@ -248,4 +277,132 @@ button:disabled {
 .preview:focus-visible {
   outline: 2px solid var(--signal);
   outline-offset: 2px;
+}
+
+/* ─── Sub-view header ─── */
+
+.view-header {
+  align-items: center;
+  display: flex;
+  gap: 14px;
+}
+
+.view-header h1 {
+  font-size: 26px;
+  font-stretch: 112%;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  margin: 0;
+}
+
+.back-button {
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  padding: 6px 10px;
+  text-transform: uppercase;
+}
+
+.back-button::before {
+  content: "\2190\00a0";
+}
+
+.back-button:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* ─── Settings view ─── */
+
+.shortcut-hint {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin: 0;
+}
+
+.shortcut-hint div {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+.shortcut-hint dt {
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.shortcut-hint dd {
+  display: flex;
+  gap: 3px;
+  margin: 0;
+}
+
+.settings-form {
+  margin: 0;
+}
+
+/* ─── Prompt slot (cards rendered by later features) ─── */
+
+.prompt-slot {
+  flex-shrink: 0;
+  padding: 0 20px 12px;
+}
+
+.prompt-slot:empty {
+  display: none;
+}
+
+/* ─── Footer ─── */
+
+.popup-footer {
+  border-top: 1px solid var(--ink);
+  display: flex;
+  flex-shrink: 0;
+}
+
+.popup-footer button {
+  background: transparent;
+  border: 0;
+  border-right: 1px solid var(--rule);
+  color: var(--ink);
+  flex: 1 1 auto;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  padding: 11px 8px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.popup-footer button:last-child {
+  border-right: 0;
+}
+
+.popup-footer button:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.popup-footer button[aria-current]::before {
+  background: var(--signal);
+  content: "";
+  display: inline-block;
+  height: 8px;
+  margin-right: 8px;
+  vertical-align: 1px;
+  width: 8px;
+}
+
+.popup-footer button:focus-visible {
+  outline-offset: -2px;
 }

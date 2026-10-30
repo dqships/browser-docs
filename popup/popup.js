@@ -4,14 +4,29 @@ import { runPageExtraction } from "../shared/extraction/run-page-extraction.js";
 import { renderStatus } from "./render-status.js";
 import { renderResult } from "./render-result.js";
 import { copyText } from "./copy-text.js";
+import { recordMarkdownAction } from "../shared/actions/record-markdown-action.js";
+import { bindViewButtons } from "./views/bind-view-buttons.js";
+import { mountSettingsView } from "./settings/mount-settings-view.js";
+import { mountHistoryView } from "./history/mount-history-view.js";
+import { bindDownloadButton } from "./bind-download-button.js";
+import { mountEngagementPrompts } from "./engagement/mount-engagement-prompts.js";
 
 const copyButton = document.querySelector("#copy-button");
-const optionsButton = document.querySelector("#options-button");
+const downloadButton = document.querySelector("#download-button");
 const statusElement = document.querySelector("#status");
 const resultPanel = document.querySelector("#result-panel");
 const previewElement = document.querySelector("#preview");
 const wordCountElement = document.querySelector("#word-count");
 const charCountElement = document.querySelector("#char-count");
+
+mountSettingsView(document.querySelector('[data-view="settings"]'));
+mountHistoryView(document.querySelector('[data-view="history"]'));
+bindViewButtons();
+mountEngagementPrompts({
+  slot: document.querySelector("#prompt-slot"),
+  footer: document.querySelector(".popup-footer"),
+  statusElement
+});
 
 copyButton.addEventListener("click", async () => {
   copyButton.disabled = true;
@@ -31,6 +46,7 @@ copyButton.addEventListener("click", async () => {
       result
     );
     renderStatus(statusElement, "Markdown copied to the clipboard.", "success");
+    await recordMarkdownAction({ kind: "copy", source: "popup", result });
   } catch (error) {
     renderStatus(
       statusElement,
@@ -42,6 +58,11 @@ copyButton.addEventListener("click", async () => {
   }
 });
 
-optionsButton.addEventListener("click", () => {
-  browser.runtime.openOptionsPage();
+bindDownloadButton({
+  button: downloadButton,
+  statusElement,
+  resultPanel,
+  previewElement,
+  wordCountElement,
+  charCountElement
 });

@@ -7,6 +7,8 @@ type MacAppWindowProps = {
   title: string;
   children: React.ReactNode;
   tone?: SlideTone;
+  /** Label on the right of the title bar. */
+  platform?: string;
 };
 
 export function MacAppWindow({
@@ -14,6 +16,7 @@ export function MacAppWindow({
   title,
   children,
   tone = "paper",
+  platform = "macOS",
 }: MacAppWindowProps) {
   return (
     <div className={className} style={frameStyle(tone)}>
@@ -30,7 +33,7 @@ export function MacAppWindow({
             {title}
           </div>
         }
-        right="macOS"
+        right={platform}
       />
       <div>{children}</div>
     </div>

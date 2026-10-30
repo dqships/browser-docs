@@ -22,6 +22,8 @@ export const CONTENT_INJECTION_FILES = [
   "content/clipboard/copy-to-clipboard.js",
   "content/ui/show-toast.js",
   "content/application/copy-and-toast.js",
+  "content/files/download-markdown.js",
+  "content/application/download-and-toast.js",
   "content/application/get-document-title.js",
   "content/application/get-leading-resources.js",
   "content/application/extract-page.js"

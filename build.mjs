@@ -17,6 +17,9 @@ async function copyDir(src, dest) {
 
     if (entry.isDirectory()) {
       await copyDir(srcPath, destPath);
+    } else if (entry.name.endsWith(".test.js")) {
+      // Unit tests stay in the source tree and are not shipped.
+      continue;
     } else {
       await fs.copyFile(srcPath, destPath);
     }

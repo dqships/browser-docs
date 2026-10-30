@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "WebToMarkdown",
-  "version": "1.1.0",
-  "description": "Copy the current documentation page as clean Markdown.",
+  "version": "1.2.0",
+  "description": "Copy or download the current page as clean Markdown.",
   "permissions": [
     "activeTab",
     "clipboardWrite",
@@ -32,6 +32,9 @@
         "mac": "Alt+Shift+M"
       },
       "description": "Copy as Markdown"
+    },
+    "download_markdown": {
+      "description": "Download as Markdown"
     }
   }
 }

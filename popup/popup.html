@@ -7,7 +7,10 @@
   <title>WebToMarkdown</title>
   <link rel="stylesheet" href="../shared/styles/fonts.css">
   <link rel="stylesheet" href="../shared/styles/tokens.css">
+  <link rel="stylesheet" href="../shared/styles/settings-form.css">
   <link rel="stylesheet" href="./popup.css">
+  <link rel="stylesheet" href="./history/history-view.css">
+  <link rel="stylesheet" href="./engagement/prompt-card.css">
   <script src="../shared/vendor/browser-polyfill.min.js"></script>
 </head>
 
@@ -23,39 +26,98 @@
       </span>
     </header>
 
-    <section class="hero">
-      <h1>Copy this page as Markdown.</h1>
-      <p class="subcopy">
-        Takes the readable part of the page, keeps its structure, and puts it on your clipboard.
-      </p>
-    </section>
+    <div class="popup-views">
+      <section class="popup-view" data-view="main">
+        <section class="hero">
+          <h1 tabindex="-1" data-view-heading>Copy this page as Markdown.</h1>
+          <p class="subcopy">
+            Takes the readable part of the page, keeps its structure, and puts it on your clipboard.
+          </p>
+        </section>
 
-    <section class="actions">
-      <button id="copy-button" class="primary-button" type="button">
-        Copy Current Page
-      </button>
-      <button id="options-button" class="secondary-button" type="button">
-        Settings
-      </button>
-    </section>
+        <section class="actions">
+          <button id="copy-button" class="primary-button" type="button">
+            Copy Current Page
+          </button>
+          <button id="download-button" class="secondary-button" type="button">
+            Download .md
+          </button>
+        </section>
 
-    <p id="status" class="status" aria-live="polite">Ready.</p>
+        <p id="status" class="status" aria-live="polite">Ready.</p>
 
-    <section id="result-panel" class="result-panel hidden" aria-live="polite">
-      <dl class="stat-grid">
-        <div class="stat-card">
-          <dt class="stat-label">Words</dt>
-          <dd id="word-count">0</dd>
+        <section id="result-panel" class="result-panel hidden" aria-live="polite">
+          <dl class="stat-grid">
+            <div class="stat-card">
+              <dt class="stat-label">Words</dt>
+              <dd id="word-count">0</dd>
+            </div>
+            <div class="stat-card">
+              <dt class="stat-label">Characters</dt>
+              <dd id="char-count">0</dd>
+            </div>
+          </dl>
+
+          <label class="preview-label" for="preview">Preview</label>
+          <textarea id="preview" class="preview" readonly></textarea>
+        </section>
+      </section>
+
+      <section class="popup-view" data-view="settings" aria-labelledby="settings-heading" hidden>
+        <div class="view-header">
+          <button class="back-button" type="button" data-back-view="main">Back</button>
+          <h1 id="settings-heading" tabindex="-1" data-view-heading>Settings</h1>
         </div>
-        <div class="stat-card">
-          <dt class="stat-label">Characters</dt>
-          <dd id="char-count">0</dd>
-        </div>
-      </dl>
 
-      <label class="preview-label" for="preview">Preview</label>
-      <textarea id="preview" class="preview" readonly></textarea>
-    </section>
+        <p class="subcopy">Choose what the exported Markdown should include.</p>
+
+        <dl class="shortcut-hint">
+          <div>
+            <dt>Mac</dt>
+            <dd><kbd>⌥ Option</kbd><kbd>⇧ Shift</kbd><kbd>M</kbd></dd>
+          </div>
+          <div>
+            <dt>Windows</dt>
+            <dd><kbd>Alt</kbd><kbd>Shift</kbd><kbd>M</kbd></dd>
+          </div>
+        </dl>
+
+        <form class="settings-form" data-settings-form>
+          <div class="settings-list" data-settings-list></div>
+        </form>
+
+        <p class="status" aria-live="polite" data-settings-status>Changes save as you go.</p>
+      </section>
+
+      <section class="popup-view" data-view="history" aria-labelledby="history-heading" hidden>
+        <div class="view-header"><button class="back-button" type="button" data-back-view="main">Back</button><h1 id="history-heading" tabindex="-1" data-view-heading>History</h1></div>
+
+        <div class="history-toolbar" data-history-toolbar hidden>
+          <p class="history-count" data-history-count></p>
+          <button class="history-clear" type="button" data-history-clear-start>Clear all</button>
+          <div class="history-confirm" role="group" aria-label="Confirm clear all" data-history-clear-confirm hidden>
+            <span>Clear all?</span>
+            <button class="history-confirm-yes" type="button" data-history-clear-yes>Yes</button>
+            <button type="button" data-history-clear-cancel>Cancel</button>
+          </div>
+        </div>
+
+        <p class="status history-status" aria-live="polite" data-history-status>Saved copies stay on this device.</p>
+
+        <p class="history-note" data-history-off-note hidden>Copy history is off, so new copies are not saved. Turn it back on in Settings.</p>
+        <p class="history-empty" data-history-empty hidden></p>
+        <ol class="history-list" aria-labelledby="history-heading" data-history-list></ol>
+      </section>
+    </div>
+
+    <div id="prompt-slot" class="prompt-slot"></div>
+
+    <nav class="popup-footer" aria-label="More">
+      <button type="button" data-open-view="settings">Settings</button>
+      <button type="button" data-open-view="history">History</button>
+      <button type="button" data-rate-button>Rate</button>
+      <button type="button" data-share-button>Share</button>
+    </nav>
   </main>
 
   <script type="module" src="./popup.js"></script>

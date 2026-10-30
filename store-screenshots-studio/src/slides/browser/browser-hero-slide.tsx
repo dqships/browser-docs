@@ -12,13 +12,13 @@ export function BrowserHeroSlide({
     <SlideShell className={className} label="Browser extension" tone="ink">
       <div style={{ left: 156, position: "absolute", top: 300, width: 1080 }}>
         <MarketingHeading
-          body="One click copies the readable part of the page as clean Markdown for notes, prompts, or your own archive."
-          eyebrow="01 — Copy any page"
+          body="One click turns the readable part of any page into clean Markdown. Copy it to your clipboard or save it as a .md file."
+          eyebrow="01 — Copy or download"
           headline={
             <>
-              Web page in.
+              Copy it or
               <br />
-              Markdown out.
+              download it.
             </>
           }
           tone="ink"
@@ -33,9 +33,9 @@ export function BrowserHeroSlide({
         />
       </div>
       <ScreenshotCard
-        alt="WebToMarkdown popup after a successful copy"
+        alt="WebToMarkdown popup after a successful copy, with Copy and Download buttons"
         src={sourceAssets.popupSuccess}
-        style={{ left: 2240, position: "absolute", top: 820, width: 520 }}
+        style={{ left: 2164, position: "absolute", top: 560, width: 600 }}
         tone="paper"
       />
     </SlideShell>
