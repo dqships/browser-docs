@@ -23,7 +23,7 @@ export function BrowserSettingsSlide({
         />
       </div>
       <div style={{ left: 1260, position: "absolute", top: 252, width: 1464 }}>
-        <MacAppWindow title="WebToMarkdown Settings">
+        <MacAppWindow platform="Chrome" title="WebToMarkdown Settings">
           <img
             alt="WebToMarkdown settings page"
             draggable={false}
