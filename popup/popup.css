@@ -374,12 +374,18 @@ button:disabled {
   border: 0;
   border-right: 1px solid var(--rule);
   color: var(--ink);
+  flex: 1 1 auto;
   font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.08em;
-  padding: 11px 16px;
+  padding: 11px 8px;
   text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.popup-footer button:last-child {
+  border-right: 0;
 }
 
 .popup-footer button:hover {
