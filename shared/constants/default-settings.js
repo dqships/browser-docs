@@ -3,5 +3,6 @@ export const DEFAULT_SETTINGS = Object.freeze({
   includeFrontmatter: true,
   includeSourceLink: true,
   includeTitleHeading: true,
-  preserveTables: true
+  preserveTables: true,
+  saveCopyHistory: true
 });

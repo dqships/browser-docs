@@ -1,3 +1,5 @@
+import { recordCopyHistory } from "../history/record-copy-history.js";
+
 // Every successful copy or download, from the popup, the context menu, or the
 // keyboard shortcut, ends here. Features that react to a finished action
 // (copy history, review and share prompts) are called from this function.
@@ -8,7 +10,11 @@
 // source: "popup" | "context-menu" | "shortcut"
 // result: the extraction result ({ markdown, meta, stats })
 export async function recordMarkdownAction({ kind, source, result }) {
-  void kind;
   void source;
-  void result;
+
+  try {
+    await recordCopyHistory({ kind, result });
+  } catch {
+    /* Copy history is a convenience; never fail the copy because of it. */
+  }
 }
