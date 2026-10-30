@@ -3,7 +3,7 @@ import { BrandMark } from "@/app/brand-mark";
 const FACTS = [
   { title: "No account", description: "Install it and use it. There is nothing to sign in to." },
   { title: "No upload", description: "Pages are converted inside your browser, on your machine." },
-  { title: "No server", description: "There is no WebToMarkdown backend. Settings are kept in your browser's own extension storage." },
+  { title: "No server", description: "There is no WebToMarkdown backend. Settings and copy history are kept in your browser's own extension storage." },
 ];
 
 export function PrivacyBand() {

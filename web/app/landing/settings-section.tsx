@@ -1,6 +1,6 @@
 import { LandingSection } from "@/app/landing/landing-section";
 
-/** Mirrors shared/constants/default-settings.js and options/options.html. */
+/** Mirrors shared/constants/setting-definitions.js and default-settings.js. */
 const SETTINGS = [
   {
     key: "aggressivePruning",
@@ -29,17 +29,23 @@ const SETTINGS = [
     name: "Preserve tables",
     description: "Convert HTML tables into Markdown pipe tables where possible.",
   },
+  {
+    key: "saveCopyHistory",
+    name: "Save copy history",
+    description:
+      "Keep a list of pages you copy, on this device, so you can copy or download them again.",
+  },
 ];
 
 export function SettingsSection() {
   return (
     <LandingSection id="settings" index="03" label="Settings">
       <h2 className="display max-w-3xl text-4xl md:text-6xl">
-        Five switches. All on by default.
+        Six switches. All on by default.
       </h2>
       <p className="mt-6 max-w-2xl text-lg text-ink-soft">
-        Decide what wraps the content you copy. Settings are stored in your
-        browser and apply to every copy.
+        Decide what wraps the content you copy and whether copies are kept.
+        Settings are stored in your browser and open right in the popup.
       </p>
 
       <dl className="mt-14 border-t border-ink">

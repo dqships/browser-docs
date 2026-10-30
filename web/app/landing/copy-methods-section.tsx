@@ -6,21 +6,21 @@ const METHODS = [
     number: "1",
     title: "Toolbar popup",
     description:
-      "Click the icon, press Copy Current Page, and get a word count plus a preview of what was copied.",
-    detail: <span className="font-mono text-sm">Copy Current Page</span>,
+      "Click the icon and press Copy Current Page or Download .md. You get a word count, a preview, and the page saved to History.",
+    detail: <span className="font-mono text-sm">Copy Current Page · Download .md</span>,
   },
   {
     number: "2",
     title: "Page menu",
     description:
-      "Right-click anywhere on the page and choose the copy action. A small toast confirms it worked.",
-    detail: <span className="font-mono text-sm">Right-click → Copy page as Markdown</span>,
+      "Right-click anywhere on the page and choose to copy it or download it. A small toast confirms it worked.",
+    detail: <span className="font-mono text-sm">Right-click → Copy or Download page as Markdown</span>,
   },
   {
     number: "3",
     title: "Keyboard shortcut",
     description:
-      "Never leave the keyboard. Rebind it in your browser's extension shortcut settings.",
+      "Never leave the keyboard. Rebind it, or add a key for downloads, in your browser's extension shortcut settings.",
     detail: <ShortcutKeys />,
   },
 ];
@@ -29,7 +29,7 @@ export function CopyMethodsSection() {
   return (
     <LandingSection id="copy" index="02" label="How to copy">
       <h2 className="display max-w-3xl text-4xl md:text-6xl">
-        Three ways in. Same result.
+        Three ways in. Copy it or save it.
       </h2>
 
       <ol className="mt-14 grid border-t border-ink md:grid-cols-3">

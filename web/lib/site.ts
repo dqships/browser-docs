@@ -45,7 +45,7 @@ export const site = {
   supportXUrl: "https://x.com/dqships",
   defaultTitle: "WebToMarkdown: Copy Any Web Page as Clean Markdown",
   defaultDescription:
-    "Copy readable web pages as clean Markdown with a lightweight browser extension that works locally and keeps headings, lists, code blocks, and tables intact.",
+    "Copy or download readable web pages as clean Markdown with a lightweight browser extension that works locally and keeps headings, lists, code blocks, and tables intact.",
   keywords: [
     "web page to markdown",
     "copy web page as markdown",
