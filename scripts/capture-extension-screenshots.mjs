@@ -1,6 +1,6 @@
 // Captures the extension's real UI (popup views, settings page, in-page toast)
-// for the website and the store-screenshots studio.
-// Usage: node scripts/capture-extension-screenshots.mjs
+// for the website, store/template.html, and the store-screenshots studio.
+// Usage: node scripts/capture-extension-screenshots.mjs (scripts/store-assets.mjs runs it too)
 // Requires Playwright with Chromium (see scripts/render-brand-icons.mjs for setup).
 //
 // Like docs/testing/reports/report-2, this loads a temporary copy of the

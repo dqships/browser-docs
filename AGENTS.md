@@ -9,6 +9,7 @@ The source code is organized into the following directores:
 - **`/options`**: HTML/CSS/JS for the extension's configuration page.
 - **`/shared`**: Reusable utilities, constants, and helper functions that can be imported across different components of the extension.
 - **`/docs`**: Project documentation, specification briefs, and testing reports.
+- **`/store`**: Store images, the image template, and the submission runbook (`store/README.md`) for every store.
 
 ## Build, Test, and Development Commands
 This project is currently written in vanilla JavaScript (Manifest V3) without a complex build pipeline (no Node.js bundlers).

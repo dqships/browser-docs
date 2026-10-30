@@ -14,6 +14,7 @@ This includes the brand assets in:
 - `web/public/icon.png`
 - `web/public/source/`
 - `docs/store-screenshots/`
+- `store/`
 - `store-screenshots-studio/public/source/`
 - `safari/WebToMarkdown/WebToMarkdown/Assets.xcassets/AppIcon.appiconset/`
 - `safari/WebToMarkdown/WebToMarkdown/Assets.xcassets/LargeIcon.imageset/`

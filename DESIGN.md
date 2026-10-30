@@ -76,6 +76,7 @@ Print-like: warm paper, near-black ink, and one spot color.
 | `--rule` | `#CFC8BA` | Hairlines between rows |
 | `--signal` | `#E2401C` | The red square. Large display marks, active states, `#` glyphs in code samples |
 | `--signal-text` | `#B5300F` | Red that has to meet AA contrast as small text on paper |
+| `--on-ink-muted` | `#A39E93` | Muted text on ink |
 
 Rules:
 
@@ -169,4 +170,4 @@ Blog, privacy, terms, and support pages inherit the same tokens. Keep them as pl
 - Fonts are bundled in `shared/fonts/` (SIL OFL 1.1). Extension pages never load fonts or other assets from a CDN, because "nothing leaves your browser" has to hold for the extension's own UI too.
 - The toast is injected into arbitrary pages, so it uses system fonts with the brand colors, square corners, and a hard ink offset shadow.
 - The social card (`web/public/og/default.png`, 1200×630) is rendered by `scripts/render-social-card.mjs`: paper background, lockup masthead, the "Web page in. Markdown out." headline with the red square as its full stop. Every page without its own `/og/<path>.png` falls back to it.
-- Product screenshots are captured from the real extension by `scripts/capture-extension-screenshots.mjs`. Store slides are built in `store-screenshots-studio/` from those captures and follow this document: flat paper, deep-paper, or ink backgrounds, a masthead with the lockup, square ink-bordered frames, and display headlines that fit on two lines.
+- Product screenshots are captured from the real extension by `scripts/capture-extension-screenshots.mjs`. Browser store images are drawn by `store/template.html` from those captures, using the tokens in `shared/styles/tokens.css` plus the store image scale at the top of that template (`--store-*`, sized for the 1280×800 canvas). Mac App Store slides are built in `store-screenshots-studio/`. Both follow this document: flat paper, deep-paper, or ink backgrounds, a masthead with the lockup, square ink-bordered frames, and display headlines that fit on two lines.

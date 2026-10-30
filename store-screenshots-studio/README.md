@@ -5,10 +5,11 @@ current extension assets.
 
 ## What it generates
 
-- `browser-store`: 5 screenshots sized for Chrome Web Store and Firefox AMO at
-  `1280x800`
 - `macos-app-store`: 5 screenshots sized for the Mac App Store at accepted
   `16:10` resolutions
+
+The `browser-store` set here is retired. Browser store images now come from
+`store/template.html` and `scripts/store-assets.mjs`; see `store/README.md`.
 
 ## Source assets
 
