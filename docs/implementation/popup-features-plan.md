@@ -98,6 +98,10 @@ T1 turns the popup into views inside one `popup.html`:
   from `popup.js`, and refreshes its content when it is shown. `showView`
   dispatches a `popup-view-shown` `CustomEvent` on the section with
   `detail: { view }` so views can refresh without importing each other.
+- `showView` also moves focus to the shown view's `[data-view-heading]`
+  element (give it `tabindex="-1"`) so keyboard users land in the new view.
+  Each sub-view starts with
+  `<div class="view-header"><button class="back-button" type="button" data-back-view="main">Back</button><h1 tabindex="-1" data-view-heading>…</h1></div>`.
 - The footer stays visible in every view. The prompt slot sits directly above
   the footer, like Vidzilla's card above its bottom buttons.
 - Popup width stays 360px. Views scroll inside the popup. Chrome caps a popup
@@ -112,6 +116,13 @@ T1 turns the popup into views inside one `popup.html`:
   definitions.
 - `shared/settings/fill-settings-form.js` and
   `shared/settings/read-settings-form.js` move values in and out of the form.
+- `shared/settings/load-settings-form.js` exports `loadSettingsForm(form)`
+  (reads storage, then fills the form), and
+  `shared/settings/bind-settings-autosave.js` exports
+  `bindSettingsAutosave(form, onResult)`, which saves on every change and
+  calls `onResult({ ok, error })`.
+- Checkbox row styles live in `shared/styles/settings-form.css`, used by both
+  pages.
 - Both the popup view and the options page save on change (no Save button) and
   show a short "Saved." status.
 - `manifest.json` keeps `options_page` so the browser's own Options link still
