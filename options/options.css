@@ -97,118 +97,33 @@ kbd {
 }
 
 /* ─── Settings list ─── */
+/* Row and checkbox styles live in shared/styles/settings-form.css; this page
+   only sets larger sizes. */
 
 .settings-form {
-  border-top: 1px solid var(--ink);
-  display: flex;
-  flex-direction: column;
   margin-top: 48px;
 }
 
 .setting {
-  align-items: flex-start;
-  border-bottom: 1px solid var(--rule);
-  cursor: pointer;
-  display: grid;
   gap: 16px;
-  grid-template-columns: auto 1fr;
   padding: 18px 0;
 }
 
 .setting input[type="checkbox"] {
-  appearance: none;
-  background: var(--paper);
-  border: 1px solid var(--ink);
-  border-radius: 0;
-  cursor: pointer;
-  display: grid;
   height: 20px;
-  margin: 2px 0 0;
-  place-content: center;
-  transition: background-color var(--duration-fast) linear;
   width: 20px;
 }
 
-.setting input[type="checkbox"]::before {
-  background: var(--signal);
-  content: "";
-  height: 8px;
-  transform: scale(0);
-  transition: transform var(--duration-fast) linear;
-  width: 8px;
-}
-
-.setting input[type="checkbox"]:checked {
-  background: var(--ink);
-}
-
-.setting input[type="checkbox"]:checked::before {
-  transform: scale(1);
-}
-
-.setting input[type="checkbox"]:focus-visible {
-  outline: 2px solid var(--signal);
-  outline-offset: 2px;
-}
-
-.setting:hover strong {
-  text-decoration: underline;
-  text-decoration-color: var(--signal);
-  text-underline-offset: 3px;
-}
-
 .setting strong {
-  display: block;
   font-size: 16px;
-  font-weight: 700;
-  margin-bottom: 2px;
 }
 
 .setting small {
-  color: var(--ink-soft);
-  display: block;
   font-size: 14px;
   line-height: 1.5;
 }
 
-/* ─── Save ─── */
-
-.actions {
-  align-items: center;
-  display: flex;
-  gap: 16px;
-  padding-top: 28px;
-}
-
-button[type="submit"] {
-  background: var(--ink);
-  border: 1px solid var(--ink);
-  border-radius: 0;
-  color: var(--paper);
-  cursor: pointer;
-  font: inherit;
-  font-size: 15px;
-  font-weight: 600;
-  padding: 13px 22px;
-  transition:
-    transform var(--duration-fast) linear,
-    box-shadow var(--duration-fast) linear;
-}
-
-button[type="submit"]:hover {
-  box-shadow: 4px 4px 0 var(--signal);
-  transform: translate(-2px, -2px);
-}
-
-button[type="submit"]:active {
-  box-shadow: none;
-  transform: none;
-}
-
-button[type="submit"]:focus-visible {
-  outline: 2px solid var(--signal);
-  outline-offset: 2px;
-}
+/* ─── Status ─── */
 
 .status {
   align-items: center;
@@ -218,6 +133,7 @@ button[type="submit"]:focus-visible {
   gap: 8px;
   margin: 0;
   min-height: 18px;
+  padding-top: 20px;
 }
 
 .status:not(:empty)::before {
@@ -226,4 +142,13 @@ button[type="submit"]:focus-visible {
   flex-shrink: 0;
   height: 8px;
   width: 8px;
+}
+
+.status[data-kind="error"] {
+  color: var(--signal-text);
+}
+
+.status[data-kind="error"]::before {
+  background: var(--paper);
+  border: 2px solid var(--signal-text);
 }

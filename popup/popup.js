@@ -5,14 +5,18 @@ import { renderStatus } from "./render-status.js";
 import { renderResult } from "./render-result.js";
 import { copyText } from "./copy-text.js";
 import { recordMarkdownAction } from "../shared/actions/record-markdown-action.js";
+import { bindViewButtons } from "./views/bind-view-buttons.js";
+import { mountSettingsView } from "./settings/mount-settings-view.js";
 
 const copyButton = document.querySelector("#copy-button");
-const optionsButton = document.querySelector("#options-button");
 const statusElement = document.querySelector("#status");
 const resultPanel = document.querySelector("#result-panel");
 const previewElement = document.querySelector("#preview");
 const wordCountElement = document.querySelector("#word-count");
 const charCountElement = document.querySelector("#char-count");
+
+mountSettingsView(document.querySelector('[data-view="settings"]'));
+bindViewButtons();
 
 copyButton.addEventListener("click", async () => {
   copyButton.disabled = true;
@@ -42,8 +46,4 @@ copyButton.addEventListener("click", async () => {
   } finally {
     copyButton.disabled = false;
   }
-});
-
-optionsButton.addEventListener("click", () => {
-  browser.runtime.openOptionsPage();
 });

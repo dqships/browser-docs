@@ -1,38 +1,21 @@
-import { getSettings, saveSettings } from "../shared/storage/settings-repository.js";
+import { renderSettingsForm } from "../shared/settings/render-settings-form.js";
+import { loadSettingsForm } from "../shared/settings/load-settings-form.js";
+import { bindSettingsAutosave } from "../shared/settings/bind-settings-autosave.js";
+import { renderOptionsStatus } from "./render-options-status.js";
 
-const form = document.querySelector("#settings-form");
+const form = document.querySelector("[data-settings-form]");
+const list = document.querySelector("[data-settings-list]");
 const statusElement = document.querySelector("#status");
 
-initialize();
-
-async function initialize() {
-  const settings = await getSettings();
-
-  for (const [key, value] of Object.entries(settings)) {
-    const input = document.querySelector(`#${key}`);
-    if (input instanceof HTMLInputElement) {
-      input.checked = Boolean(value);
-    }
+renderSettingsForm(list);
+bindSettingsAutosave(form, ({ ok }) => {
+  if (ok) {
+    renderOptionsStatus(statusElement, "Saved.");
+  } else {
+    renderOptionsStatus(statusElement, "Settings could not be saved.", "error");
   }
-}
+});
 
-form.addEventListener("submit", async (event) => {
-  event.preventDefault();
-
-  const formData = new FormData(form);
-  const settings = Object.fromEntries(
-    Array.from(formData.keys()).map((key) => [key, true])
-  );
-
-  const savedSettings = {
-    aggressivePruning: false,
-    includeFrontmatter: false,
-    includeSourceLink: false,
-    includeTitleHeading: false,
-    preserveTables: false,
-    ...settings
-  };
-
-  await saveSettings(savedSettings);
-  statusElement.textContent = "Settings saved.";
+loadSettingsForm(form).catch(() => {
+  renderOptionsStatus(statusElement, "Settings could not be loaded.", "error");
 });
