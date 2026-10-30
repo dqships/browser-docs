@@ -1,7 +1,7 @@
 import { browserStoreTargets } from "@/data/store-targets";
 import { BrowserContextMenuSlide } from "@/slides/browser/browser-context-menu-slide";
 import { BrowserHeroSlide } from "@/slides/browser/browser-hero-slide";
-import { BrowserLocalSlide } from "@/slides/browser/browser-local-slide";
+import { BrowserHistorySlide } from "@/slides/browser/browser-history-slide";
 import { BrowserSettingsSlide } from "@/slides/browser/browser-settings-slide";
 import { BrowserStructureSlide } from "@/slides/browser/browser-structure-slide";
 import type { SlideSetDefinition } from "@/types/slide-definition";
@@ -15,9 +15,9 @@ export const browserStoreSlideSet: SlideSetDefinition = {
   storeTargets: browserStoreTargets,
   slides: [
     {
-      slug: "copy-pages-fast",
+      slug: "copy-or-download",
       name: "Hero",
-      headline: "Web page in. Markdown out.",
+      headline: "Copy it or download it.",
       Component: BrowserHeroSlide,
     },
     {
@@ -27,22 +27,22 @@ export const browserStoreSlideSet: SlideSetDefinition = {
       Component: BrowserStructureSlide,
     },
     {
-      slug: "copy-from-page-menu",
+      slug: "page-menu",
       name: "Context Menu",
-      headline: "Three ways to copy.",
+      headline: "Right-click. Copy or save.",
       Component: BrowserContextMenuSlide,
+    },
+    {
+      slug: "copy-history",
+      name: "History",
+      headline: "Every copy, kept on your device.",
+      Component: BrowserHistorySlide,
     },
     {
       slug: "tune-output",
       name: "Settings",
       headline: "Choose what gets copied.",
       Component: BrowserSettingsSlide,
-    },
-    {
-      slug: "local-no-cloud",
-      name: "Trust",
-      headline: "Nothing leaves your browser.",
-      Component: BrowserLocalSlide,
     },
   ],
 };

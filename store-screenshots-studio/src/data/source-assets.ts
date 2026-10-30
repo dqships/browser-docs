@@ -2,6 +2,7 @@ export const sourceAssets = {
   icon: "/source/icon/app-icon.png",
   popupSuccess: "/source/popup/popup-success.png",
   popupBlocked: "/source/popup/popup-blocked.png",
+  popupHistory: "/source/popup/popup-history.png",
   browserContextMenu: "/source/browser/context-menu-toast.png",
   optionsUpdated: "/source/options/options-updated.png",
 } as const;
