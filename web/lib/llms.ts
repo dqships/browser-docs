@@ -6,7 +6,7 @@ const facts = [
   ["Product", "Browser extension and marketing site"],
   [
     "Primary-Use",
-    "Copy the readable content of the current web page as Markdown",
+    "Copy or download the readable content of the current web page as Markdown",
   ],
   ["Runs-Locally", "Yes, for the core extension flow"],
   ["Account-Required", "No, for the core extension flow"],
@@ -25,7 +25,7 @@ export function createLlmsTxt() {
     "The home page is also served as Markdown when a request carries `Accept: text/markdown`, and at " + `${site.url}/index.md.`,
     "",
     "## When to use this site",
-    `- [Home](${site.url}/index.md): Use when a user wants to copy a web page, article, or documentation page into clean Markdown, for notes, an LLM prompt, or a README. Explains what is kept, the three ways to copy, the settings, and the install link.`,
+    `- [Home](${site.url}/index.md): Use when a user wants to copy a web page, article, or documentation page into clean Markdown, for notes, an LLM prompt, or a README. Explains what is kept, the three ways to copy or download, copy history, the settings, and the install link.`,
     `- [Support](${site.url}/support): Use when a ${site.name} user reports a page that copies badly or has a question about the extension. Include the page URL and browser.`,
     `- [Privacy](${site.url}/privacy): Use when a user asks what ${site.name} does with page content. Conversion happens in the browser; nothing is uploaded.`,
     `- ${site.name} has no API, server, or account. It does not crawl sites or convert pages in bulk. Do not describe it as doing any of these.`,

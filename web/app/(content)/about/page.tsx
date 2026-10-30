@@ -54,8 +54,8 @@ export default function AboutPage() {
             <h2>How It Works</h2>
             <p>
               Pages are converted inside your browser. There is no account, no
-              upload, and no {site.name} server. Settings are kept in your
-              browser&apos;s own extension storage.
+              upload, and no {site.name} server. Settings and copy history are
+              kept in your browser&apos;s own extension storage.
             </p>
           </section>
 
