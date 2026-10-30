@@ -25,7 +25,7 @@ export function BrowserContextMenuSlide({
       </div>
       <div style={{ left: 1260, position: "absolute", top: 252, width: 1464 }}>
         <BrowserWindowFrame
-          browserName="Firefox"
+          browserName="Chrome"
           imageAlt="Copy confirmation toast on a readable web page"
           imageSrc={sourceAssets.browserContextMenu}
           tone="deep"
