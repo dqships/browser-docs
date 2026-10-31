@@ -6,10 +6,10 @@
 - 2026-10-30: DQ uploaded the 1.2.0 package and screenshots, updated the privacy section, saved the new description, and submitted 1.2.0 for review. The pre-submit check of the saved draft was skipped.
 - 2026-10-30: Added `store/` (runbook, template, images), `scripts/store-assets.mjs` and `scripts/package.mjs`, following the store folder playbook. Removed `scripts/build-chrome-store-assets.mjs`, `docs/maintenance/chrome-web-store-listing.md` and `docs/store-screenshots/browser-store-1280x800/`.
 - 2026-10-30: Merged dqships/browser-docs#15 (store folder) and dqships/browser-docs#14 (website update for 1.2.0). The 1.2.0 website is live on web-markdown.com.
+- 2026-10-31: WebToMarkdown 1.2.0 is live on the Chrome Web Store. The public listing shows version 1.2.0 and the new description.
 
 ## Next
 
-- Chrome Web Store review of 1.2.0 is pending. DQ expects approval soon. When it's approved, update the status table in `store/README.md`.
 - Remove the retired `browser-store` set from `store-screenshots-studio/`, which is now only needed for the Mac App Store.
 
 ## Open decisions

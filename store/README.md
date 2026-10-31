@@ -27,7 +27,7 @@ recapturing, edit its entry in `SHOTS` in `scripts/store-assets.mjs` and add
 
 | Store | Version | State | Details |
 | --- | --- | --- | --- |
-| Chrome Web Store | 1.2.0 | Listing is live, 1.2.0 submitted for review on 2026-10-30 | [Below](#2-chrome-web-store) |
+| Chrome Web Store | 1.2.0 | Live, confirmed on the public listing on 2026-10-31 | [Below](#2-chrome-web-store) |
 | Microsoft Edge Add-ons | None | No listing yet | [Below](#3-microsoft-edge-add-ons) |
 | Firefox Add-ons | None | No listing yet | [Below](#4-firefox-add-ons) |
 | Mac App Store (Safari) | None live | Pulled from the store, on hold | [Below](#5-mac-app-store-safari) |
