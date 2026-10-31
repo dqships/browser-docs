@@ -2,7 +2,6 @@
 
 import { useRef, useState } from "react";
 import { PreviewPanel } from "@/components/preview-panel";
-import { browserStoreSlideSet } from "@/data/browser-store-slide-set";
 import { macosStoreSlideSet } from "@/data/macos-store-slide-set";
 import { captureSlide } from "@/lib/capture-slide";
 import { createSlideKey } from "@/lib/create-slide-key";
@@ -13,7 +12,7 @@ import type {
   StoreSize,
 } from "@/types/slide-definition";
 
-const slideSets = [browserStoreSlideSet, macosStoreSlideSet] as const;
+const slideSets = [macosStoreSlideSet] as const;
 
 function buttonLabel(size: StoreSize) {
   return `${size.width}x${size.height}`;
@@ -23,7 +22,7 @@ export default function StoreScreenshotsClient() {
   const slideRefs = useRef<Record<string, HTMLDivElement | null>>({});
   const [busyKey, setBusyKey] = useState<string | null>(null);
   const [status, setStatus] = useState(
-    "Ready. Export browser-store and macOS-store ZIPs from the current layouts.",
+    "Ready. Export Mac App Store ZIPs from the current layouts.",
   );
 
   async function getSource(setId: string, slug: string) {
@@ -93,16 +92,16 @@ export default function StoreScreenshotsClient() {
                 WebToMarkdown screenshot studio
               </p>
               <h1 className="mt-4 mb-3 font-heading text-5xl font-semibold tracking-tight text-white sm:text-6xl">
-                Browser-store and macOS-store screenshots,
+                Mac App Store screenshots,
                 <br />
                 rebuilt from the current extension UI.
               </h1>
               <p className="m-0 max-w-3xl text-lg leading-8 text-slate-300">
                 This isolated Next.js tool reuses the extension icon, popup states,
                 options screen, and browser test screenshots from the repository.
-                The browser set is capped at five 1280x800 images for Chrome and
-                Firefox. The macOS set exports Apple&apos;s accepted 16:10 sizes and
-                includes the native Safari wrapper screen Apple expects.
+                The macOS set exports Apple&apos;s accepted 16:10 sizes and includes
+                the native Safari wrapper screen Apple expects. Browser store images
+                are made by `scripts/store-assets.mjs`.
               </p>
             </div>
             <div className="rounded-[24px] border border-white/10 bg-white/[0.03] px-5 py-4 text-sm leading-7 text-slate-300">

@@ -1,13 +1,5 @@
 import type { StoreSize } from "@/types/slide-definition";
 
-export const browserStoreTargets = [
-  {
-    label: 'Browser store 1280x800',
-    width: 1280,
-    height: 800,
-  },
-] as const satisfies readonly StoreSize[];
-
 export const macAppStoreTargets = [
   {
     label: "Mac App Store 2880x1800",

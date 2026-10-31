@@ -8,8 +8,8 @@ current extension assets.
 - `macos-app-store`: 5 screenshots sized for the Mac App Store at accepted
   `16:10` resolutions
 
-The `browser-store` set here is retired. Browser store images now come from
-`store/template.html` and `scripts/store-assets.mjs`; see `store/README.md`.
+Browser store images come from `store/template.html` and
+`scripts/store-assets.mjs` instead; see `store/README.md`.
 
 ## Source assets
 
@@ -20,7 +20,8 @@ generator stays self-contained:
   master SVGs in `docs/brand/`).
 - `popup/`, `browser/`, and `options/` captures come from
   `node scripts/capture-extension-screenshots.mjs`, which loads the real
-  extension in Chromium against the report-1 fixture page.
+  extension in Chromium against the report-1 fixture page. The browser store
+  images use these captures too, so keep them here.
 - `fonts/` mirrors `shared/fonts/` (Archivo and IBM Plex Mono, SIL OFL 1.1).
 
 Slide styling follows `/DESIGN.md` at the repository root.
@@ -42,10 +43,9 @@ The route is local-only and returns `404` for non-local hosts.
 
 ## Export
 
-Use the buttons in the page header for each set:
+Use the buttons in the page header:
 
-- `Export 1280x800` for browser stores
-- `Export 2880x1800`, `2560x1600`, `1440x900`, `1280x800` for the Mac App Store
+- `Export 2880x1800`, `2560x1600`, `1440x900`, `1280x800` for a single size
 - `Export all Mac sizes` to download all accepted Apple sizes as separate ZIPs
 
 Each ZIP contains zero-padded filenames so store uploads stay sorted.

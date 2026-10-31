@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "WebToMarkdown Store Screenshots",
   description:
-    "Local-only screenshot studio for browser-store and macOS App Store marketing assets.",
+    "Local-only screenshot studio for Mac App Store marketing assets.",
 };
 
 export default function RootLayout({
